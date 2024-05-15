@@ -1,0 +1,133 @@
+.container {
+  .moneyBox {
+    width: 100%;
+    margin-top: 30px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: pink;
+    text-align: left;
+    margin-bottom: -20px;
+  }
+  .tasks {
+    padding: 0 40px;
+    width: 100%;
+  }
+  .task {
+    font-size: 1rem;
+    margin-top: 30px;
+    border: 2px solid #ddd;
+    padding: 20px;
+    border-radius: 15px;
+    .content {
+      flex: 1;
+      .item {
+        .label {
+          width: 75px;
+          color: pink;
+        }
+        .value {
+        }
+        .taskName {
+          margin-left: 8px;
+        }
+        .slider {
+          :global {
+            .adm-slider-track {
+              height: 12px;
+              border-radius: 15px;
+              background: linear-gradient(to right, #b6fac3, pink);
+            }
+            .adm-slider-fill {
+              height: 12px;
+              border-radius: 15px;
+              background: transparent;
+            }
+            .adm-slider-thumb-container {
+              width: 26px;
+              height: 26px;
+            }
+            .adm-slider-thumb {
+              width: 22px;
+              height: 22px;
+            }
+          }
+        }
+      }
+    }
+    .sider {
+      margin-left: 20px;
+      height: 100%;
+      svg {
+        font-size: 2rem;
+      }
+      .checkIcon {
+        color: pink;
+      }
+      .minusIcon {
+        color: #b6fac3;
+      }
+    }
+  }
+  .operation {
+    margin-top: 20px;
+    width: 100%;
+    text-align: left;
+    svg {
+      font-size: 2rem;
+      color: pink;
+    }
+  }
+  .color-level-0 {
+    color: #b6fac3;
+    border-color: #b6fac3;
+  }
+
+  .color-level-1 {
+    color: #d8f553;
+    border-color: #d8f553;
+  }
+
+  .color-level-2 {
+    color: #f8f881;
+    border-color: #f8f881;
+  }
+
+  .color-level-3 {
+    color: #fbdda0;
+    border-color: #fbdda0;
+  }
+  .color-level-4 {
+    color: #f9cda6;
+    border-color: #f9cda6;
+  }
+
+  .color-level-5 {
+    color: #ffe7eb;
+    border-color: #ffe7eb;
+  }
+
+  .color-level-6 {
+    color: #ffdfe5;
+    border-color: #ffdfe5;
+  }
+
+  .color-level-7 {
+    color: #ffd7df;
+    border-color: #ffd7df;
+  }
+
+  .color-level-8 {
+    color: #ffcfd8;
+    border-color: #ffcfd8;
+  }
+
+  .color-level-9 {
+    color: #ffc7d2;
+    border-color: #ffc7d2;
+  }
+
+  .color-level-10 {
+    color: #ffc0cb;
+    border-color: #ffc0cb;
+  }
+}
