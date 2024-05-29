@@ -8,12 +8,11 @@ import {
 
 import s from "./App.module.scss";
 import { Bottom } from "./common/view/components";
-import { TaskList } from "./modules/task-list/view/main";
 import { routerConfig } from "./router";
 
 const App = () => {
   return (
-    <Router initialEntries={["/taskList"]}>
+    <Router initialEntries={["/abstract-concrete-library"]}>
       <div className={s.app}>
         {/* <div className={s.top}>
           <NavBar>配合路由使用</NavBar>
@@ -23,7 +22,7 @@ const App = () => {
             return (
               <Switch key={item.key}>
                 <Route exact path={item.key}>
-                  <TaskList />
+                  {item.comp}
                 </Route>
               </Switch>
             );

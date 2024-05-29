@@ -1,58 +1,84 @@
-interface IProps {
-    collection: string
-}
 class LocalStorage {
     db: IDBDatabase | null;
-    store: IDBObjectStore | null;
     collection: string;
-    constructor(props: IProps) {
-        const { collection } = props
+    constructor() {
         this.db = null
-        this.store = null
         this.collection = ''
-        this.init(collection)
     }
     init(collection: string) {
-        const openRequest = indexedDB.open('life-review-notes', 1);
-        openRequest.onsuccess = (e: Event) => {
-            this.db = e.target?.result as IDBDatabase;
+        return new Promise((resolve, reject) => {
             this.collection = collection
-            const transaction = this.db.transaction([collection], 'readwrite');
-            this.store = transaction.objectStore(collection);
-        };
-        openRequest.onerror = () => {
-            console.log('数据库打开失败');
-        };
-    }
-    addData(key: string, data: unknown) {
-        return new Promise<boolean>((resolve) => {
-            if (this.store) {
-                const request = this.store.put(data, key);
-                request.onsuccess = function () {
+            const openRequest = indexedDB.open('life-review-notes', 1);
+            openRequest.onupgradeneeded = (event: IDBVersionChangeEvent) => {
+                this.db = event.target?.result as IDBDatabase
+                if (!this.db.objectStoreNames.contains(collection)) {
+                    this.db.createObjectStore(collection);
                     resolve(true)
-                };
-                request.onerror = function () {
-                    resolve(false)
-                };
+                } else {
+                    reject()
+                }
+            };
+            openRequest.onsuccess = (e: Event) => {
+                this.db = e.target?.result as IDBDatabase;
+                resolve(true)
+            };
+            openRequest.onerror = () => {
+                console.log('数据库打开失败');
+                reject()
+            };
+        })
+
+    }
+    updateData(key: string, data: unknown) {
+        return new Promise<boolean>((resolve) => {
+            if (!this.db) return
+            const transaction = this.db.transaction([this.collection], 'readwrite');
+            const store = transaction.objectStore(this.collection);
+            if (store) {
+                const getRequest = store.get(key);
+                getRequest.onsuccess = (e) => {
+                    const record = e.target?.result;
+                    if (record !== undefined) {
+                        const putRequest = store.put(data, key);
+                        putRequest.onsuccess = () => {
+                            resolve(true)
+                        };
+                        putRequest.onerror = () => {
+                            resolve(false)
+                        };
+                    } else {
+                        const request = store.add(data, key);
+                        request.onsuccess = () => {
+                            resolve(true)
+                        };
+                        request.onerror = () => {
+                            resolve(false)
+                        };
+                    }
+                }
+
             } else {
                 resolve(false)
             }
         })
     }
     getData(key: string) {
-        return new Promise<boolean>((resolve, reject) => {
-            if (this.store) {
-                const request = this.store.get(key);
+        return new Promise<unknown>((resolve, reject) => {
+            if (!this.db) return
+            const transaction = this.db.transaction([this.collection], 'readwrite');
+            const store = transaction.objectStore(this.collection);
+            if (store) {
+                const request = store.get(key);
                 request.onsuccess = function (e) {
                     const data = (e.target as IDBRequest).result;
                     resolve(data)
                 };
-                request.onerror = function () {
-                    reject(null)
-                    console.log('数据添加失败');
+                request.onerror = function (e) {
+                    console.log('数据添加失败', e);
+                    reject(undefined)
                 };
             } else {
-                reject(null)
+                reject(undefined)
             }
         })
     }

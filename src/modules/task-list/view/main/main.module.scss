@@ -1,12 +1,27 @@
+.fluidBox {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+}
 .container {
+  width: 80%;
+  z-index: 1;
   .moneyBox {
     width: 100%;
     margin-top: 30px;
     font-size: 1.5rem;
     font-weight: bold;
-    color: pink;
+    color: #ffe3e8;
     text-align: left;
-    margin-bottom: -20px;
+    margin-left: 40px;
+    .input {
+      font-weight: bold;
+      --font-size: 1.5rem;
+      --color: #ffe3e8;
+      input {
+        font-weight: bold;
+      }
+    }
   }
   .tasks {
     padding: 0 40px;
@@ -18,6 +33,9 @@
     border: 2px solid #ddd;
     padding: 20px;
     border-radius: 15px;
+    &:first-child {
+      margin-top: 10px;
+    }
     .content {
       flex: 1;
       .item {
@@ -61,20 +79,18 @@
         font-size: 2rem;
       }
       .checkIcon {
-        color: pink;
       }
       .minusIcon {
-        color: #b6fac3;
       }
     }
   }
   .operation {
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-left: 10px;
     width: 100%;
     text-align: left;
     svg {
       font-size: 2rem;
-      color: pink;
     }
   }
   .color-level-0 {
@@ -129,5 +145,11 @@
   .color-level-10 {
     color: #ffc0cb;
     border-color: #ffc0cb;
+  }
+  .lowerPink {
+    color: #ffe3e8;
+  }
+  .lowerMintGreen {
+    color: #d5f9db;
   }
 }
