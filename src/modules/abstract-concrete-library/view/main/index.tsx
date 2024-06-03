@@ -1,21 +1,15 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import * as d3 from "d3";
 import { Swatches } from "@d3/color-legend";
+import { nanoid } from "nanoid";
 
+interface IData {
+  source: string;
+  target: string;
+  type: string;
+}
 const ForceGraph = () => {
   const svgRef = useRef(null);
-  const suits = [
-    {
-      source: "Microsoft",
-      target: "Amazon",
-      type: "Microsoft",
-    },
-    {
-      source: "Apple",
-      target: "HTC",
-      type: "Apple",
-    },
-  ];
 
   const linkArc = (d) => {
     const r = Math.hypot(d.target.x - d.source.x, d.target.y - d.source.y);
@@ -49,17 +43,32 @@ const ForceGraph = () => {
       .on("drag", dragged)
       .on("end", dragended);
   };
+  const [data, setData] = useState<IData[]>([
+    {
+      source: "Microsoft",
+      target: "Amazon",
+      type: "Microsoft",
+    },
+    {
+      source: "Apple",
+      target: "HTC",
+      type: "Apple",
+    },
+  ]);
   useEffect(() => {
     const width = 928;
     const height = 600;
-    const types = Array.from(new Set(suits.map((d) => d.source)));
-    const nodes = Array.from(
-      new Set(suits.flatMap((l) => [l.source, l.target])),
-      (id) => ({ id })
-    );
-    const links = suits.map((d) => Object.create(d));
-
+    const mergedData = data;
+    const types = Array.from(new Set(mergedData.map((d) => d.source)));
     const color = d3.scaleOrdinal(types, d3.schemeCategory10);
+    const links = mergedData.map((d) => Object.create(d));
+    const nodes = Array.from(
+      new Set(mergedData.flatMap((l) => [l.source, l.target])),
+      (id) => {
+        return { id, color: color(id) };
+      }
+    );
+
     console.log(222, nodes, links, color);
 
     const simulation = d3
@@ -102,7 +111,6 @@ const ForceGraph = () => {
       .data(links)
       .join("path")
       .attr("stroke", (d) => {
-        console.log("000", d);
         return color(d.type);
       })
       .attr(
@@ -124,8 +132,10 @@ const ForceGraph = () => {
       .append("circle")
       .attr("stroke", "white")
       .attr("stroke-width", 1.5)
-      .attr("r", 6);
-
+      .attr("r", 6)
+      .attr("fill", (d) => {
+        return d.color;
+      });
     node
       .append("text")
       .attr("x", 8)
@@ -137,9 +147,54 @@ const ForceGraph = () => {
       .attr("stroke", "white")
       .attr("stroke-width", 3);
 
+    const addNodeIcon = node.append("g");
+    addNodeIcon.attr("transform", "translate(-5,7) scale(0.01)");
+    addNodeIcon
+      .append("path")
+      .attr(
+        "d",
+        "M914.288 420.576l0 109.728q0 22.848-16 38.848t-38.848 16l-237.728 0 0 237.728q0 22.848-16 38.848t-38.848 16l-109.728 0q-22.848 0-38.848-16t-16-38.848l0-237.728-237.728 0q-22.848 0-38.848-16t-16-38.848l0-109.728q0-22.848 16-38.848t38.848-16l237.728 0 0-237.728q0-22.848 16-38.848t38.848-16l109.728 0q22.848 0 38.848 16t16 38.848l0 237.728 237.728 0q22.848 0 38.848 16t16 38.848z"
+      )
+      .attr("color", (d) => {
+        return d.color;
+      })
+      .on("click", (e) => {
+        const targetData = e.target.__data__;
+        const addOne = {
+          source: targetData.id,
+          target: nanoid(),
+          type: targetData.id,
+        };
+        setData([...data, addOne]);
+      });
+
+    const delNodeIcon = node.append("g");
+    delNodeIcon.attr("transform", "translate(5,7) scale(0.01)");
+    delNodeIcon
+      .append("path")
+      .attr(
+        "d",
+        "M914.288 420.576l0 109.728q0 22.848-16 38.848t-38.848 16l-237.728 0 0 237.728q0 22.848-16 38.848t-38.848 16l-109.728 0q-22.848 0-38.848-16t-16-38.848l0-237.728-237.728 0q-22.848 0-38.848-16t-16-38.848l0-109.728q0-22.848 16-38.848t38.848-16l237.728 0 0-237.728q0-22.848 16-38.848t38.848-16l109.728 0q22.848 0 38.848 16t16 38.848l0 237.728 237.728 0q22.848 0 38.848 16t16 38.848z"
+      )
+      .attr("color", (d) => {
+        return d.color;
+      })
+      .on("click", (e) => {
+        const targetData = e.target.__data__;
+        const targetIndex = data.findIndex(
+          (node) => node.source === targetData.id
+        );
+        console.log(111, targetIndex, targetData.id, data);
+
+        targetIndex > -1 && data.splice(targetIndex, 1);
+        setData([...data]);
+      });
+
     simulation.on("tick", () => {
       link.attr("d", linkArc);
-      node.attr("transform", (d) => `translate(${d.x},${d.y})`);
+      node.attr("transform", (d) => {
+        return `translate(${d.x},${d.y})`;
+      });
     });
 
     // invalidation.then(() => simulation.stop());
@@ -147,7 +202,7 @@ const ForceGraph = () => {
     return () => {
       // svg.remove();
     };
-  }, []);
+  }, [data]);
 
   return <svg ref={svgRef} style={{ width: "100%", height: "100%" }}></svg>;
 };
