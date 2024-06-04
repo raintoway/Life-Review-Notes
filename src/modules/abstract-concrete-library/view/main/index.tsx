@@ -4,8 +4,8 @@ import { Swatches } from "@d3/color-legend";
 import { nanoid } from "nanoid";
 
 interface IData {
-  source: string;
-  target: string;
+  id: string;
+  children: string[];
   type: string;
 }
 const ForceGraph = () => {
@@ -45,31 +45,45 @@ const ForceGraph = () => {
   };
   const [data, setData] = useState<IData[]>([
     {
-      source: "Microsoft",
-      target: "Amazon",
+      id: "Microsoft",
+      children: ["Amazon", "HTC"],
       type: "Microsoft",
     },
     {
-      source: "Apple",
-      target: "HTC",
-      type: "Apple",
+      id: "Amazon",
+      children: ["HTC"],
+      type: "Amazon",
+    },
+    {
+      id: "HTC",
+      children: [],
+      type: "HTC",
     },
   ]);
   useEffect(() => {
     const width = 928;
     const height = 600;
     const mergedData = data;
-    const types = Array.from(new Set(mergedData.map((d) => d.source)));
+    const types = Array.from(new Set(mergedData.map((d) => d.id)));
     const color = d3.scaleOrdinal(types, d3.schemeCategory10);
-    const links = mergedData.map((d) => Object.create(d));
+    const links = [];
+    mergedData.forEach((d) => {
+      const cloneD = Object.create(d);
+      const { children } = cloneD;
+      children.forEach((child) => {
+        const rsl = {};
+        rsl.source = cloneD.id;
+        rsl.target = child;
+        links.push(rsl);
+      });
+    });
     const nodes = Array.from(
-      new Set(mergedData.flatMap((l) => [l.source, l.target])),
+      new Set(mergedData.flatMap((l) => [l.id])),
       (id) => {
         return { id, color: color(id) };
       }
     );
-
-    console.log(222, nodes, links, color);
+    console.log(222, nodes, links);
 
     const simulation = d3
       .forceSimulation(nodes)
