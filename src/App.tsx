@@ -12,7 +12,7 @@ import { routerConfig } from "./router";
 
 const App = () => {
   return (
-    <Router initialEntries={["/abstract-concrete-library"]}>
+    <Router initialEntries={["/experience"]}>
       <div className={s.app}>
         {/* <div className={s.top}>
           <NavBar>配合路由使用</NavBar>
