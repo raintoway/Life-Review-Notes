@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect, useState, Children } from "react";
 import * as d3 from "d3";
 import { Swatches } from "@d3/color-legend";
 import { nanoid } from "nanoid";
@@ -10,6 +10,8 @@ interface IData {
 }
 const ForceGraph = () => {
   const svgRef = useRef(null);
+  const currentElementRef = useRef();
+  const operationBoxRef = useRef();
 
   const linkArc = (d) => {
     const r = Math.hypot(d.target.x - d.source.x, d.target.y - d.source.y);
@@ -46,7 +48,7 @@ const ForceGraph = () => {
   const [data, setData] = useState<IData[]>([
     {
       id: "Microsoft",
-      children: ["Amazon", "HTC"],
+      children: ["Amazon"],
       type: "Microsoft",
     },
     {
@@ -60,6 +62,20 @@ const ForceGraph = () => {
       type: "HTC",
     },
   ]);
+
+  const focusElement = () => {
+    if (currentElementRef.current && operationBoxRef.current) {
+      debugger;
+      const data = currentElementRef.current.__data__;
+      const { color } = data.source;
+      operationBoxRef.current
+        .attr("transform", "translate(-5,7) scale(0.1)")
+        .attr("stroke", (d) => {
+          return color;
+        });
+    }
+  };
+
   useEffect(() => {
     const width = 928;
     const height = 600;
@@ -74,6 +90,7 @@ const ForceGraph = () => {
         const rsl = {};
         rsl.source = cloneD.id;
         rsl.target = child;
+        rsl.type = cloneD.id;
         links.push(rsl);
       });
     });
@@ -117,6 +134,28 @@ const ForceGraph = () => {
       .attr("fill", color)
       .attr("d", "M0,-5L10,0L0,5");
 
+    const addNodeIcon = svg.append("g");
+    operationBoxRef.current = addNodeIcon;
+    addNodeIcon.attr("transform", "translate(-5,7) scale(0.01)");
+    addNodeIcon
+      .append("path")
+      .attr(
+        "d",
+        "M914.288 420.576l0 109.728q0 22.848-16 38.848t-38.848 16l-237.728 0 0 237.728q0 22.848-16 38.848t-38.848 16l-109.728 0q-22.848 0-38.848-16t-16-38.848l0-237.728-237.728 0q-22.848 0-38.848-16t-16-38.848l0-109.728q0-22.848 16-38.848t38.848-16l237.728 0 0-237.728q0-22.848 16-38.848t38.848-16l109.728 0q22.848 0 38.848 16t16 38.848l0 237.728 237.728 0q22.848 0 38.848 16t16 38.848z"
+      )
+      .on("click", (e) => {
+        // const targetData = e.target.__data__;
+        // const newId = nanoid();
+        // const addOne = {
+        //   id: newId,
+        //   children: [],
+        //   type: newId,
+        // };
+        // const source = data.find((node) => node.id === targetData.id);
+        // source?.children.push(newId);
+        // setData([...data, addOne]);
+      });
+
     const link = svg
       .append("g")
       .attr("fill", "none")
@@ -130,7 +169,12 @@ const ForceGraph = () => {
       .attr(
         "marker-end",
         (d) => `url(${new URL(`#arrow-${d.type}`, location)})`
-      );
+      )
+      .on("click", (e) => {
+        console.log(333, e);
+        currentElementRef.current = e.currentTarget;
+        focusElement();
+      });
 
     const node = svg
       .append("g")
@@ -161,48 +205,49 @@ const ForceGraph = () => {
       .attr("stroke", "white")
       .attr("stroke-width", 3);
 
-    const addNodeIcon = node.append("g");
-    addNodeIcon.attr("transform", "translate(-5,7) scale(0.01)");
-    addNodeIcon
-      .append("path")
-      .attr(
-        "d",
-        "M914.288 420.576l0 109.728q0 22.848-16 38.848t-38.848 16l-237.728 0 0 237.728q0 22.848-16 38.848t-38.848 16l-109.728 0q-22.848 0-38.848-16t-16-38.848l0-237.728-237.728 0q-22.848 0-38.848-16t-16-38.848l0-109.728q0-22.848 16-38.848t38.848-16l237.728 0 0-237.728q0-22.848 16-38.848t38.848-16l109.728 0q22.848 0 38.848 16t16 38.848l0 237.728 237.728 0q22.848 0 38.848 16t16 38.848z"
-      )
-      .attr("color", (d) => {
-        return d.color;
-      })
-      .on("click", (e) => {
-        const targetData = e.target.__data__;
-        const addOne = {
-          source: targetData.id,
-          target: nanoid(),
-          type: targetData.id,
-        };
-        setData([...data, addOne]);
-      });
+    // const addNodeIcon = node.append("g");
+    // addNodeIcon.attr("transform", "translate(-5,7) scale(0.01)");
+    // addNodeIcon
+    //   .append("path")
+    //   .attr(
+    //     "d",
+    //     "M914.288 420.576l0 109.728q0 22.848-16 38.848t-38.848 16l-237.728 0 0 237.728q0 22.848-16 38.848t-38.848 16l-109.728 0q-22.848 0-38.848-16t-16-38.848l0-237.728-237.728 0q-22.848 0-38.848-16t-16-38.848l0-109.728q0-22.848 16-38.848t38.848-16l237.728 0 0-237.728q0-22.848 16-38.848t38.848-16l109.728 0q22.848 0 38.848 16t16 38.848l0 237.728 237.728 0q22.848 0 38.848 16t16 38.848z"
+    //   )
+    //   .attr("color", (d) => {
+    //     return d.color;
+    //   })
+    //   .on("click", (e) => {
+    //     const targetData = e.target.__data__;
+    //     const newId = nanoid();
+    //     const addOne = {
+    //       id: newId,
+    //       children: [],
+    //       type: newId,
+    //     };
+    //     const source = data.find((node) => node.id === targetData.id);
+    //     source?.children.push(newId);
+    //     setData([...data, addOne]);
+    //   });
 
-    const delNodeIcon = node.append("g");
-    delNodeIcon.attr("transform", "translate(5,7) scale(0.01)");
-    delNodeIcon
-      .append("path")
-      .attr(
-        "d",
-        "M914.288 420.576l0 109.728q0 22.848-16 38.848t-38.848 16l-237.728 0 0 237.728q0 22.848-16 38.848t-38.848 16l-109.728 0q-22.848 0-38.848-16t-16-38.848l0-237.728-237.728 0q-22.848 0-38.848-16t-16-38.848l0-109.728q0-22.848 16-38.848t38.848-16l237.728 0 0-237.728q0-22.848 16-38.848t38.848-16l109.728 0q22.848 0 38.848 16t16 38.848l0 237.728 237.728 0q22.848 0 38.848 16t16 38.848z"
-      )
-      .attr("color", (d) => {
-        return d.color;
-      })
-      .on("click", (e) => {
-        const targetData = e.target.__data__;
-        const targetIndex = data.findIndex(
-          (node) => node.source === targetData.id
-        );
-        console.log(111, targetIndex, targetData.id, data);
+    // const delNodeIcon = node.append("g");
+    // delNodeIcon.attr("transform", "translate(5,7) scale(0.01)");
+    // delNodeIcon
+    //   .append("path")
+    //   .attr(
+    //     "d",
+    //     "M914.288 420.576l0 109.728q0 22.848-16 38.848t-38.848 16l-237.728 0 0 237.728q0 22.848-16 38.848t-38.848 16l-109.728 0q-22.848 0-38.848-16t-16-38.848l0-237.728-237.728 0q-22.848 0-38.848-16t-16-38.848l0-109.728q0-22.848 16-38.848t38.848-16l237.728 0 0-237.728q0-22.848 16-38.848t38.848-16l109.728 0q22.848 0 38.848 16t16 38.848l0 237.728 237.728 0q22.848 0 38.848 16t16 38.848z"
+    //   )
+    //   .attr("color", (d) => {
+    //     return d.color;
+    //   })
+    //   .on("click", (e) => {
+    //     const targetData = e.target.__data__;
+    //     const targetIndex = data.findIndex((node) => node.id === targetData.id);
+    //     console.log(111, targetIndex, targetData.id, data);
 
-        targetIndex > -1 && data.splice(targetIndex, 1);
-        setData([...data]);
-      });
+    //     targetIndex > -1 && data.splice(targetIndex, 1);
+    //     setData([...data]);
+    //   });
 
     simulation.on("tick", () => {
       link.attr("d", linkArc);
