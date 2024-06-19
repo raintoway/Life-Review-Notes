@@ -1,33 +1,51 @@
-import React, { useRef, useEffect, useState, Children, useMemo } from "react";
+import React, {
+  useRef,
+  useEffect,
+  useState,
+  useContext,
+  RefObject,
+  MutableRefObject,
+} from "react";
 import * as d3 from "d3";
 import { nanoid } from "nanoid";
 import { Dialog, Input } from "antd-mobile";
 import randomColor from "randomcolor";
 import "../quill/index.css";
 import "../quill/index";
+import LocalStorage from "../../../../common/storage/localstorage";
 
-interface IData {
+interface IProps {
+  data: IData[];
+  transform: ITransform;
+  localStorage: LocalStorage;
+}
+export interface IData {
   id: string;
   label: string;
   children: string[];
   type: string;
   color?: string;
 }
-const ForceGraph = () => {
+export interface ITransform {
+  scale: number;
+  translateX: number;
+  translateY: number;
+}
+export const defaultTransform = {
+  translateX: 0,
+  translateY: 0,
+  scale: 2,
+};
+const AbstractConcreteLibrary = (props: IProps) => {
+  const { localStorage } = props;
   const currentElementRef = useRef<SVGElement>();
   const operationBoxRef = useRef();
-  const containerRef = useRef<React.LegacyRef<HTMLDivElement> | null>();
+  const containerRef =
+    useRef<MutableRefObject<RefObject<HTMLDivElement> | null>>(null);
   const [editVisible, setEditVisible] = useState(false);
   const [currentNode, setCurrentNode] = useState<IData | null>(null);
-  const transformRef = useRef<{
-    scale: number;
-    translateX: number;
-    translateY: number;
-  }>({
-    translateX: 0,
-    translateY: 0,
-    scale: 2,
-  });
+  const [data, setData] = useState<IData[]>(props.data);
+  const transformRef = useRef<ITransform>(props.transform);
 
   const linkArc = (d) => {
     const r = Math.hypot(d.target.x - d.source.x, d.target.y - d.source.y);
@@ -61,16 +79,6 @@ const ForceGraph = () => {
       .on("drag", dragged)
       .on("end", dragended);
   };
-
-  const [data, setData] = useState<IData[]>([
-    {
-      id: "Microsoft",
-      label: "Microsoft",
-      color: randomColor(),
-      children: [],
-      type: "Microsoft",
-    },
-  ]);
 
   const focusElement = () => {
     if (currentElementRef.current && operationBoxRef.current) {
@@ -125,7 +133,6 @@ const ForceGraph = () => {
 
         // 使用getPointAtLength()方法找到中点的坐标
         var midPoint = pathElement.getPointAtLength(midLength);
-        console.log(midPoint.x, midPoint.y);
         operationBoxRef.current
           .attr(
             "transform",
@@ -145,18 +152,22 @@ const ForceGraph = () => {
     }
   };
 
+  const syncTransformToLocalStorage = () => {
+    if (localStorage) {
+      localStorage.updateData(
+        "abstract-concrete-library",
+        "transform",
+        transformRef.current
+      );
+    }
+  };
+
   useEffect(() => {
-    if (containerRef.current) {
+    if (containerRef.current && localStorage) {
       const rect = containerRef.current.getBoundingClientRect();
       const width = rect.width;
       const height = rect.height;
       const links = [];
-      const k = height / width;
-      const x = d3.scaleLinear().domain([-4.5, 4.5]).range([0, width]);
-      const y = d3
-        .scaleLinear()
-        .domain([-4.5 * k, 4.5 * k])
-        .range([height, 0]);
       data.forEach((d) => {
         const cloneD = Object.create(d);
         const { children } = cloneD;
@@ -207,23 +218,19 @@ const ForceGraph = () => {
 
       const g = svg.append("g");
       const svgDrag = () => {
-        function dragstarted(event, d) {
-          console.log("start", g);
-        }
+        function dragstarted(event, d) {}
 
         function dragged(event, d) {
-          console.log("dragging", event);
           transformRef.current.translateX += event.dx;
           transformRef.current.translateY += event.dy;
+          syncTransformToLocalStorage();
           g.attr(
             "transform",
             `translate(${transformRef.current.translateX},${transformRef.current.translateY}) scale(${transformRef.current.scale})`
           );
         }
 
-        function dragended(event, d) {
-          console.log("dragend");
-        }
+        function dragended(event, d) {}
 
         return d3
           .drag()
@@ -237,6 +244,7 @@ const ForceGraph = () => {
         const { transform } = args;
         const { k } = transform;
         transformRef.current.scale = k;
+        syncTransformToLocalStorage();
         g.attr(
           "transform",
           `translate(${transformRef.current.translateX},${transformRef.current.translateY}) scale(${transformRef.current.scale})`
@@ -265,7 +273,7 @@ const ForceGraph = () => {
         .attr("fill", (d) => {
           return d.color;
         })
-        .attr("d","M0,-5L10,0L0,5")
+        .attr("d", "M0,-5L10,0L0,5")
         .on("pine");
 
       const operationBox = g.append("g");
@@ -408,12 +416,14 @@ const ForceGraph = () => {
       });
 
       // invalidation.then(() => simulation.stop());
-
+      if (localStorage) {
+        localStorage.updateData("abstract-concrete-library", "data", data);
+      }
       return () => {
         svg.remove();
       };
     }
-  }, [data]);
+  }, [data, localStorage]);
 
   return (
     <>
@@ -435,7 +445,6 @@ const ForceGraph = () => {
                   onChange={(val) => {
                     currentNode.label = val;
                     setCurrentNode({ ...currentNode });
-                    console.log(222, currentNode);
                   }}
                 />
               </div>
@@ -475,4 +484,4 @@ const ForceGraph = () => {
     </>
   );
 };
-export default ForceGraph;
+export default AbstractConcreteLibrary;

@@ -1,41 +1,47 @@
-import React, { forwardRef, useEffect, useLayoutEffect, useRef } from 'react';
+import Quill from "quill";
+import React, { forwardRef, useEffect, useLayoutEffect, useRef } from "react";
+import { useDrag, useDrop } from "react-dnd";
 
+export const toolbarConfig = ["bold", "italic", "underline", "strike"];
 // Editor is an uncontrolled React component
-const Editor = forwardRef(
-  ({ readOnly, defaultValue, onTextChange, onSelectionChange }, ref) => {
-    const containerRef = useRef(null);
-    const defaultValueRef = useRef(defaultValue);
-    const onTextChangeRef = useRef(onTextChange);
-    const onSelectionChangeRef = useRef(onSelectionChange);
+const Editor = ({
+  id,
+  readOnly,
+  defaultValue,
+  onTextChange,
+  onSelectionChange,
+}) => {
+  const containerRef = useRef(null);
+  const defaultValueRef = useRef(defaultValue);
+  const onTextChangeRef = useRef(onTextChange);
+  const onSelectionChangeRef = useRef(onSelectionChange);
+  const quillRef = useRef<Quill>();
 
-    useLayoutEffect(() => {
-      onTextChangeRef.current = onTextChange;
-      onSelectionChangeRef.current = onSelectionChange;
-    });
+  useLayoutEffect(() => {
+    onTextChangeRef.current = onTextChange;
+    onSelectionChangeRef.current = onSelectionChange;
+  });
+  useEffect(() => {
+    quillRef.current?.enable(!readOnly);
+  }, [readOnly]);
 
-    useEffect(() => {
-      ref.current?.enable(!readOnly);
-    }, [ref, readOnly]);
-
-    useEffect(() => {
-      const container = containerRef.current;
+  useEffect(() => {
+    const container = containerRef.current;
+    if (container) {
       const editorContainer = container.appendChild(
-        container.ownerDocument.createElement('div'),
+        container.ownerDocument.createElement("div")
       );
       const quill = new Quill(editorContainer, {
-        theme: 'snow',
+        theme: "snow",
         modules: {
-          toolbar: [
-            'bold', 'italic', 'underline','strike'
-          ]
-        }
+          toolbar: false,
+        },
       });
-
-      ref.current = quill;
 
       if (defaultValueRef.current) {
         quill.setContents(defaultValueRef.current);
       }
+      quill.enable(!readOnly);
 
       quill.on(Quill.events.TEXT_CHANGE, (...args) => {
         onTextChangeRef.current?.(...args);
@@ -44,17 +50,17 @@ const Editor = forwardRef(
       quill.on(Quill.events.SELECTION_CHANGE, (...args) => {
         onSelectionChangeRef.current?.(...args);
       });
+      quillRef.current = quill;
 
       return () => {
-        ref.current = null;
-        container.innerHTML = '';
+        container.innerHTML = "";
       };
-    }, [ref]);
+    }
+  }, []);
 
-    return <div ref={containerRef}></div>;
-  },
-);
+  return <div ref={containerRef}></div>;
+};
 
-Editor.displayName = 'Editor';
+Editor.displayName = "Editor";
 
 export default Editor;
