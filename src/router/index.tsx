@@ -1,7 +1,7 @@
 import { AppstoreOutline } from "antd-mobile-icons";
 import WrapTaskList from "../modules/task-list/view/main/wrapper";
 import WrapAbstractConcreteLibrary from "../modules/abstract-concrete-library/view/main/wrapper";
-import Experience from "../modules/experience/view/main/index.tsx";
+import Experience from "../modules/experience/view/main/wrapper.tsx";
 
 export const routerConfig = [
   {
