@@ -1,0 +1,44 @@
+.wrapper {
+  padding-top: 20px;
+}
+.editorWrapper {
+  padding-bottom: 20px;
+  .editorContainer {
+    width: 100%;
+    height: fit-content;
+    padding: 20px 20px;
+    // border: 1px solid #ddd;
+    border-radius: 7px;
+    animation-name: shadow-animation; /* 引用动画名称 */
+    animation-duration: 2s; /* 动画持续时间 */
+    animation-timing-function: ease-in-out; /* 动画速度曲线 */
+    animation-iteration-count: infinite; /* 动画迭代次数 */
+    animation-direction: alternate; /* 动画交替进行 */
+    :global {
+      .ql-container {
+        border: none;
+        .ql-editor {
+          padding: 0;
+        }
+      }
+    }
+  }
+}
+
+.draggableAgent {
+  width: 100%;
+  height: 100%;
+  background-color: pink;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+@keyframes shadow-animation {
+//   from {
+//     box-shadow: 0px 0px 5px 10px rgba(250, 249, 249, 0.1);
+//   }
+//   to {
+//     box-shadow: 0px 0px 10px 10px rgba(228, 227, 227, 0.3);
+//   }
+}

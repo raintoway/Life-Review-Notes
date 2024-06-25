@@ -20,6 +20,7 @@ export interface Task {
   emergencyScore: number;
 }
 import FlipMove from "react-flip-move";
+import Editor from "../../../../common/view/components/editor";
 
 export const TaskList = (props: IProps) => {
   const { localStorage } = props;
@@ -63,11 +64,6 @@ export const TaskList = (props: IProps) => {
       localStorage.updateData("task-list", "money", money);
     }
   }, [money, localStorage]);
-
-  // useEffect(() => {
-  //   setTasks(props.tasks ?? []);
-  //   setMoney(props.money ?? 0);
-  // }, [props]);
 
   return (
     <>
@@ -116,11 +112,23 @@ export const TaskList = (props: IProps) => {
                         className={[s.item, "flex-row-start-start"].join(" ")}
                       >
                         <div className={s.label}>任务描述</div>
-                        <TextArea
+                        {/* <TextArea
                           className={[s.taskName, s.value, "flex1"].join(" ")}
                           placeholder="请输入内容"
                           autoSize={{ maxRows: 100 }}
-                        />
+                        /> */}
+                        <div
+                          className={[s.taskName, s.value, "flex1"].join(" ")}
+                        >
+                          <Editor
+                            key={"taskEditor" + task.id}
+                            value={task.content}
+                            setValue={(content: string) => {
+                              task.content = content;
+                              setTasks([...tasks]);
+                            }}
+                          />
+                        </div>
                       </div>
                       <div
                         className={[s.item, "flex-row-start-center"].join(" ")}
@@ -141,6 +149,16 @@ export const TaskList = (props: IProps) => {
                         >
                           {task.importanceScore}
                         </div>
+                        <Button
+                          className={s.minusIcon}
+                          color="primary"
+                          fill="none"
+                          onClick={() => delTask(task.id)}
+                        >
+                          <MinusCircleOutline
+                            className={[s.lowerPink].join(" ")}
+                          />
+                        </Button>
                       </div>
                       <div
                         className={[s.item, "flex-row-start-center"].join(" ")}
@@ -161,9 +179,19 @@ export const TaskList = (props: IProps) => {
                         >
                           {task.emergencyScore}
                         </div>
+                        <Button
+                          className={s.checkIcon}
+                          color="primary"
+                          fill="none"
+                          onClick={() => completeTask(task.id)}
+                        >
+                          <CheckCircleOutline
+                            className={[s.lowerMintGreen].join(" ")}
+                          />
+                        </Button>
                       </div>
                     </div>
-                    <div
+                    {/* <div
                       className={[s.sider, "flex-col-around-center"].join(" ")}
                     >
                       <Button
@@ -184,7 +212,7 @@ export const TaskList = (props: IProps) => {
                           className={[s.checkIcon, s.lowerMintGreen].join(" ")}
                         />
                       </Button>
-                    </div>
+                    </div> */}
                   </div>
                 );
               })}

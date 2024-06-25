@@ -10,9 +10,8 @@ import * as d3 from "d3";
 import { nanoid } from "nanoid";
 import { Dialog, Input } from "antd-mobile";
 import randomColor from "randomcolor";
-import "../quill/index.css";
-import "../quill/index";
 import LocalStorage from "../../../../common/storage/localstorage";
+import s from "./index.module.scss";
 
 interface IProps {
   data: IData[];
@@ -54,6 +53,23 @@ const AbstractConcreteLibrary = (props: IProps) => {
       A${r},${r} 0 0,1 ${d.target.x},${d.target.y}
     `;
   };
+
+  const initNode = () => {
+    setData([
+      {
+        id: nanoid(),
+        label: "抽象",
+        children: [],
+        type: "node",
+        color: "pink",
+      },
+    ]);
+  };
+  useEffect(() => {
+    if (Array.isArray(props.data) && props.data.length === 0) {
+      initNode();
+    }
+  }, [props.data]);
 
   const drag = (simulation) => {
     function dragstarted(event, d) {
@@ -163,7 +179,7 @@ const AbstractConcreteLibrary = (props: IProps) => {
   };
 
   useEffect(() => {
-    if (containerRef.current && localStorage) {
+    if (containerRef.current) {
       const rect = containerRef.current.getBoundingClientRect();
       const width = rect.width;
       const height = rect.height;
@@ -273,8 +289,8 @@ const AbstractConcreteLibrary = (props: IProps) => {
         .attr("fill", (d) => {
           return d.color;
         })
-        .attr("d", "M0,-5L10,0L0,5")
-        .on("pine");
+        .attr("d", "M0,-5L10,0L0,5");
+      // .on("pine");
 
       const operationBox = g.append("g");
       operationBoxRef.current = operationBox;
@@ -437,8 +453,8 @@ const AbstractConcreteLibrary = (props: IProps) => {
         content={
           <>
             {currentNode ? (
-              <div className={"flex-row-start-center"}>
-                <div style={{ width: "60px", color: "#aaa" }}>名称：</div>
+              <div className={[s.item].join(" ")}>
+                <div style={{ width: "80px", color: "#ffe3e8" }}>名称：</div>
                 <Input
                   placeholder="请输入内容"
                   value={currentNode.label}
