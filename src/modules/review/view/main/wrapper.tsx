@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import s from "./wrapper.module.scss";
+import Review from ".";
 
 type Props = {};
 
@@ -48,6 +49,10 @@ const WrapReview = () => {
     console.log("click", e, editor);
   };
 
-  return <div className={s.wrapper}>复盘记录</div>;
+  return (
+    <div className={s.wrapper}>
+      <Review></Review>
+    </div>
+  );
 };
 export default WrapReview;

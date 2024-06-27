@@ -28,7 +28,7 @@ const App = () => {
   }, []);
 
   return (
-    <Router initialEntries={["/abstract-concrete-library"]}>
+    <Router initialEntries={["/review"]}>
       <MyContext.Provider value={{ localStorage: localStorage }}>
         <div className={s.app}>
           {/* <div className={s.top}>
