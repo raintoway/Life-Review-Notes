@@ -20,7 +20,7 @@ const App = () => {
   const [localStorage, setLocalStorage] = useState<LocalStorage | null>(null);
   const initData = async () => {
     const _localStorage = new LocalStorage();
-    await _localStorage.init()
+    await _localStorage.init();
     setLocalStorage(_localStorage);
   };
   useEffect(() => {
@@ -28,12 +28,9 @@ const App = () => {
   }, []);
 
   return (
-    <Router initialEntries={["/review"]}>
+    <Router initialEntries={["/task-list"]}>
       <MyContext.Provider value={{ localStorage: localStorage }}>
         <div className={s.app}>
-          {/* <div className={s.top}>
-          <NavBar>配合路由使用</NavBar>
-        </div> */}
           <div className={s.body}>
             {routerConfig.map((item) => {
               return (

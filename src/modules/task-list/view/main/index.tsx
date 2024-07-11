@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import s from "./index.module.scss";
 import { nanoid } from "nanoid";
 import {
@@ -52,6 +52,23 @@ export const TaskList = (props: IProps) => {
       delTask(taskId);
     }
   };
+  const initTask = () => {
+    setTasks([
+      {
+        content:
+          "<h3>使用示例</h3><ol><li><p>在这里可以记录你的任务列表，通过给任务设置 <strong>重要程度</strong> 和 <strong>紧急程度</strong>，自动给任务排序。</li><li>通过完成任务，累计金钱，满足 <strong>成就感</strong> 的同时建立 <strong>奖励机制</strong></li></ol> </p>",
+        id: nanoid(),
+        importanceScore: 0,
+        emergencyScore: 0,
+      },
+    ]);
+  };
+
+  useEffect(() => {
+    if (props.tasks.length === 0) {
+      initTask();
+    }
+  }, [props.tasks]);
 
   useEffect(() => {
     if (localStorage) {
@@ -112,11 +129,6 @@ export const TaskList = (props: IProps) => {
                         className={[s.item, "flex-row-start-start"].join(" ")}
                       >
                         <div className={s.label}>任务描述</div>
-                        {/* <TextArea
-                          className={[s.taskName, s.value, "flex1"].join(" ")}
-                          placeholder="请输入内容"
-                          autoSize={{ maxRows: 100 }}
-                        /> */}
                         <div
                           className={[s.taskName, s.value, "flex1"].join(" ")}
                         >
@@ -191,28 +203,6 @@ export const TaskList = (props: IProps) => {
                         </Button>
                       </div>
                     </div>
-                    {/* <div
-                      className={[s.sider, "flex-col-around-center"].join(" ")}
-                    >
-                      <Button
-                        color="primary"
-                        fill="none"
-                        onClick={() => delTask(task.id)}
-                      >
-                        <MinusCircleOutline
-                          className={[s.minusIcon, s.lowerPink].join(" ")}
-                        />
-                      </Button>
-                      <Button
-                        color="primary"
-                        fill="none"
-                        onClick={() => completeTask(task.id)}
-                      >
-                        <CheckCircleOutline
-                          className={[s.checkIcon, s.lowerMintGreen].join(" ")}
-                        />
-                      </Button>
-                    </div> */}
                   </div>
                 );
               })}

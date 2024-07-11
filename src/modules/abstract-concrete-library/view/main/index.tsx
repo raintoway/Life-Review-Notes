@@ -8,10 +8,11 @@ import React, {
 } from "react";
 import * as d3 from "d3";
 import { nanoid } from "nanoid";
-import { Dialog, Input } from "antd-mobile";
+import { Button, Dialog, Input } from "antd-mobile";
 import randomColor from "randomcolor";
 import LocalStorage from "../../../../common/storage/localstorage";
 import s from "./index.module.scss";
+import { AddCircleOutline } from "antd-mobile-icons";
 
 interface IProps {
   data: IData[];
@@ -65,11 +66,25 @@ const AbstractConcreteLibrary = (props: IProps) => {
       },
     ]);
   };
+
   useEffect(() => {
     if (Array.isArray(props.data) && props.data.length === 0) {
       initNode();
     }
   }, [props.data]);
+
+  const addNode = () => {
+    setData([
+      ...data,
+      {
+        id: nanoid(),
+        label: "新建节点",
+        children: [],
+        type: "node",
+        color: randomColor(),
+      },
+    ]);
+  };
 
   const drag = (simulation) => {
     function dragstarted(event, d) {
@@ -444,7 +459,7 @@ const AbstractConcreteLibrary = (props: IProps) => {
   return (
     <>
       <div
-        style={{ width: "100%", height: "100%" }}
+        style={{ width: "100%", height: "calc(100vh - 55px)" }}
         id="svgContainer"
         ref={containerRef}
       ></div>
@@ -497,6 +512,16 @@ const AbstractConcreteLibrary = (props: IProps) => {
           ],
         ]}
       />
+      <div className={s.operation}>
+        <Button
+          color="primary"
+          fill="none"
+          onClick={addNode}
+          className={s.lowerMintGreen}
+        >
+          <AddCircleOutline />
+        </Button>
+      </div>
     </>
   );
 };

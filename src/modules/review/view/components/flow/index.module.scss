@@ -3,14 +3,50 @@
   height: 100%;
   display: flex;
   flex-direction: column;
+  .title {
+    margin: 10px 0;
+    --font-size: 26px;
+    --text-align: center;
+  }
   .stencilBox {
     position: relative;
-    height: 150px;
+    height: 250px;
     width: 100%;
     overflow: auto;
   }
   .graphBox {
     flex: 1;
     width: 100%;
+  }
+  :global {
+    .x6-widget-transform-resize {
+      &.x6-widget-transform-cursor-n {
+        display: none;
+      }
+      &.x6-widget-transform-cursor-e {
+        display: none;
+      }
+      &.x6-widget-transform-cursor-s {
+        display: none;
+      }
+      &.x6-widget-transform-cursor-w {
+        display: none;
+      }
+    }
+  }
+}
+
+:global {
+  .adm-picker-header {
+    a:nth-child(1) {
+      margin-left: 10px;
+      font-size: 1.1rem;
+      color: #ddd;
+    }
+    a:nth-child(3) {
+      margin-right: 10px;
+      font-size: 1.1rem;
+      color: #6f6d6d;
+    }
   }
 }

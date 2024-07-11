@@ -10,12 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@antv/x6": "^2.18.1",
+    "@antv/x6": "2.14.1",
     "@antv/x6-plugin-history": "^2.2.4",
     "@antv/x6-plugin-selection": "^2.2.2",
     "@antv/x6-plugin-snapline": "^2.1.7",
     "@antv/x6-plugin-stencil": "^2.1.5",
     "@antv/x6-plugin-transform": "^2.1.8",
+    "@antv/x6-react-shape": "^2.2.3",
     "antd-mobile": "^5.36.0",
     "antd-mobile-icons": "^0.3.0",
     "d3": "^7.9.0",
@@ -34,12 +35,12 @@
     "webgl-fluid-simulation": "^1.0.0"
   },
   "devDependencies": {
+    "@types/d3": "^7.4.3",
+    "@types/insert-css": "^2.0.3",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
     "@typescript-eslint/parser": "^7.2.0",
-    "@types/d3": "^7.4.3",
-    "@types/insert-css": "^2.0.3",
     "@vitejs/plugin-react": "^4.2.1",
     "eslint": "^8.57.0",
     "eslint-plugin-react-hooks": "^4.6.0",

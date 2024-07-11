@@ -44,6 +44,23 @@ const Experience = (props: Props) => {
       localStorage.updateData("experience", "data", data);
     }
   }, [data, localStorage]);
+
+  const initExperience = () => {
+    setData([
+      {
+        id: nanoid(),
+        content:
+          "<h3>使用示例</h3><p>在这里可以记录你的个人经验，通过拖拽面板来调整位置</p>",
+      },
+    ]);
+  };
+
+  useEffect(() => {
+    if (props.data.length === 0) {
+      initExperience();
+    }
+  }, [props.data]);
+
   const addExperience = () => {
     setData([...data, { id: nanoid(), content: "" }]);
   };
