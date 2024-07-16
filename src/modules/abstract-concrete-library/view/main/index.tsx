@@ -1,8 +1,7 @@
-import React, {
+import {
   useRef,
   useEffect,
   useState,
-  useContext,
   RefObject,
   MutableRefObject,
   useCallback,
@@ -480,8 +479,18 @@ const AbstractConcreteLibrary = (props: IProps) => {
           <>
             {currentNode ? (
               <div className={[s.item].join(" ")}>
-                <div style={{ width: "80px", color: "#ffe3e8" }}>名称：</div>
+                <div
+                  style={{
+                    width: "80px",
+                    color: currentNode.color,
+                  }}
+                >
+                  名称：
+                </div>
                 <Input
+                  style={{
+                    "--color": currentNode.color,
+                  }}
                   placeholder="请输入内容"
                   value={currentNode.label}
                   onChange={(val) => {
@@ -505,6 +514,7 @@ const AbstractConcreteLibrary = (props: IProps) => {
               onClick: () => {
                 setEditVisible(false);
               },
+              style: { color: "#6f6d6d" },
             },
             {
               key: "confirm",
@@ -519,6 +529,7 @@ const AbstractConcreteLibrary = (props: IProps) => {
                   }
                 }
               },
+              style: { color: currentNode?.color },
             },
           ],
         ]}
