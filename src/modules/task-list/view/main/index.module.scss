@@ -82,6 +82,7 @@
       }
     }
     .checkIcon {
+      display: none;
       margin-left: 10px;
       &::before {
         border-radius: 100px;
@@ -90,7 +91,8 @@
         font-size: 2rem;
       }
     }
-    .minusIcon {
+    .closeIcon {
+      display: none;
       margin-left: 10px;
       &::before {
         border-radius: 100px;
@@ -108,7 +110,7 @@
       .checkIcon {
         font-size: 2rem;
       }
-      .minusIcon {
+      .closeIcon {
         font-size: 2rem;
       }
     }

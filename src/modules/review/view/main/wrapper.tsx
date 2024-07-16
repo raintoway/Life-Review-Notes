@@ -7,7 +7,7 @@ import React, {
 } from "react";
 import s from "./wrapper.module.scss";
 import Review, { ICollection } from ".";
-import { MyContext } from "../../../../App";
+import { StorageContext } from "../../../../App";
 
 export interface IExperience {
   id: string;
@@ -17,7 +17,7 @@ const WrapReview = () => {
   const [initFlag, setInitFlag] = useState(false);
   const [data, setData] = useState<ICollection[]>([]);
   const [currentCollectionKey, setCurrentCollectionKey] = useState<string>("");
-  const { localStorage } = useContext(MyContext);
+  const { localStorage } = useContext(StorageContext);
   const initData = useCallback(async () => {
     if (localStorage) {
       const data = await localStorage.getData("review", "data");

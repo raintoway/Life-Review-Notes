@@ -5,26 +5,28 @@ class LocalStorage {
     }
     init() {
         return new Promise((resolve, reject) => {
-            const arr = ['task-list', 'abstract-concrete-library', 'experience', 'review']
+            const arr = ['task-list', 'abstract-concrete-library', 'experience', 'review', 'utils']
             const openRequest = indexedDB.open('life-review-notes', 1);
             openRequest.onupgradeneeded = (event: IDBVersionChangeEvent) => {
                 // 版本升级事务，已知的版本升级情况有对象存储列表的改变
-                this.db = event.target?.result as IDBDatabase
+                const db = event.target?.result as IDBDatabase
+                console.log('db-update');
                 arr.forEach(item => {
-                    if (this.db) {
-                        if (!this.db.objectStoreNames.contains(item)) {
-                            this.db.createObjectStore(item);
+                    if (db) {
+                        if (!db.objectStoreNames.contains(item)) {
+                            db.createObjectStore(item);
                         }
                     }
                 })
-                resolve(true)
             };
             openRequest.onsuccess = (e: Event) => {
                 this.db = e.target?.result as IDBDatabase;
+                console.log('db-success');
                 resolve(true)
             };
             openRequest.onerror = () => {
                 console.log('数据库打开失败');
+                console.log('db-fail');
                 reject()
             };
         })

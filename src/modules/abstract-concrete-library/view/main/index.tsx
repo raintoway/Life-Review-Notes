@@ -5,6 +5,7 @@ import React, {
   useContext,
   RefObject,
   MutableRefObject,
+  useCallback,
 } from "react";
 import * as d3 from "d3";
 import { nanoid } from "nanoid";
@@ -55,7 +56,7 @@ const AbstractConcreteLibrary = (props: IProps) => {
     `;
   };
 
-  const initNode = () => {
+  const initTemplate = () => {
     setData([
       {
         id: nanoid(),
@@ -67,11 +68,22 @@ const AbstractConcreteLibrary = (props: IProps) => {
     ]);
   };
 
-  useEffect(() => {
-    if (Array.isArray(props.data) && props.data.length === 0) {
-      initNode();
+  const init = useCallback(async () => {
+    const initFlag = await localStorage.getData(
+      "abstract-concrete-library",
+      "initFlag"
+    );
+    if (!initFlag) {
+      if (Array.isArray(props.data) && props.data.length === 0) {
+        initTemplate();
+        localStorage.updateData("abstract-concrete-library", "initFlag", true);
+      }
     }
-  }, [props.data]);
+  }, [props.data, localStorage]);
+
+  useEffect(() => {
+    init();
+  }, [init]);
 
   const addNode = () => {
     setData([
@@ -183,7 +195,7 @@ const AbstractConcreteLibrary = (props: IProps) => {
     }
   };
 
-  const syncTransformToLocalStorage = () => {
+  const syncTransformToLocalStorage = useCallback(() => {
     if (localStorage) {
       localStorage.updateData(
         "abstract-concrete-library",
@@ -191,7 +203,7 @@ const AbstractConcreteLibrary = (props: IProps) => {
         transformRef.current
       );
     }
-  };
+  }, [localStorage]);
 
   useEffect(() => {
     if (containerRef.current) {
@@ -220,7 +232,6 @@ const AbstractConcreteLibrary = (props: IProps) => {
           label: item.label,
         };
       });
-      console.log(222, nodes, links);
       const simulation = d3
         .forceSimulation(nodes)
         .force(
@@ -454,7 +465,7 @@ const AbstractConcreteLibrary = (props: IProps) => {
         svg.remove();
       };
     }
-  }, [data, localStorage]);
+  }, [data, localStorage, syncTransformToLocalStorage]);
 
   return (
     <>

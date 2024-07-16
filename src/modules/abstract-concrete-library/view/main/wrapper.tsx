@@ -4,13 +4,13 @@ import AbstractConcreteLibrary, {
   defaultTransform,
   type IData,
 } from "./index";
-import { MyContext } from "../../../../App";
+import { StorageContext } from "../../../../App";
 
 const WrapAbstractConcreteLibrary = () => {
   const [initFlag, setInitFlag] = useState(false);
   const [data, setData] = useState<IData[]>([]);
   const [transform, setTransform] = useState<ITransform>(defaultTransform);
-  const { localStorage } = useContext(MyContext);
+  const { localStorage } = useContext(StorageContext);
   const initData = async () => {
     if (localStorage) {
       const data = await localStorage.getData(

@@ -1,16 +1,20 @@
-import { Graph, Shape, Node, NodeView, Cell, Edge } from "@antv/x6";
+import { Graph, Shape, Node, NodeView, Cell } from "@antv/x6";
 import { Snapline } from "@antv/x6-plugin-snapline";
 import { History } from "@antv/x6-plugin-history";
 import { useCallback, useEffect, useRef, useState } from "react";
 import s from "./index.module.scss";
-import { register } from "@antv/x6-react-shape";
+import { Portal, register } from "@antv/x6-react-shape";
 import { Transform } from "@antv/x6-plugin-transform";
 import CustomReactRect from "./components/rect";
 import CustomReactRoundRect from "./components/round-rect";
 import CustomReactPolygon from "./components/polygon";
-import { Input } from "antd-mobile";
+import { TextArea } from "antd-mobile";
 import { ICollection } from "../../main";
-import { debounce } from "../../../../../common/utils";
+import React from "react";
+const X6ReactPortalProvider = Portal.getProvider(); // 注意，一个 graph 只能申明一个 portal provider
+export const FlowEditorContext = React.createContext<{
+  syncToStorage: (graph: Graph) => void;
+}>({});
 // 定义节点
 const groups = {
   bottom: {
@@ -115,7 +119,7 @@ const addRectPanel = {
     offset: { x: -90, y: 40 },
     onClick({ view }: { view: NodeView }) {
       const { width, height } = view.cell.size();
-      const newNode = view.graph.addNode({
+      const newNode: Node = view.graph.addNode({
         shape: "custom-react-rect",
         x: view.cell.getPosition().x,
         y: view.cell.getPosition().y + height + 60,
@@ -137,33 +141,36 @@ const addRectPanel = {
         ports: { ...ports },
         label: "",
       });
-      view.graph.addEdge({
-        source: {
-          cell: view.cell,
-        },
-        target: {
-          cell: newNode,
-        },
-        attrs: {
-          line: {
-            stroke: "rgb(162, 177, 195)",
-            strokeWidth: 2,
+      const bottomPorts = view.cell.getPortsByGroup("bottom");
+      const topPorts = newNode.getPortsByGroup("top");
+      if (bottomPorts.length && topPorts.length) {
+        const newEdge = view.graph.addEdge({
+          source: {
+            cell: view.cell,
+            port: bottomPorts[0].id,
           },
-        },
-        zIndex: -1,
-        router: {
-          name: "orth",
-          args: {
-            padding: 10,
+          target: {
+            cell: newNode,
+            port: topPorts[0].id,
           },
-        },
-        connector: {
-          name: "rounded",
-          args: {
-            radius: 10,
+          attrs: {
+            line: {
+              stroke: "rgb(162, 177, 195)",
+              strokeWidth: 2,
+            },
           },
-        },
-      });
+          zIndex: -1,
+          router: {
+            name: "manhattan",
+          },
+          connector: {
+            name: "rounded",
+            args: {
+              radius: 8,
+            },
+          },
+        });
+      }
       view.cell.removeTools();
     },
   },
@@ -181,8 +188,6 @@ const addPolygonPanel = {
           label: "polygon",
           fill: "#ffeef1",
           stroke: "transparent",
-          // 指定 refPoints 属性，多边形顶点随图形大小自动缩放
-          // https://x6.antv.vision/zh/docs/api/registry/attr#refpointsresetoffset
           points: "0,12.5 25,0 50,12.5 25,25",
         },
       },
@@ -213,32 +218,35 @@ const addPolygonPanel = {
         label: "",
         ports: { ...ports },
       });
-      view.graph.addEdge({
-        source: {
-          cell: view.cell,
-        },
-        target: {
-          cell: newNode,
-        },
-        attrs: {
-          line: {
-            stroke: "rgb(162, 177, 195)",
-            strokeWidth: 2,
+      const bottomPorts = view.cell.getPortsByGroup("bottom");
+      const topPorts = newNode.getPortsByGroup("top");
+      if (bottomPorts.length && topPorts.length) {
+        view.graph.addEdge({
+          source: {
+            cell: view.cell,
+            port: bottomPorts[0].id,
           },
-        },
-        router: {
-          name: "orth",
-          args: {
-            padding: 10,
+          target: {
+            cell: newNode,
+            port: topPorts[0].id,
           },
-        },
-        connector: {
-          name: "rounded",
-          args: {
-            radius: 10,
+          attrs: {
+            line: {
+              stroke: "rgb(162, 177, 195)",
+              strokeWidth: 2,
+            },
           },
-        },
-      });
+          router: {
+            name: "manhattan",
+          },
+          connector: {
+            name: "rounded",
+            args: {
+              radius: 8,
+            },
+          },
+        });
+      }
       view.cell.removeTools();
     },
   },
@@ -289,32 +297,35 @@ const addRoundRectPanel = {
         label: "结束",
         ports: { ...ports },
       });
-      view.graph.addEdge({
-        source: {
-          cell: view.cell,
-        },
-        target: {
-          cell: newNode,
-        },
-        attrs: {
-          line: {
-            stroke: "rgb(162, 177, 195)",
-            strokeWidth: 2,
+      const bottomPorts = view.cell.getPortsByGroup("bottom");
+      const topPorts = newNode.getPortsByGroup("top");
+      if (bottomPorts.length && topPorts.length) {
+        view.graph.addEdge({
+          source: {
+            cell: view.cell,
+            port: bottomPorts[0].id,
           },
-        },
-        router: {
-          name: "orth",
-          args: {
-            padding: 10,
+          target: {
+            cell: newNode,
+            port: topPorts[0].id,
           },
-        },
-        connector: {
-          name: "rounded",
-          args: {
-            radius: 10,
+          attrs: {
+            line: {
+              stroke: "rgb(162, 177, 195)",
+              strokeWidth: 2,
+            },
           },
-        },
-      });
+          router: {
+            name: "manhattan",
+          },
+          connector: {
+            name: "rounded",
+            args: {
+              radius: 8,
+            },
+          },
+        });
+      }
       view.cell.removeTools();
     },
   },
@@ -352,7 +363,6 @@ class TreeNode extends Node {
     this.collapsed = target;
   }
 }
-
 TreeNode.config({
   zIndex: 2,
   markup: [
@@ -434,26 +444,69 @@ const FlowEditor = ({
   updateData,
 }: {
   data: ICollection;
-  updateData: (collection: ICollection) => void;
+  updateData: (collection: ICollection, syncToView?: boolean) => void;
 }) => {
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLElement>(null);
   const [title, setTitle] = useState("");
+
+  const init = useCallback(
+    (graph: Graph) => {
+      graph.addNode({
+        shape: "custom-react-round-rect",
+        x: 300,
+        y: 100,
+        attrs: {
+          body: { fill: "#dbf4f7", isStart: true },
+        },
+        width: 100,
+        height: 50,
+        label: "开始",
+        ports: { ...ports },
+      });
+      // data.title =
+      //   "使用示例：一件事情的复盘 = 一颗决策树 = 为什么这么做，为什么不这么做 = 流程图";
+      data.content = JSON.stringify(graph.toJSON());
+      updateData({
+        ...data,
+      });
+    },
+    [data, updateData]
+  );
+
+  const syncToStorage = useCallback(
+    (graph: Graph) => {
+      updateData({
+        ...data,
+        content: JSON.stringify(graph.toJSON()),
+      });
+    },
+    [updateData, data]
+  );
 
   useEffect(() => {
     setTitle(data.title);
     if (!containerRef.current) return;
     const container = containerRef.current;
+
     // #region 初始化画布
     const graph = new Graph({
       container: container,
       grid: true,
       panning: true,
       connecting: {
+        router: "manhattan",
+        connector: {
+          name: "rounded",
+          args: {
+            radius: 8,
+          },
+        },
+        anchor: "center",
+        connectionPoint: "anchor",
         allowBlank: false,
         snap: {
           radius: 20,
         },
-        allowEdge: false,
         createEdge() {
           return new Shape.Edge({
             attrs: {
@@ -486,10 +539,12 @@ const FlowEditor = ({
         },
       },
     });
+
     // #region 使用插件
     const _transform = new Transform({
       resizing: true,
     });
+
     graph.use(_transform).use(new Snapline()).use(new History());
 
     register({
@@ -522,40 +577,7 @@ const FlowEditor = ({
         }
       }
     });
-    graph.on("edge:connected", ({ edge }) => {
-      if (edge.getSourceCellId() === edge.getTargetCellId()) {
-        edge.remove();
-      } else if (edge.getTargetCell()) {
-        graph.addEdge({
-          source: {
-            cell: edge.getSourceCellId(),
-          },
-          target: {
-            cell: edge.getTargetCellId(),
-          },
-          attrs: {
-            line: {
-              stroke: "rgb(162, 177, 195)",
-              strokeWidth: 2,
-            },
-          },
-          zIndex: -1,
-          router: {
-            name: "orth",
-            args: {
-              padding: 10,
-            },
-          },
-          connector: {
-            name: "rounded",
-            args: {
-              radius: 10,
-            },
-          },
-        });
-        edge.remove();
-      }
-    });
+
     graph.on("edge:click", ({ edge }) => {
       edge.addTools({
         name: "button",
@@ -623,7 +645,7 @@ const FlowEditor = ({
           cell.portProp(item.id!, "attrs/circle/stroke", "transparent");
           cell.portProp(item.id!, "attrs/circle/fill", cellColor);
         });
-        if (cell.attrs.body.isStart) {
+        if (cell.attrs?.body.isStart) {
         } else {
           cell.addTools([
             {
@@ -673,34 +695,18 @@ const FlowEditor = ({
     if (data.content) {
       graph.fromJSON(JSON.parse(data.content));
     } else {
-      graph.addNode({
-        shape: "custom-react-round-rect",
-        x: 300,
-        y: 100,
-        attrs: {
-          body: { fill: "#dbf4f7", isStart: true },
-        },
-        width: 100,
-        height: 50,
-        label: "开始",
-        ports: { ...ports },
-      });
-      data.title = "使用示例";
-      data.content = JSON.stringify(graph.toJSON());
-      updateData({
-        ...data,
-      });
+      init(graph);
     }
 
     graph.centerContent();
 
-    const pointerDownHandler = (e) => {
+    const pointerDownHandler = (e?: PointerEvent) => {
       // 假设 `graph` 是你的 X6 图对象
       const allCells = graph.getCells();
       // 筛选出所有的节点对象
       const allNodes = allCells.filter((cell) => cell.isNode());
       const allEdge = allCells.filter((cell) => cell.isEdge());
-      if (e.target.classList.contains("x6-port-body")) {
+      if (e?.target?.classList.contains("x6-port-body")) {
         // 现在 `allNodes` 包含了所有节点对象
         allNodes.forEach((node) => {
           if (
@@ -764,45 +770,46 @@ const FlowEditor = ({
     };
 
     const timer = setInterval(() => {
-      updateData({
-        ...data,
-        content: JSON.stringify(graph.toJSON()),
-      });
+      syncToStorage(graph);
     }, 3000);
 
-    document.addEventListener("pointerdown", pointerDownHandler);
-    document.addEventListener("visibilitychange", () => {
-      if (document.visibilityState === "hidden") {
-        updateData({
-          ...data,
-          content: JSON.stringify(graph.toJSON()),
-        });
-      }
-    });
-    return () => {
-      document.removeEventListener("pointerdown", pointerDownHandler);
+    containerRef.current?.addEventListener("pointerdown", pointerDownHandler);
+    const beforeUnloadHandler = () => {
       clearInterval(timer);
-      updateData({
-        ...data,
-        content: JSON.stringify(graph.toJSON()),
-      });
+      syncToStorage(graph);
+    };
+    window.addEventListener("beforeunload", beforeUnloadHandler);
+    return () => {
+      containerRef.current?.removeEventListener(
+        "pointerdown",
+        pointerDownHandler
+      );
+      window.removeEventListener("beforeunload", beforeUnloadHandler);
+      clearInterval(timer);
+      syncToStorage(graph);
+      pointerDownHandler();
       graph.dispose();
     };
-  }, [data, updateData]);
+  }, [data, updateData, init, syncToStorage]);
 
   return (
     <div className={[s.container].join(" ")}>
-      <Input
+      <FlowEditorContext.Provider value={{ syncToStorage }}>
+        <X6ReactPortalProvider />
+      </FlowEditorContext.Provider>
+      <TextArea
         className={s.title}
         placeholder="请输入标题"
-        value={title}
         onChange={(val) => {
           setTitle(val);
           updateData({
             ...data,
-            title: title,
+            title: val,
           });
         }}
+        value={title}
+        rows={1}
+        autoSize={{ minRows: 1, maxRows: 3 }}
       />
       <div className={[s.graphBox].join(" ")} ref={containerRef}></div>
     </div>

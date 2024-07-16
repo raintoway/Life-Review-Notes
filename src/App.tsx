@@ -1,7 +1,9 @@
-import { NavBar } from "antd-mobile";
+import { NavBar, TabBar } from "antd-mobile";
 import {
   Route,
   Switch,
+  useHistory,
+  useLocation,
   MemoryRouter as Router,
   //@ts-expect-error react-router-dom5的问题
 } from "react-router-dom";
@@ -12,7 +14,9 @@ import { routerConfig } from "./router";
 import { createContext, useEffect, useState } from "react";
 import LocalStorage from "./common/storage/localstorage";
 
-export const MyContext = createContext<{ localStorage: LocalStorage | null }>({
+export const StorageContext = createContext<{
+  localStorage: LocalStorage | null;
+}>({
   localStorage: null,
 });
 
@@ -29,7 +33,7 @@ const App = () => {
 
   return (
     <Router initialEntries={["/task-list"]}>
-      <MyContext.Provider value={{ localStorage: localStorage }}>
+      <StorageContext.Provider value={{ localStorage: localStorage }}>
         <div className={s.app}>
           <div className={s.body}>
             {routerConfig.map((item) => {
@@ -46,7 +50,7 @@ const App = () => {
             <Bottom />
           </div>
         </div>
-      </MyContext.Provider>
+      </StorageContext.Provider>
     </Router>
   );
 };

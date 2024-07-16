@@ -1,11 +1,11 @@
 import { useContext, useEffect, useState } from "react";
 import Experience, { type IExperience } from "./index";
-import { MyContext } from "../../../../App";
+import { StorageContext } from "../../../../App";
 
 const WrapExperience = () => {
   const [initFlag, setInitFlag] = useState(false);
   const [data, setData] = useState<IExperience[]>([]);
-  const { localStorage } = useContext(MyContext);
+  const { localStorage } = useContext(StorageContext);
   const initData = async () => {
     if (localStorage) {
       const data = await localStorage.getData("experience", "data");

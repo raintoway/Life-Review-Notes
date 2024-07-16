@@ -1,12 +1,12 @@
 import { useContext, useEffect, useState } from "react";
 import { Task, TaskList } from "./index";
-import { MyContext } from "../../../../App";
+import { StorageContext } from "../../../../App";
 
 const WrapTaskList = () => {
   const [initFlag, setInitFlag] = useState(false);
   const [tasks, setTasks] = useState<Task[]>([]);
   const [money, setMoney] = useState(0);
-  const { localStorage } = useContext(MyContext);
+  const { localStorage } = useContext(StorageContext);
   const initData = async () => {
     if (localStorage) {
       const taskList = await localStorage.getData("task-list", "list");

@@ -1,7 +1,9 @@
-import React, { useRef, useState } from "react";
+import React, { Dispatch, SetStateAction, useRef, useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import s from './index.module.scss'
+import s from "./index.module.scss";
+import { CloseCircleOutline } from "antd-mobile-icons";
+import { Dialog } from "antd-mobile";
 const modules = {
   toolbar: [
     [
@@ -32,24 +34,45 @@ const formats = [
   "link",
   "image",
 ];
-const style = {
-  fontSize: "20px", // 这里设置默认字体大小
-};
+
 function Editor({
   value,
   setValue,
+  deleteCurrent,
 }: {
   value: string;
   setValue: (content: string) => void;
+  deleteCurrent?: () => void;
 }) {
   const containerRef = useRef(null);
+  const style = {
+    fontSize: "20px", // 这里设置默认字体大小
+    width: "100%",
+  };
   return (
-    <div ref={containerRef} className={s.container}>
+    <div
+      ref={containerRef}
+      className={[s.container, "experience-item"].join(" ")}
+      onClick={(e) => {
+        if (!deleteCurrent) return;
+        try {
+          const currentTarget = e.currentTarget;
+          currentTarget.children[0].style.width = "calc(100% - 30px)";
+          currentTarget.children[1].style.display = "block";
+          const allExperienceItem =
+            document.querySelectorAll(".experience-item");
+          Array.prototype.slice.call(allExperienceItem).forEach((item) => {
+            if (item !== currentTarget) {
+              item.children[0].style.width = "100%";
+              item.children[1].style.display = "none";
+            }
+          });
+        } catch (err) {}
+      }}
+    >
       <ReactQuill
         onFocus={() => {
           if (containerRef.current) {
-            console.log(111);
-            
             const container = containerRef.current;
             container.querySelector(".ql-toolbar").style.opacity = 1;
             container.querySelector(".ql-toolbar").style.visibility = "visible";
@@ -73,6 +96,46 @@ function Editor({
         formats={formats}
         style={style}
       />
+      {deleteCurrent ? (
+        <CloseCircleOutline
+          className={[s.delBtn].join(" ")}
+          onClick={() => {
+            Dialog.show({
+              content: (
+                <p
+                  style={{
+                    textAlign: "center",
+                    fontSize: "1.2rem",
+                    color: "#6f6d6d",
+                    fontWeight: "bold",
+                  }}
+                >
+                  确定删除这条经验吗？
+                </p>
+              ),
+              closeOnAction: true,
+              closeOnMaskClick: true,
+              actions: [
+                [
+                  {
+                    key: "cancel",
+                    text: "取消",
+                    style: { color: "#6f6d6d" },
+                  },
+                  {
+                    key: "delete",
+                    text: "确定",
+                    style: { color: "pink" },
+                    onClick: () => {
+                      deleteCurrent();
+                    },
+                  },
+                ],
+              ],
+            });
+          }}
+        />
+      ) : null}
     </div>
   );
 }

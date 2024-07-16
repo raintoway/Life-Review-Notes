@@ -1,4 +1,10 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, {
+  useCallback,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import s from "./index.module.scss";
 import {
   DragDropContext,
@@ -45,7 +51,7 @@ const Experience = (props: Props) => {
     }
   }, [data, localStorage]);
 
-  const initExperience = () => {
+  const initTemplate = () => {
     setData([
       {
         id: nanoid(),
@@ -55,11 +61,19 @@ const Experience = (props: Props) => {
     ]);
   };
 
-  useEffect(() => {
-    if (props.data.length === 0) {
-      initExperience();
+  const init = useCallback(async () => {
+    const initFlag = await localStorage.getData("experience", "initFlag");
+    if (!initFlag) {
+      if (props.data.length === 0) {
+        initTemplate();
+        localStorage.updateData("experience", "initFlag", true);
+      }
     }
-  }, [props.data]);
+  }, [props.data, localStorage]);
+
+  useEffect(() => {
+    init();
+  }, [init]);
 
   const addExperience = () => {
     setData([...data, { id: nanoid(), content: "" }]);
@@ -68,45 +82,43 @@ const Experience = (props: Props) => {
   return (
     <div className={s.wrapper}>
       <DragDropContext onDragEnd={(result) => onDragEnd(result)}>
-        <Droppable droppableId={"id"} key={"id"}>
+        <Droppable droppableId={"id"}>
           {(provided, snapshot) => {
             return (
               <div {...provided.droppableProps} ref={provided.innerRef}>
                 {data.map((link, index) => (
-                  <>
-                    <Draggable
-                      key={link.id}
-                      draggableId={link.id}
-                      index={index}
-                    >
-                      {(provided) => (
-                        <div
-                          ref={provided.innerRef}
-                          {...provided.draggableProps}
-                          {...provided.dragHandleProps}
-                          key={link.id}
-                          style={{
-                            ...provided.draggableProps.style,
-                          }}
-                        >
-                          {
-                            <div className={s.editorWrapper}>
-                              <div className={s.editorContainer}>
-                                <Editor
-                                  key={"editor" + link.id}
-                                  value={link.content}
-                                  setValue={(content: string) => {
-                                    link.content = content;
-                                    setData([...data]);
-                                  }}
-                                />
-                              </div>
+                  <Draggable key={link.id} draggableId={link.id} index={index}>
+                    {(provided) => (
+                      <div
+                        ref={provided.innerRef}
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                        key={link.id}
+                        style={{
+                          ...provided.draggableProps.style,
+                        }}
+                      >
+                        {
+                          <div className={s.editorWrapper}>
+                            <div className={s.editorContainer}>
+                              <Editor
+                                key={"editor" + link.id}
+                                value={link.content}
+                                setValue={(content: string) => {
+                                  link.content = content;
+                                  setData([...data]);
+                                }}
+                                deleteCurrent={() => {
+                                  data.splice(index, 1);
+                                  setData([...data]);
+                                }}
+                              />
                             </div>
-                          }
-                        </div>
-                      )}
-                    </Draggable>
-                  </>
+                          </div>
+                        }
+                      </div>
+                    )}
+                  </Draggable>
                 ))}
                 {provided.placeholder}
               </div>

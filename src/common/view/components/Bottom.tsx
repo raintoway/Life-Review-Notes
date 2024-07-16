@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useCallback, useContext, useEffect } from "react";
 import {
   useHistory,
   useLocation,
@@ -6,13 +6,28 @@ import {
 } from "react-router-dom";
 import { TabBar } from "antd-mobile";
 import { routerConfig } from "../../../router";
+import { StorageContext } from "../../../App";
 export const Bottom: FC = () => {
   const history = useHistory();
   const location = useLocation();
   const { pathname } = location;
+  const { localStorage } = useContext(StorageContext);
 
+  const initIndex = useCallback(async () => {
+    if (localStorage) {
+      const index = await localStorage.getData("utils", "index");
+      if (index) {
+        history.replace(index);
+      }
+    }
+  }, [localStorage, history]);
+
+  useEffect(() => {
+    initIndex();
+  }, [initIndex]);
   const setRouteActive = (value: string) => {
     history.push(value);
+    localStorage?.updateData("utils", "index", value);
   };
 
   return (

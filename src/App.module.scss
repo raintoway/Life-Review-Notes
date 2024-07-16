@@ -9,9 +9,24 @@
   display: flex;
   justify-content: center;
   overflow-y: overlay;
+  &::-webkit-scrollbar-thumb {
+    background-color: transparent; /* 滑块半透明 */
+  }
+  &::-webkit-scrollbar {
+    width: 0;
+  }
 }
 
 .bottom {
   height: 50px;
   border-top: solid 1px var(--adm-color-border);
+}
+
+:global {
+  .adm-tab-bar-item {
+    color: #6f6d6d !important;
+  }
+  .adm-tab-bar-item-active {
+    color: pink !important;
+  }
 }

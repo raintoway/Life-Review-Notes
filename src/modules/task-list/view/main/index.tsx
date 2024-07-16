@@ -1,12 +1,12 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import s from "./index.module.scss";
 import { nanoid } from "nanoid";
 import {
   AddCircleOutline,
   CheckCircleOutline,
-  MinusCircleOutline,
+  CloseCircleOutline,
 } from "antd-mobile-icons";
-import { Button, Input, Slider, TextArea } from "antd-mobile";
+import { Button, Dialog, Input, Slider } from "antd-mobile";
 import LocalStorage from "../../../../common/storage/localstorage";
 export interface IProps {
   tasks: Task[];
@@ -52,7 +52,7 @@ export const TaskList = (props: IProps) => {
       delTask(taskId);
     }
   };
-  const initTask = () => {
+  const initTemplate = () => {
     setTasks([
       {
         content:
@@ -64,11 +64,19 @@ export const TaskList = (props: IProps) => {
     ]);
   };
 
-  useEffect(() => {
-    if (props.tasks.length === 0) {
-      initTask();
+  const init = useCallback(async () => {
+    const initFlag = await localStorage.getData("task-list", "initFlag");
+    if (!initFlag) {
+      if (props.tasks.length === 0) {
+        initTemplate();
+        localStorage.updateData("task-list", "initFlag", true);
+      }
     }
-  }, [props.tasks]);
+  }, [props.tasks, localStorage]);
+  
+  useEffect(() => {
+    init();
+  }, [init]);
 
   useEffect(() => {
     if (localStorage) {
@@ -112,6 +120,35 @@ export const TaskList = (props: IProps) => {
               .map((task) => {
                 return (
                   <div
+                    onClick={(e) => {
+                      try {
+                        const currentTarget = e.currentTarget;
+                        const checkIcon =
+                          currentTarget.querySelector(".task-check-icon");
+                        checkIcon && (checkIcon.style.display = "block");
+                        const closeIcon =
+                          currentTarget.querySelector(".task-close-icon");
+                        closeIcon && (closeIcon.style.display = "block");
+                        const allCheckIcon =
+                          document.querySelectorAll(".task-check-icon");
+                        Array.prototype.slice
+                          .call(allCheckIcon)
+                          .forEach((item) => {
+                            if (item !== checkIcon) {
+                              item.style.display = "none";
+                            }
+                          });
+                        const allCloseIcon =
+                          document.querySelectorAll(".task-close-icon");
+                        Array.prototype.slice
+                          .call(allCloseIcon)
+                          .forEach((item) => {
+                            if (item !== closeIcon) {
+                              item.style.display = "none";
+                            }
+                          });
+                      } catch (err) {}
+                    }}
                     key={task.id}
                     className={[
                       s.task,
@@ -162,12 +199,46 @@ export const TaskList = (props: IProps) => {
                           {task.importanceScore}
                         </div>
                         <Button
-                          className={s.minusIcon}
+                          className={[s.closeIcon, "task-close-icon"].join(" ")}
                           color="primary"
                           fill="none"
-                          onClick={() => delTask(task.id)}
+                          onClick={() => {
+                            Dialog.show({
+                              content: (
+                                <p
+                                  style={{
+                                    textAlign: "center",
+                                    fontSize: "1.2rem",
+                                    color: "#6f6d6d",
+                                    fontWeight: "bold",
+                                  }}
+                                >
+                                  确定删除这条任务吗？
+                                </p>
+                              ),
+                              closeOnAction: true,
+                              closeOnMaskClick: true,
+                              actions: [
+                                [
+                                  {
+                                    key: "cancel",
+                                    text: "取消",
+                                    style: { color: "#6f6d6d" },
+                                  },
+                                  {
+                                    key: "delete",
+                                    text: "确定",
+                                    style: { color: "pink" },
+                                    onClick: () => {
+                                      delTask(task.id);
+                                    },
+                                  },
+                                ],
+                              ],
+                            });
+                          }}
                         >
-                          <MinusCircleOutline
+                          <CloseCircleOutline
                             className={[s.lowerPink].join(" ")}
                           />
                         </Button>
@@ -192,10 +263,44 @@ export const TaskList = (props: IProps) => {
                           {task.emergencyScore}
                         </div>
                         <Button
-                          className={s.checkIcon}
+                          className={[s.checkIcon, "task-check-icon"].join(" ")}
                           color="primary"
                           fill="none"
-                          onClick={() => completeTask(task.id)}
+                          onClick={() => {
+                            Dialog.show({
+                              content: (
+                                <p
+                                  style={{
+                                    textAlign: "center",
+                                    fontSize: "1.2rem",
+                                    color: "#6f6d6d",
+                                    fontWeight: "bold",
+                                  }}
+                                >
+                                  确定完成这条任务吗？
+                                </p>
+                              ),
+                              closeOnAction: true,
+                              closeOnMaskClick: true,
+                              actions: [
+                                [
+                                  {
+                                    key: "cancel",
+                                    text: "取消",
+                                    style: { color: "#6f6d6d" },
+                                  },
+                                  {
+                                    key: "delete",
+                                    text: "确定",
+                                    style: { color: "pink" },
+                                    onClick: () => {
+                                      completeTask(task.id);
+                                    },
+                                  },
+                                ],
+                              ],
+                            });
+                          }}
                         >
                           <CheckCircleOutline
                             className={[s.lowerMintGreen].join(" ")}

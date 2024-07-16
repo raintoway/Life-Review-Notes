@@ -1,21 +1,20 @@
 import { useEffect, useRef, useState } from "react";
 import s from "./index.module.scss";
 import { TextArea } from "antd-mobile";
+import { FlowEditorContext } from "../..";
+import React from "react";
 const CustomReactRoundRect = (props) => {
   const { node, graph } = props;
   const data = node.store.data;
-  // console.log(111, node, graph, data);
-  const [bottomBox, setBottomBoxVisible] = useState(false);
-  const [addBoxVisible, setAddBoxVisible] = useState(false);
   const [editBoxVisible, setEditBoxVisible] = useState(false);
   const [label, setLabel] = useState(data.label);
   const inputBoxRef = useRef(null);
+  const { syncToStorage } = React.useContext(FlowEditorContext);
   return (
     <div className={s.container}>
       <div
         onClick={() => {
           setEditBoxVisible(true);
-          setBottomBoxVisible(true);
         }}
         className={[s.content, "flex-row-center-center"].join(" ")}
       >
@@ -33,6 +32,8 @@ const CustomReactRoundRect = (props) => {
                 }
               }
               setLabel(e);
+              data.label = e;
+              syncToStorage(graph);
             }}
             value={label}
             className={s.inputBox}
