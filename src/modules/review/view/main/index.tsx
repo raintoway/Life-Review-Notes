@@ -59,7 +59,7 @@ export default function Flow(props: Props) {
         title:
           "使用示例：一件事情的复盘 = 一颗决策树 = 为什么这么做，为什么不这么做 = 流程图",
         content:
-          '{"cells":[{"position":{"x":300,"y":100},"size":{"width":100,"height":50},"view":"react-shape-view","attrs":{"body":{"fill":"#dbf4f7","isStart":true}},"shape":"custom-react-round-rect","id":"f94d013b-2193-400f-861f-ee8272a69bbf","label":"开始","ports":{"groups":{"bottom":{"attrs":{"circle":{"r":6,"magnet":true,"stroke":"#8f8f8f","strokeWidth":1,"fill":"#fff"}},"position":{"args":{"x":"50%","y":"100%"},"name":"absolute"}},"top":{"attrs":{"circle":{"r":6,"magnet":true,"stroke":"#8f8f8f","strokeWidth":1,"fill":"#fff"}},"position":{"args":{"x":"50%","y":"0%"},"name":"absolute"}},"left":{"attrs":{"circle":{"r":6,"magnet":true,"stroke":"#8f8f8f","strokeWidth":1,"fill":"#fff"}},"position":{"args":{"x":"0%","y":"50%"},"name":"absolute"}},"right":{"attrs":{"circle":{"r":6,"magnet":true,"stroke":"#8f8f8f","strokeWidth":1,"fill":"#fff"}},"position":{"args":{"x":"100%","y":"50%"},"name":"absolute"}}},"items":[{"group":"top","id":"8c7b0c58-e822-43b7-aaa6-cf8b1002de46"},{"group":"bottom","id":"134d4f2b-5c19-4937-9b88-b8da6b87502b"},{"group":"left","id":"3028a6dc-330a-4673-ad2d-0661b156b1dc"},{"group":"right","id":"84a563b2-575e-4eb8-a902-339b618064c0"}]},"zIndex":1}]}',
+          '{"cells":[{"position":{"x":0,"y":0},"size":{"width":100,"height":50},"attrs":{"text":{"fill":"#6f6d6d","text":"开始"},"body":{"stroke":"transparent","fill":"#dbf4f7","rx":20,"ry":22,"stroke-width":1,"cursor":"pointer","padding":10,"isStart":true},"label":{"textWrap":{"width":"100%","height":"100%","ellipsis":true,"breakWord":false}}},"visible":true,"shape":"custom-rect","ports":{"groups":{"bottom":{"attrs":{"circle":{"r":6,"magnet":true,"stroke":"#8f8f8f","strokeWidth":1,"fill":"#fff"}},"position":{"args":{"x":"50%","y":"100%"},"name":"absolute"}},"top":{"attrs":{"circle":{"r":6,"magnet":true,"stroke":"#8f8f8f","strokeWidth":1,"fill":"#fff"}},"position":{"args":{"x":"50%","y":"0%"},"name":"absolute"}},"left":{"attrs":{"circle":{"r":6,"magnet":true,"stroke":"#8f8f8f","strokeWidth":1,"fill":"#fff"}},"position":{"args":{"x":"0%","y":"50%"},"name":"absolute"}},"right":{"attrs":{"circle":{"r":6,"magnet":true,"stroke":"#8f8f8f","strokeWidth":1,"fill":"#fff"}},"position":{"args":{"x":"100%","y":"50%"},"name":"absolute"}}},"items":[{"group":"top","id":"b5c356eb-3ebd-4642-8cef-b8f18beeaa48"},{"group":"bottom","id":"c91d9ed6-0312-4630-bff4-1917d266440e"},{"group":"left","id":"d368816b-65c8-498c-9ef6-37dacb46a85a"},{"group":"right","id":"6277fdf3-9f53-481d-92f5-c30ac8c13819"}]},"id":"08ba4b39-6334-4214-9b19-40413335a2d9","zIndex":1}]}',
       },
     ]);
     setCurrentCollectionKey(key);
@@ -128,6 +128,7 @@ export default function Flow(props: Props) {
             value={[currentCollectionKey]}
             onConfirm={(value) => {
               if (value.length) {
+                // @ts-expect-error 正常错误
                 setCurrentCollectionKey(value[0]);
               }
             }}
@@ -154,67 +155,74 @@ export default function Flow(props: Props) {
                   >
                     {item.label || "无题"}
                   </span>
-                  {item.index > 0 ? (
-                    <DeleteOutline
-                      onClick={() => {
-                        Dialog.show({
-                          content: (
-                            <p
-                              style={{
-                                textAlign: "center",
-                                fontSize: "1.2rem",
-                                color: "#6f6d6d",
-                                fontWeight: "bold",
-                              }}
-                            >
-                              确定删除{item.label}吗？
-                            </p>
-                          ),
-                          closeOnAction: true,
-                          closeOnMaskClick: true,
-                          actions: [
-                            [
-                              {
-                                key: "cancel",
-                                text: "取消",
-                                style: { color: "#6f6d6d" },
-                              },
-                              {
-                                key: "delete",
-                                text: "确定",
-                                style: { color: "pink" },
-                                onClick: () => {
-                                  delReview(item.value as string);
+
+                  {
+                    // @ts-expect-error 正常错误
+                    item.index > 0 ? (
+                      <DeleteOutline
+                        onClick={() => {
+                          Dialog.show({
+                            content: (
+                              <p
+                                style={{
+                                  textAlign: "center",
+                                  fontSize: "1.2rem",
+                                  color: "#6f6d6d",
+                                  fontWeight: "bold",
+                                }}
+                              >
+                                确定删除{item.label}吗？
+                              </p>
+                            ),
+                            closeOnAction: true,
+                            closeOnMaskClick: true,
+                            actions: [
+                              [
+                                {
+                                  key: "cancel",
+                                  text: "取消",
+                                  style: { color: "#6f6d6d" },
                                 },
-                              },
+                                {
+                                  key: "delete",
+                                  text: "确定",
+                                  style: { color: "pink" },
+                                  onClick: () => {
+                                    delReview(item.value as string);
+                                  },
+                                },
+                              ],
                             ],
-                          ],
-                        });
-                      }}
-                      color="#ffe3e8"
-                      style={{ marginLeft: "10px" }}
-                      fontSize={"1.4rem"}
-                    />
-                  ) : (
-                    <span
-                      style={{
-                        width: "1.4rem",
-                        display: "inline-block",
-                        marginLeft: "10px",
-                      }}
-                    ></span>
-                  )}
+                          });
+                        }}
+                        color="#ffe3e8"
+                        style={{ marginLeft: "10px" }}
+                        fontSize={"1.4rem"}
+                      />
+                    ) : (
+                      <span
+                        style={{
+                          width: "1.4rem",
+                          display: "inline-block",
+                          marginLeft: "10px",
+                        }}
+                      ></span>
+                    )
+                  }
                 </span>
               );
             }}
           >
-            {(items, { open }) => {
-              return (
-                <Button className={s.listSwitch} onClick={open}>
-                  <ContentOutline />
-                </Button>
-              );
-            }}
+            {
+              // @ts-expect-error 正常错误
+              (items, { open }) => {
+                return (
+                  <Button className={s.listSwitch} onClick={open}>
+                    <ContentOutline />
+                  </Button>
+                );
+              }
+            }
           </Picker>
         </>
       )}

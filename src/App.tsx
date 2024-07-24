@@ -1,9 +1,6 @@
-import { NavBar, TabBar } from "antd-mobile";
 import {
   Route,
   Switch,
-  useHistory,
-  useLocation,
   MemoryRouter as Router,
   //@ts-expect-error react-router-dom5的问题
 } from "react-router-dom";

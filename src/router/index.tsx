@@ -1,4 +1,3 @@
-import { AppstoreOutline } from "antd-mobile-icons";
 import WrapTaskList from "../modules/task-list/view/main/wrapper";
 import WrapAbstractConcreteLibrary from "../modules/abstract-concrete-library/view/main/wrapper";
 import Experience from "../modules/experience/view/main/wrapper.tsx";
@@ -11,13 +10,8 @@ export const routerConfig = [
     icon: () => {
       return (
         <svg
-          t="1719897797596"
-          class="icon"
           viewBox="0 0 1024 1024"
           version="1.1"
-          xmlns="http://www.w3.org/2000/svg"
-          p-id="12643"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
           width="22"
           height="22"
         >
@@ -42,13 +36,8 @@ export const routerConfig = [
     icon: () => {
       return (
         <svg
-          t="1719897952748"
-          class="icon"
           viewBox="0 0 1024 1024"
           version="1.1"
-          xmlns="http://www.w3.org/2000/svg"
-          p-id="24026"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
           width="22"
           height="22"
         >
@@ -79,13 +68,8 @@ export const routerConfig = [
     icon: () => {
       return (
         <svg
-          t="1719898006611"
-          class="icon"
           viewBox="0 0 1024 1024"
           version="1.1"
-          xmlns="http://www.w3.org/2000/svg"
-          p-id="28601"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
           width="22"
           height="22"
         >
@@ -115,12 +99,8 @@ export const routerConfig = [
     icon: () => {
       return (
         <svg
-          t="1719919498948"
-          class="icon"
           viewBox="0 0 1024 1024"
           version="1.1"
-          xmlns="http://www.w3.org/2000/svg"
-          p-id="7070"
           width="22"
           height="22"
         >

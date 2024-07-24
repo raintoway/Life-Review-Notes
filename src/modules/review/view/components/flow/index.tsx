@@ -1,284 +1,91 @@
-import { Graph, Shape, Node, NodeView, Cell } from "@antv/x6";
+// @ts-nocheck
+import { Graph, Shape, Cell } from "@antv/x6";
 import { Snapline } from "@antv/x6-plugin-snapline";
 import { History } from "@antv/x6-plugin-history";
 import { useCallback, useEffect, useRef, useState } from "react";
 import s from "./index.module.scss";
-import { Portal, register } from "@antv/x6-react-shape";
+import { Portal } from "@antv/x6-react-shape";
 import { Transform } from "@antv/x6-plugin-transform";
-import CustomReactRect from "./components/rect";
-import CustomReactRoundRect from "./components/round-rect";
-import CustomReactPolygon from "./components/polygon";
-import { TextArea } from "antd-mobile";
+import { TextArea, Dialog } from "antd-mobile";
 import { ICollection } from "../../main";
 import React from "react";
+import updatePng from "./update.png";
+import {
+  ports,
+  addRectPanel,
+  addPolygonPanel,
+  addRoundRectPanel,
+} from "./config";
 const X6ReactPortalProvider = Portal.getProvider(); // 注意，一个 graph 只能申明一个 portal provider
 export const FlowEditorContext = React.createContext<{
   syncToStorage: (graph: Graph) => void;
 }>({});
-// 定义节点
-const groups = {
-  bottom: {
+
+Graph.registerNode(
+  "custom-rect",
+  {
+    inherit: "rect",
+    width: 100,
+    height: 50,
     attrs: {
-      circle: {
-        r: 6,
-        magnet: true,
-        stroke: "#8f8f8f",
+      body: {
         strokeWidth: 1,
-        fill: "#fff",
+        stroke: "#5F95FF",
+        fill: "#EFF4FF",
+      },
+      text: {
+        fontSize: 12,
+        fill: "#262626",
       },
     },
-    position: {
-      args: { x: "50%", y: "100%" },
-      name: "absolute",
-    },
+    ports: { ...ports },
   },
-  top: {
+  true
+);
+
+Graph.registerNode(
+  "custom-polygon",
+  {
+    inherit: "polygon",
+    width: 100,
+    height: 50,
     attrs: {
-      circle: {
-        r: 6,
-        magnet: true,
-        stroke: "#8f8f8f",
+      body: {
         strokeWidth: 1,
-        fill: "#fff",
+        stroke: "#5F95FF",
+        fill: "#EFF4FF",
+      },
+      text: {
+        fontSize: 12,
+        fill: "#262626",
       },
     },
-    position: {
-      args: { x: "50%", y: "0%" },
-      name: "absolute",
+    ports: {
+      ...ports,
     },
   },
-  left: {
-    attrs: {
-      circle: {
-        r: 6,
-        magnet: true,
-        stroke: "#8f8f8f",
-        strokeWidth: 1,
-        fill: "#fff",
-      },
-    },
-    position: {
-      args: { x: "0%", y: "50%" },
-      name: "absolute",
-    },
-  },
-  right: {
-    attrs: {
-      circle: {
-        r: 6,
-        magnet: true,
-        stroke: "#8f8f8f",
-        strokeWidth: 1,
-        fill: "#fff",
-      },
-    },
-    position: {
-      args: { x: "100%", y: "50%" },
-      name: "absolute",
-    },
-  },
-};
-const ports = {
-  groups: groups,
-  items: [
-    {
-      group: "top",
-    },
-    {
-      group: "bottom",
-    },
-    {
-      group: "left",
-    },
-    {
-      group: "right",
-    },
-  ],
-};
-const addRectPanel = {
-  name: "button",
-  args: {
-    markup: [
-      {
-        tagName: "rect",
-        selector: "button",
-        attrs: {
-          width: 50,
-          height: 25,
-          rx: 6,
-          ry: 6,
-          fill: "#dbf8e0",
-          stroke: "transparent",
-          "stroke-width": 1,
-          cursor: "pointer",
-        },
-      },
-    ],
-    x: "50%",
-    y: "100%",
-    offset: { x: -90, y: 40 },
-    onClick({ view }: { view: NodeView }) {
-      const { width, height } = view.cell.size();
-      const newNode: Node = view.graph.addNode({
-        shape: "custom-react-rect",
-        x: view.cell.getPosition().x,
-        y: view.cell.getPosition().y + height + 60,
-        width: 100,
-        height: 50,
-        attrs: {
-          body: {
-            rx: 6,
-            ry: 6,
-            fill: "#dbf8e0",
-            stroke: "transparent",
-            "stroke-width": 1,
-            cursor: "pointer",
-          },
-          text: {
-            fill: "#6f6d6d",
-          },
-        },
-        ports: { ...ports },
-        label: "",
-      });
-      const bottomPorts = view.cell.getPortsByGroup("bottom");
-      const topPorts = newNode.getPortsByGroup("top");
-      if (bottomPorts.length && topPorts.length) {
-        const newEdge = view.graph.addEdge({
-          source: {
-            cell: view.cell,
-            port: bottomPorts[0].id,
-          },
-          target: {
-            cell: newNode,
-            port: topPorts[0].id,
-          },
-          attrs: {
-            line: {
-              stroke: "rgb(162, 177, 195)",
-              strokeWidth: 2,
-            },
-          },
-          zIndex: -1,
-          router: {
-            name: "manhattan",
-          },
-          connector: {
-            name: "rounded",
-            args: {
-              radius: 8,
-            },
-          },
-        });
-      }
-      view.cell.removeTools();
-    },
-  },
-};
-const addPolygonPanel = {
-  name: "button",
-  args: {
-    markup: [
-      {
-        tagName: "polygon",
-        selector: "button",
-        attrs: {
-          width: 50,
-          height: 25,
-          label: "polygon",
-          fill: "#ffeef1",
-          stroke: "transparent",
-          points: "0,12.5 25,0 50,12.5 25,25",
-        },
-      },
-    ],
-    x: "50%",
-    y: "100%",
-    offset: { x: -25, y: 40 },
-    onClick({ view }: { view: NodeView }) {
-      const { width, height } = view.cell.size();
-      const newNode = view.graph.addNode({
-        shape: "custom-react-polygon",
-        x: view.cell.getPosition().x,
-        y: view.cell.getPosition().y + height + 60,
-        width: 100,
-        height: 50,
-        attrs: {
-          body: {
-            refPoints: "0,10 10,0 20,10 10,20",
-            fill: "#ffeef1",
-            stroke: "transparent",
-            "stroke-width": 1,
-            cursor: "pointer",
-          },
-          text: {
-            fill: "#6f6d6d",
-          },
-        },
-        label: "",
-        ports: { ...ports },
-      });
-      const bottomPorts = view.cell.getPortsByGroup("bottom");
-      const topPorts = newNode.getPortsByGroup("top");
-      if (bottomPorts.length && topPorts.length) {
-        view.graph.addEdge({
-          source: {
-            cell: view.cell,
-            port: bottomPorts[0].id,
-          },
-          target: {
-            cell: newNode,
-            port: topPorts[0].id,
-          },
-          attrs: {
-            line: {
-              stroke: "rgb(162, 177, 195)",
-              strokeWidth: 2,
-            },
-          },
-          router: {
-            name: "manhattan",
-          },
-          connector: {
-            name: "rounded",
-            args: {
-              radius: 8,
-            },
-          },
-        });
-      }
-      view.cell.removeTools();
-    },
-  },
-};
-const addRoundRectPanel = {
-  name: "button",
-  args: {
-    markup: [
-      {
-        tagName: "rect",
-        selector: "button",
-        attrs: {
-          width: 50,
-          height: 25,
-          rx: 14,
-          ry: 16,
-          fill: "#dbf4f7",
-          stroke: "transparent",
-          "stroke-width": 1,
-          cursor: "pointer",
-        },
-      },
-    ],
-    x: "50%",
-    y: "100%",
-    offset: { x: 40, y: 40 },
-    onClick({ view }: { view: NodeView }) {
-      const { width, height } = view.cell.size();
-      const newNode = view.graph.addNode({
-        shape: "custom-react-round-rect",
-        x: view.cell.getPosition().x,
-        y: view.cell.getPosition().y + height + 100,
+  true
+);
+const FlowEditor = ({
+  data,
+  updateData,
+}: {
+  data: ICollection;
+  updateData: (collection: ICollection, syncToView?: boolean) => void;
+}) => {
+  const containerRef = useRef<HTMLElement>(null);
+  const [title, setTitle] = useState("");
+  const [visible, setVisible] = useState(false);
+  const [label, setLabel] = useState("");
+  const currentNodeRef = useRef(null);
+  const graphRef = useRef(null);
+
+  const init = useCallback(
+    (graph: Graph) => {
+      graph.addNode({
+        shape: "custom-rect",
+        x: 0,
+        y: 0,
         width: 100,
         height: 50,
         attrs: {
@@ -289,182 +96,24 @@ const addRoundRectPanel = {
             stroke: "transparent",
             "stroke-width": 1,
             cursor: "pointer",
+            padding: 10,
+            isStart: true,
           },
           text: {
             fill: "#6f6d6d",
           },
+          label: {
+            textWrap: {
+              width: "100%",
+              height: "100%",
+              ellipsis: true,
+              breakWord: false,
+            },
+          },
         },
-        label: "结束",
         ports: { ...ports },
-      });
-      const bottomPorts = view.cell.getPortsByGroup("bottom");
-      const topPorts = newNode.getPortsByGroup("top");
-      if (bottomPorts.length && topPorts.length) {
-        view.graph.addEdge({
-          source: {
-            cell: view.cell,
-            port: bottomPorts[0].id,
-          },
-          target: {
-            cell: newNode,
-            port: topPorts[0].id,
-          },
-          attrs: {
-            line: {
-              stroke: "rgb(162, 177, 195)",
-              strokeWidth: 2,
-            },
-          },
-          router: {
-            name: "manhattan",
-          },
-          connector: {
-            name: "rounded",
-            args: {
-              radius: 8,
-            },
-          },
-        });
-      }
-      view.cell.removeTools();
-    },
-  },
-};
-class TreeNode extends Node {
-  private collapsed: boolean = false;
-
-  protected postprocess() {
-    this.toggleCollapse(false);
-  }
-
-  isCollapsed() {
-    return this.collapsed;
-  }
-
-  toggleButtonVisibility(visible: boolean) {
-    this.attr("buttonGroup", {
-      display: visible ? "block" : "none",
-    });
-  }
-
-  toggleCollapse(collapsed?: boolean) {
-    const target = collapsed == null ? !this.collapsed : collapsed;
-    if (!target) {
-      this.attr("buttonSign", {
-        d: "M 1 5 9 5 M 5 1 5 9",
-        strokeWidth: 1.6,
-      });
-    } else {
-      this.attr("buttonSign", {
-        d: "M 2 5 8 5",
-        strokeWidth: 1.8,
-      });
-    }
-    this.collapsed = target;
-  }
-}
-TreeNode.config({
-  zIndex: 2,
-  markup: [
-    {
-      tagName: "g",
-      selector: "buttonGroup",
-      children: [
-        {
-          tagName: "rect",
-          selector: "button",
-          attrs: {
-            "pointer-events": "visiblePainted",
-          },
-        },
-        {
-          tagName: "path",
-          selector: "buttonSign",
-          attrs: {
-            fill: "none",
-            "pointer-events": "none",
-          },
-        },
-      ],
-    },
-    {
-      tagName: "rect",
-      selector: "body",
-    },
-    {
-      tagName: "text",
-      selector: "label",
-    },
-  ],
-  attrs: {
-    body: {
-      refWidth: "100%",
-      refHeight: "100%",
-      strokeWidth: 1,
-      fill: "#EFF4FF",
-      stroke: "#5F95FF",
-    },
-    label: {
-      textWrap: {
-        ellipsis: true,
-        width: -10,
-      },
-      textAnchor: "middle",
-      textVerticalAnchor: "middle",
-      refX: "50%",
-      refY: "50%",
-      fontSize: 12,
-    },
-    buttonGroup: {
-      refX: "100%",
-      refY: "50%",
-    },
-    button: {
-      fill: "#5F95FF",
-      stroke: "none",
-      x: -10,
-      y: -10,
-      height: 20,
-      width: 30,
-      rx: 10,
-      ry: 10,
-      cursor: "pointer",
-      event: "node:collapse",
-    },
-    buttonSign: {
-      refX: 5,
-      refY: -5,
-      stroke: "#FFFFFF",
-      strokeWidth: 1.6,
-    },
-  },
-});
-const FlowEditor = ({
-  data,
-  updateData,
-}: {
-  data: ICollection;
-  updateData: (collection: ICollection, syncToView?: boolean) => void;
-}) => {
-  const containerRef = useRef<HTMLElement>(null);
-  const [title, setTitle] = useState("");
-
-  const init = useCallback(
-    (graph: Graph) => {
-      graph.addNode({
-        shape: "custom-react-round-rect",
-        x: 300,
-        y: 100,
-        attrs: {
-          body: { fill: "#dbf4f7", isStart: true },
-        },
-        width: 100,
-        height: 50,
         label: "开始",
-        ports: { ...ports },
       });
-      // data.title =
-      //   "使用示例：一件事情的复盘 = 一颗决策树 = 为什么这么做，为什么不这么做 = 流程图";
       data.content = JSON.stringify(graph.toJSON());
       updateData({
         ...data,
@@ -486,8 +135,16 @@ const FlowEditor = ({
   useEffect(() => {
     setTitle(data.title);
     if (!containerRef.current) return;
+    let updatePngBlobUrl = "";
+    fetch(updatePng)
+      .then((response) => response.blob())
+      .then((blob) => {
+        updatePngBlobUrl = URL.createObjectURL(blob);
+      })
+      .catch((error) => {
+        console.error("Error converting image to blob:", error);
+      });
     const container = containerRef.current;
-
     // #region 初始化画布
     const graph = new Graph({
       container: container,
@@ -519,11 +176,15 @@ const FlowEditor = ({
                   height: 8,
                 },
               },
+              text: {
+                fill: "#6f6d6d",
+              },
             },
             zIndex: 0,
           });
         },
-        validateConnection({ targetMagnet }) {
+        validateConnection({ targetMagnet, sourcePort, targetPort }) {
+          if (sourcePort === targetPort) return false;
           return !!targetMagnet;
         },
       },
@@ -540,31 +201,14 @@ const FlowEditor = ({
       },
     });
 
+    graphRef.current = graph;
+
     // #region 使用插件
     const _transform = new Transform({
       resizing: true,
     });
 
     graph.use(_transform).use(new Snapline()).use(new History());
-
-    register({
-      shape: "custom-react-round-rect",
-      width: 100,
-      height: 50,
-      component: CustomReactRoundRect,
-    });
-    register({
-      shape: "custom-react-rect",
-      width: 100,
-      height: 50,
-      component: CustomReactRect,
-    });
-    register({
-      shape: "custom-react-polygon",
-      width: 100,
-      height: 50,
-      component: CustomReactPolygon,
-    });
 
     // 我们也可以在插件实例上监听事件
     _transform.on("node:resizing", ({ node }) => {
@@ -579,42 +223,113 @@ const FlowEditor = ({
     });
 
     graph.on("edge:click", ({ edge }) => {
-      edge.addTools({
-        name: "button",
-        args: {
-          markup: [
-            {
-              tagName: "circle",
-              selector: "button",
-              attrs: {
-                r: 8,
-                fill: "#ddd",
+      edge.addTools([
+        {
+          name: "button",
+          args: {
+            markup: [
+              {
+                tagName: "circle",
+                selector: "button",
+                attrs: {
+                  r: 10,
+                  fill: "#ddd",
+                },
               },
-            },
-            {
-              tagName: "text",
-              textContent: "x",
-              selector: "icon",
-              attrs: {
-                fill: "white",
-                fontSize: 14,
-                textAnchor: "middle",
-                pointerEvents: "none",
-                y: "0.3em",
+              {
+                tagName: "text",
+                textContent: "x",
+                selector: "icon",
+                attrs: {
+                  fill: "white",
+                  fontSize: 20,
+                  textAnchor: "middle",
+                  pointerEvents: "none",
+                  y: "5",
+                },
               },
+            ],
+            x: "0%",
+            y: "0%",
+            offset: { x: 40, y: -20 },
+            onClick() {
+              Dialog.show({
+                content: (
+                  <p
+                    style={{
+                      textAlign: "center",
+                      fontSize: "1.2rem",
+                      color: "#6f6d6d",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    确定删除该边吗？
+                  </p>
+                ),
+                closeOnAction: true,
+                closeOnMaskClick: true,
+                actions: [
+                  [
+                    {
+                      key: "cancel",
+                      text: "取消",
+                      style: { color: "#6f6d6d" },
+                    },
+                    {
+                      key: "delete",
+                      text: "确定",
+                      style: { color: "pink" },
+                      onClick: () => {
+                        edge.remove();
+                      },
+                    },
+                  ],
+                ],
+              });
             },
-          ],
-          x: "0%",
-          y: "0%",
-          offset: { x: 40, y: 0 },
-          onClick() {
-            edge.remove();
           },
         },
-      });
+        {
+          name: "button",
+          args: {
+            markup: [
+              {
+                tagName: "circle",
+                selector: "button",
+                attrs: {
+                  r: 10,
+                  fill: "#ddd",
+                },
+              },
+              {
+                tagName: "image",
+                selector: "image",
+                attrs: {
+                  href: updatePngBlobUrl ?? "",
+                  width: 16,
+                  height: 16,
+                  y: "-8",
+                  x: "-8",
+                },
+              },
+            ],
+            x: "0%",
+            y: "0%",
+            offset: { x: 40, y: -50 },
+            onClick: async ({ cell }: { cell: Cell }) => {
+              try {
+                const label = cell.labels?.[0]?.attrs?.label?.text ?? "";
+                setVisible(true);
+                setLabel(label);
+                currentNodeRef.current = cell;
+              } catch (err) {}
+            },
+          },
+        },
+      ]);
     });
 
-    graph.on("cell:click", ({ cell }) => {
+    graph.on("cell:click", ({ cell, e }) => {
       if (cell.isNode()) {
         const cellColor = cell.attrs?.body.fill ?? "#ddd";
         graph.view.svg.style.color = cellColor as string;
@@ -656,7 +371,7 @@ const FlowEditor = ({
                     tagName: "circle",
                     selector: "button",
                     attrs: {
-                      r: 8,
+                      r: 10,
                       fill: "#ddd",
                     },
                   },
@@ -666,30 +381,105 @@ const FlowEditor = ({
                     selector: "icon",
                     attrs: {
                       fill: "white",
-                      fontSize: 14,
+                      fontSize: 20,
                       textAnchor: "middle",
                       pointerEvents: "none",
-                      y: "0.3em",
+                      y: "5",
                     },
                   },
                 ],
                 x: "100%",
                 y: "0%",
-                offset: { x: -6, y: 6 },
+                offset: { x: -12, y: 12 },
                 onClick({ cell }: { cell: Cell }) {
-                  cell.remove();
+                  Dialog.show({
+                    content: (
+                      <p
+                        style={{
+                          textAlign: "center",
+                          fontSize: "1.2rem",
+                          color: "#6f6d6d",
+                          fontWeight: "bold",
+                        }}
+                      >
+                        确定删除{cell.label.slice(0, 20)}吗？
+                      </p>
+                    ),
+                    closeOnAction: true,
+                    closeOnMaskClick: true,
+                    actions: [
+                      [
+                        {
+                          key: "cancel",
+                          text: "取消",
+                          style: { color: "#6f6d6d" },
+                        },
+                        {
+                          key: "delete",
+                          text: "确定",
+                          style: { color: "pink" },
+                          onClick: () => {
+                            cell.remove();
+                          },
+                        },
+                      ],
+                    ],
+                  });
                 },
               },
             },
           ]);
         }
+        cell.addTools([
+          {
+            name: "button",
+            args: {
+              markup: [
+                {
+                  tagName: "circle",
+                  selector: "button",
+                  attrs: {
+                    r: 10,
+                    fill: "#ddd",
+                  },
+                },
+                {
+                  tagName: "image",
+                  selector: "image",
+                  attrs: {
+                    href: updatePngBlobUrl ?? "",
+                    width: 16,
+                    height: 16,
+                    y: "-8",
+                    x: "-8",
+                  },
+                },
+              ],
+              x: "100%",
+              y: "100%",
+              offset: { x: -12, y: -12 },
+              onClick: async ({ cell }: { cell: Cell }) => {
+                setVisible(true);
+                setLabel(cell.label ?? "");
+                currentNodeRef.current = cell;
+              },
+            },
+          },
+        ]);
       }
     });
 
     graph.on("node:port:click", ({ view, e }) => {
       e.preventDefault();
       e.stopImmediatePropagation();
-      view.cell.addTools([addRectPanel, addPolygonPanel, addRoundRectPanel]);
+      const port = e.target;
+      const group = port.getAttribute("port-group");
+      view.cell.removeTools();
+      view.cell.addTools([
+        addRectPanel(group),
+        addPolygonPanel(group),
+        addRoundRectPanel(group),
+      ]);
     });
 
     if (data.content) {
@@ -780,6 +570,7 @@ const FlowEditor = ({
     };
     window.addEventListener("beforeunload", beforeUnloadHandler);
     return () => {
+      URL.revokeObjectURL(updatePngBlobUrl);
       containerRef.current?.removeEventListener(
         "pointerdown",
         pointerDownHandler
@@ -812,6 +603,57 @@ const FlowEditor = ({
         autoSize={{ minRows: 1, maxRows: 3 }}
       />
       <div className={[s.graphBox].join(" ")} ref={containerRef}></div>
+      <Dialog
+        visible={visible}
+        content={
+          <TextArea
+            style={{
+              "--color": "#6f6d6d",
+              "--text-align": "center",
+              "--font-size": "1.2rem",
+              fontWeight: "bold",
+            }}
+            onChange={(e) => {
+              try {
+                setLabel(e);
+              } catch (err) {}
+            }}
+            value={label}
+            rows={1}
+            autoSize={true}
+            placeholder="请输入"
+          />
+        }
+        closeOnAction={true}
+        closeOnMaskClick={true}
+        onClose={() => {
+          setVisible(false);
+        }}
+        actions={[
+          [
+            {
+              key: "cancel",
+              text: "取消",
+              style: { color: "#6f6d6d" },
+            },
+            {
+              key: "delete",
+              text: "确定",
+              style: { color: "pink" },
+              onClick: () => {
+                if (currentNodeRef.current) {
+                  if (currentNodeRef.current.isNode()) {
+                    currentNodeRef.current.setLabel(label);
+                  } else {
+                    currentNodeRef.current.setLabelAt(0, label);
+                  }
+                }
+                graphRef.current && syncToStorage(graphRef.current);
+              },
+            },
+          ],
+        ]}
+      />
     </div>
   );
 };

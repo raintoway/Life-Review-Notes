@@ -37,6 +37,9 @@ export const TaskList = (props: IProps) => {
         emergencyScore: 0,
       },
     ]);
+    requestAnimationFrame(() => {
+      localStorage.downloadAllDataAsJSON();
+    });
   };
   const delTask = (taskId: string) => {
     setTasks(
@@ -73,7 +76,7 @@ export const TaskList = (props: IProps) => {
       }
     }
   }, [props.tasks, localStorage]);
-  
+
   useEffect(() => {
     init();
   }, [init]);
@@ -99,7 +102,7 @@ export const TaskList = (props: IProps) => {
             className={s.input}
             type="number"
             placeholder="请输入内容"
-            value={money}
+            value={money + ""}
             onChange={(val) => {
               const transformToNum = Number(val);
               if (typeof transformToNum === "number") {
@@ -125,10 +128,12 @@ export const TaskList = (props: IProps) => {
                         const currentTarget = e.currentTarget;
                         const checkIcon =
                           currentTarget.querySelector(".task-check-icon");
-                        checkIcon && (checkIcon.style.display = "block");
+                        checkIcon &&
+                          ((checkIcon as HTMLElement).style.display = "block");
                         const closeIcon =
                           currentTarget.querySelector(".task-close-icon");
-                        closeIcon && (closeIcon.style.display = "block");
+                        closeIcon &&
+                          ((closeIcon as HTMLElement).style.display = "block");
                         const allCheckIcon =
                           document.querySelectorAll(".task-check-icon");
                         Array.prototype.slice

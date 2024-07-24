@@ -1,16 +1,13 @@
-import React, {
-  useCallback,
-  useContext,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+// @ts-nocheck
+
+import { useCallback, useEffect, useState } from "react";
 import s from "./index.module.scss";
 import {
   DragDropContext,
   Draggable,
   Droppable,
   DropResult,
+  // @ts-expect-error 正常报错
 } from "react-beautiful-dnd";
 import LocalStorage from "../../../../common/storage/localstorage";
 import { Button } from "antd-mobile";
@@ -83,7 +80,7 @@ const Experience = (props: Props) => {
     <div className={s.wrapper}>
       <DragDropContext onDragEnd={(result) => onDragEnd(result)}>
         <Droppable droppableId={"id"}>
-          {(provided, snapshot) => {
+          {(provided) => {
             return (
               <div {...provided.droppableProps} ref={provided.innerRef}>
                 {data.map((link, index) => (

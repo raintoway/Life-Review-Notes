@@ -1,4 +1,5 @@
-import React, { Dispatch, SetStateAction, useRef, useState } from "react";
+// @ts-nocheck
+import { useRef } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import s from "./index.module.scss";
@@ -44,7 +45,7 @@ function Editor({
   setValue: (content: string) => void;
   deleteCurrent?: () => void;
 }) {
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const style = {
     fontSize: "20px", // 这里设置默认字体大小
     width: "100%",
@@ -57,8 +58,9 @@ function Editor({
         if (!deleteCurrent) return;
         try {
           const currentTarget = e.currentTarget;
-          currentTarget.children[0].style.width = "calc(100% - 30px)";
-          currentTarget.children[1].style.display = "block";
+          (currentTarget.children[0] as HTMLElement).style.width =
+            "calc(100% - 30px)";
+          (currentTarget.children[1] as HTMLElement).style.display = "block";
           const allExperienceItem =
             document.querySelectorAll(".experience-item");
           Array.prototype.slice.call(allExperienceItem).forEach((item) => {
@@ -72,8 +74,8 @@ function Editor({
     >
       <ReactQuill
         onFocus={() => {
-          if (containerRef.current) {
-            const container = containerRef.current;
+          const container = containerRef.current;
+          if (container) {
             container.querySelector(".ql-toolbar").style.opacity = 1;
             container.querySelector(".ql-toolbar").style.visibility = "visible";
             container.querySelector(".ql-toolbar").style.animation =

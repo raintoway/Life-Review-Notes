@@ -1,11 +1,4 @@
-import React, {
-  useCallback,
-  useContext,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
-import s from "./wrapper.module.scss";
+import { useCallback, useContext, useEffect, useState } from "react";
 import Review, { ICollection } from ".";
 import { StorageContext } from "../../../../App";
 

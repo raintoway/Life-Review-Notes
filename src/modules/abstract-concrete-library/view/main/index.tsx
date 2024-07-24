@@ -1,3 +1,4 @@
+//@ts-nocheck
 import {
   useRef,
   useEffect,
@@ -39,7 +40,12 @@ export const defaultTransform = {
 const AbstractConcreteLibrary = (props: IProps) => {
   const { localStorage } = props;
   const currentElementRef = useRef<SVGElement>();
-  const operationBoxRef = useRef();
+  const operationBoxRef = useRef<d3.Selection<
+    SVGGElement,
+    unknown,
+    HTMLElement,
+    any
+  > | null>(null);
   const containerRef =
     useRef<MutableRefObject<RefObject<HTMLDivElement> | null>>(null);
   const [editVisible, setEditVisible] = useState(false);
@@ -258,31 +264,12 @@ const AbstractConcreteLibrary = (props: IProps) => {
         .attr("style", "max-width: 100%; height: auto; font: 12px sans-serif;");
 
       const g = svg.append("g");
-      const svgDrag = () => {
-        function dragstarted(event, d) {}
-
-        function dragged(event, d) {
-          transformRef.current.translateX += event.dx;
-          transformRef.current.translateY += event.dy;
-          syncTransformToLocalStorage();
-          g.attr(
-            "transform",
-            `translate(${transformRef.current.translateX},${transformRef.current.translateY}) scale(${transformRef.current.scale})`
-          );
-        }
-
-        function dragended(event, d) {}
-
-        return d3
-          .drag()
-          .on("start", dragstarted)
-          .on("drag", dragged)
-          .on("end", dragended);
-      };
-      svg.call(svgDrag());
 
       const zoomed = (args) => {
         const { transform } = args;
+        transformRef.current.translateX = transform.x;
+        transformRef.current.translateY = transform.y;
+        syncTransformToLocalStorage();
         const { k } = transform;
         transformRef.current.scale = k;
         syncTransformToLocalStorage();
@@ -314,8 +301,7 @@ const AbstractConcreteLibrary = (props: IProps) => {
         .attr("fill", (d) => {
           return d.color;
         })
-        .attr("d", "M0,-5L10,0L0,5");
-      // .on("pine");
+        .attr("d", "M0,-5L10,0L0,5")
 
       const operationBox = g.append("g");
       operationBoxRef.current = operationBox;

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Node } from "@antv/x6";
 export const revisePort = (node: Node) => {
     node.port.ports.forEach((item) => {
