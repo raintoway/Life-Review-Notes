@@ -237,6 +237,7 @@ export const addRectPanel = (option: string) => {
                     ports: { ...ports },
                     label: "",
                 });
+                //@ts-expect-error 正常报错
                 newNode.port.ports.forEach((item) => {
                     newNode.portProp(item.id!, "attrs/circle/r", 0);
                 })
@@ -359,6 +360,7 @@ export const addPolygonPanel = (option: string) => {
                     // @ts-expect-error 正常报错
                     ports: { ...ports },
                 });
+                //@ts-expect-error 正常报错
                 newNode.port.ports.forEach((item) => {
                     newNode.portProp(item.id!, "attrs/circle/r", 0);
                 })
@@ -485,6 +487,7 @@ export const addRoundRectPanel = (option: string) => {
                     ports: { ...ports },
                     label: "结束",
                 });
+                //@ts-expect-error 正常报错
                 newNode.port.ports.forEach((item) => {
                     newNode.portProp(item.id!, "attrs/circle/r", 0);
                 })

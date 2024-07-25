@@ -486,11 +486,12 @@ const FlowEditor = ({
       } catch (err) {}
     });
 
-    if (data.content) {
-      graph.fromJSON(JSON.parse(data.content));
-    } else {
-      init(graph);
-    }
+    // if (data.content) {
+    //   graph.fromJSON(JSON.parse(data.content));
+    // } else {
+    //   init(graph);
+    // }
+    init(graph);
 
     graph.centerContent();
 
@@ -612,7 +613,7 @@ const FlowEditor = ({
     }, 2000);
 
     containerRef.current?.addEventListener("pointerdown", pointerDownHandler);
-    pointerDownHandler()
+    pointerDownHandler();
     const beforeUnloadHandler = (e) => {
       syncToStorage(graph);
       clearInterval(timer);
