@@ -16,6 +16,8 @@ import {
   addPolygonPanel,
   addRoundRectPanel,
 } from "./config";
+
+import Hammer from "hammerjs";
 const X6ReactPortalProvider = Portal.getProvider(); // 注意，一个 graph 只能申明一个 portal provider
 export const FlowEditorContext = React.createContext<{
   syncToStorage: (graph: Graph) => void;
@@ -77,6 +79,7 @@ const FlowEditor = ({
   const [title, setTitle] = useState("");
   const [visible, setVisible] = useState(false);
   const [label, setLabel] = useState("");
+  const [deleteVisible, setDeleteVisible] = useState(false);
   const currentNodeRef = useRef(null);
   const graphRef = useRef(null);
 
@@ -149,13 +152,13 @@ const FlowEditor = ({
     const graph = new Graph({
       container: container,
       grid: true,
-      panning: true,
+      // panning: true,
       connecting: {
         router: "manhattan",
         connector: {
           name: "rounded",
           args: {
-            radius: 8,
+            radius: 6,
           },
         },
         anchor: "center",
@@ -335,30 +338,39 @@ const FlowEditor = ({
         graph.view.svg.style.color = cellColor as string;
         cell.port.ports.forEach((item) => {
           switch (item.group) {
-            case "top":
+            case "outer-top":
               cell.portProp(item.id!, "args/y", -20);
+              cell.portProp(item.id!, "attrs/circle/r", 8);
+              cell.portProp(item.id!, "attrs/circle/stroke", "transparent");
+              cell.portProp(item.id!, "attrs/circle/fill", cellColor);
               break;
-            case "bottom":
+            case "outer-bottom":
               cell.portProp(
                 item.id!,
                 "args/y",
                 cell.store.data.size.height + 20
               );
+              cell.portProp(item.id!, "attrs/circle/r", 8);
+              cell.portProp(item.id!, "attrs/circle/stroke", "transparent");
+              cell.portProp(item.id!, "attrs/circle/fill", cellColor);
               break;
-            case "left":
+            case "outer-left":
               cell.portProp(item.id!, "args/x", -20);
+              cell.portProp(item.id!, "attrs/circle/r", 8);
+              cell.portProp(item.id!, "attrs/circle/stroke", "transparent");
+              cell.portProp(item.id!, "attrs/circle/fill", cellColor);
               break;
-            case "right":
+            case "outer-right":
               cell.portProp(
                 item.id!,
                 "args/x",
                 cell.store.data.size.width + 20
               );
+              cell.portProp(item.id!, "attrs/circle/r", 8);
+              cell.portProp(item.id!, "attrs/circle/stroke", "transparent");
+              cell.portProp(item.id!, "attrs/circle/fill", cellColor);
               break;
           }
-          cell.portProp(item.id!, "attrs/circle/r", 8);
-          cell.portProp(item.id!, "attrs/circle/stroke", "transparent");
-          cell.portProp(item.id!, "attrs/circle/fill", cellColor);
         });
         if (cell.attrs?.body.isStart) {
         } else {
@@ -392,39 +404,8 @@ const FlowEditor = ({
                 y: "0%",
                 offset: { x: -12, y: 12 },
                 onClick({ cell }: { cell: Cell }) {
-                  Dialog.show({
-                    content: (
-                      <p
-                        style={{
-                          textAlign: "center",
-                          fontSize: "1.2rem",
-                          color: "#6f6d6d",
-                          fontWeight: "bold",
-                        }}
-                      >
-                        确定删除{cell.label.slice(0, 20)}吗？
-                      </p>
-                    ),
-                    closeOnAction: true,
-                    closeOnMaskClick: true,
-                    actions: [
-                      [
-                        {
-                          key: "cancel",
-                          text: "取消",
-                          style: { color: "#6f6d6d" },
-                        },
-                        {
-                          key: "delete",
-                          text: "确定",
-                          style: { color: "pink" },
-                          onClick: () => {
-                            cell.remove();
-                          },
-                        },
-                      ],
-                    ],
-                  });
+                  setDeleteVisible(true);
+                  currentNodeRef.current = cell;
                 },
               },
             },
@@ -482,6 +463,29 @@ const FlowEditor = ({
       ]);
     });
 
+    graph.on("edge:connected", ({ isNew, edge }) => {
+      try {
+        const sourcePortId = edge.getSourcePortId();
+        const targetPortId = edge.getTargetPortId();
+        const sourcePort = edge.getSourceCell().getPort(sourcePortId);
+        const targetPort = edge.getTargetCell().getPort(targetPortId);
+        const souceSplit = sourcePort.group.split("-");
+        const targetSplit = targetPort.group.split("-");
+        if (souceSplit.length > 1) {
+          edge.prop(
+            "source/port",
+            edge.getSourceCell().getPortsByGroup(souceSplit[1])[0].id
+          );
+        }
+        if (targetSplit.length > 1) {
+          edge.prop(
+            "target/port",
+            edge.getTargetCell().getPortsByGroup(targetSplit[1])[0].id
+          );
+        }
+      } catch (err) {}
+    });
+
     if (data.content) {
       graph.fromJSON(JSON.parse(data.content));
     } else {
@@ -536,16 +540,16 @@ const FlowEditor = ({
         allNodes.forEach((node) => {
           node.port.ports.forEach((item) => {
             switch (item.group) {
-              case "top":
+              case "outer-top":
                 node.portProp(item.id!, "args/y", 0);
                 break;
-              case "bottom":
+              case "outer-bottom":
                 node.portProp(item.id!, "args/y", node.store.data.size.height);
                 break;
-              case "left":
+              case "outer-left":
                 node.portProp(item.id!, "args/x", 0);
                 break;
-              case "right":
+              case "outer-right":
                 node.portProp(item.id!, "args/x", node.store.data.size.width);
                 break;
             }
@@ -559,17 +563,65 @@ const FlowEditor = ({
       });
     };
 
+    const mc = new Hammer(containerRef.current);
+
+    const pinHandler = (e) => {
+      if (e.type === "pinchstart") {
+        console.log("Pinch start", e);
+      }
+      const pointer1 = e.pointers[0];
+      const pointer2 = e.pointers[1];
+      if (
+        containerRef.current &&
+        containerRef.current === pointer1.target.parentNode &&
+        containerRef.current === pointer2.target.parentNode
+      ) {
+        // 计算缩放比例
+        const scale = e.scale;
+        graph.zoom(scale, { absolute: true });
+      }
+    };
+    mc.get("pinch").set({ enable: true, pointers: 2 });
+    mc.on("pinchstart pinchmove", pinHandler);
+    const prePos = { x: 0, y: 0 };
+    const panHandler = (e) => {
+      if (
+        containerRef.current &&
+        containerRef.current === e.target.parentNode
+      ) {
+        // 计算画布的偏移量
+        const translate = graph.transform.getTranslation();
+        const offsetX = e.deltaX - prePos.x + translate.tx;
+        const offsetY = e.deltaY - prePos.y + translate.ty;
+        prePos.x = e.deltaX;
+        prePos.y = e.deltaY;
+        graph.translate(offsetX, offsetY);
+      }
+    };
+    mc.get("pan").set();
+    // 添加手势监听器
+    mc.on("pan", panHandler);
+    const handlerPanStart = () => {
+      prePos.x = 0;
+      prePos.y = 0;
+    };
+    mc.on("panstart", handlerPanStart);
+
     const timer = setInterval(() => {
       syncToStorage(graph);
-    }, 3000);
+    }, 2000);
 
     containerRef.current?.addEventListener("pointerdown", pointerDownHandler);
-    const beforeUnloadHandler = () => {
-      clearInterval(timer);
+    pointerDownHandler()
+    const beforeUnloadHandler = (e) => {
       syncToStorage(graph);
+      clearInterval(timer);
     };
     window.addEventListener("beforeunload", beforeUnloadHandler);
     return () => {
+      mc.off("pan", panHandler);
+      mc.off("panstart", handlerPanStart);
+      mc.off("pinchstart pinchmove", pinHandler);
       URL.revokeObjectURL(updatePngBlobUrl);
       containerRef.current?.removeEventListener(
         "pointerdown",
@@ -600,7 +652,7 @@ const FlowEditor = ({
         }}
         value={title}
         rows={1}
-        autoSize={{ minRows: 1, maxRows: 3 }}
+        autoSize={{ minRows: 1, maxRows: 2 }}
       />
       <div className={[s.graphBox].join(" ")} ref={containerRef}></div>
       <Dialog
@@ -646,6 +698,52 @@ const FlowEditor = ({
                     currentNodeRef.current.setLabel(label);
                   } else {
                     currentNodeRef.current.setLabelAt(0, label);
+                  }
+                }
+                graphRef.current && syncToStorage(graphRef.current);
+              },
+            },
+          ],
+        ]}
+      />
+      <Dialog
+        visible={deleteVisible}
+        content={
+          <p
+            style={{
+              textAlign: "center",
+              fontSize: "1.2rem",
+              color: "#6f6d6d",
+              fontWeight: "bold",
+            }}
+          >
+            确定删除
+            {currentNodeRef.current?.isNode()
+              ? currentNodeRef.current.label?.slice(0, 20) ?? ""
+              : ""}
+            吗？
+          </p>
+        }
+        closeOnAction={true}
+        closeOnMaskClick={true}
+        onClose={() => {
+          setDeleteVisible(false);
+        }}
+        actions={[
+          [
+            {
+              key: "cancel",
+              text: "取消",
+              style: { color: "#6f6d6d" },
+            },
+            {
+              key: "delete",
+              text: "确定",
+              style: { color: "pink" },
+              onClick: () => {
+                if (currentNodeRef.current) {
+                  if (currentNodeRef.current.isNode()) {
+                    currentNodeRef.current.remove();
                   }
                 }
                 graphRef.current && syncToStorage(graphRef.current);

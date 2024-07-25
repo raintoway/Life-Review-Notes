@@ -5,7 +5,7 @@
 }
 .container {
   width: 100%;
-  padding: 0 30px;
+  padding: 0 20px;
   z-index: 1;
   .moneyBox {
     width: 100%;
@@ -43,7 +43,7 @@
       width: 100%;
       .item {
         .label {
-          min-width: 65px;
+          min-width: 4.5rem;
           width: 65px;
           color: pink;
         }

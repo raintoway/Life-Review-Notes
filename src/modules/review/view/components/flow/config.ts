@@ -17,7 +17,37 @@ const groups = {
             name: "absolute",
         },
     },
+    'outer-bottom': {
+        attrs: {
+            circle: {
+                r: 6,
+                magnet: true,
+                stroke: "#8f8f8f",
+                strokeWidth: 1,
+                fill: "#fff",
+            },
+        },
+        position: {
+            args: { x: "50%", y: "100%" },
+            name: "absolute",
+        },
+    },
     top: {
+        attrs: {
+            circle: {
+                r: 6,
+                magnet: true,
+                stroke: "#8f8f8f",
+                strokeWidth: 1,
+                fill: "#fff",
+            },
+        },
+        position: {
+            args: { x: "50%", y: "0%" },
+            name: "absolute",
+        },
+    },
+    'outer-top': {
         attrs: {
             circle: {
                 r: 6,
@@ -47,7 +77,37 @@ const groups = {
             name: "absolute",
         },
     },
+    'outer-left': {
+        attrs: {
+            circle: {
+                r: 6,
+                magnet: true,
+                stroke: "#8f8f8f",
+                strokeWidth: 1,
+                fill: "#fff",
+            },
+        },
+        position: {
+            args: { x: "0%", y: "50%" },
+            name: "absolute",
+        },
+    },
     right: {
+        attrs: {
+            circle: {
+                r: 6,
+                magnet: true,
+                stroke: "#8f8f8f",
+                strokeWidth: 1,
+                fill: "#fff",
+            },
+        },
+        position: {
+            args: { x: "100%", y: "50%" },
+            name: "absolute",
+        },
+    },
+    'outer-right': {
         attrs: {
             circle: {
                 r: 6,
@@ -70,39 +130,51 @@ export const ports = {
             group: "top",
         },
         {
+            group: "outer-top",
+        },
+        {
             group: "bottom",
+        },
+        {
+            group: "outer-bottom",
         },
         {
             group: "left",
         },
         {
+            group: "outer-left",
+        },
+        {
             group: "right",
+        },
+        {
+            group: "outer-right",
         },
     ],
 };
 const addRectConfig: Record<string, any> = {
-    right: {
+    'outer-right': {
         template: { x: '100%', y: '-100%', offset: { x: 40, y: 0 } }, node: (view: NodeView) => {
             const { width, height } = view.cell.size();
             return { x: view.cell.getPosition().x + width + 40, y: view.cell.getPosition().y + height + 60 }
         }, sourcePort: 'right', targetPort: 'top'
     },
-    bottom: {
+    'outer-bottom': {
         template: { x: '50%', y: '100%', offset: { x: -90, y: 40 } }, node: (view: NodeView) => {
-            const { width, height } = view.cell.size();
+            const { height } = view.cell.size();
             return { x: view.cell.getPosition().x, y: view.cell.getPosition().y + height + 60 }
         }, sourcePort: 'bottom', targetPort: 'top'
     },
-    left: {
+    'outer-left': {
         template: { x: '-100%', y: '-100%', offset: { x: 0, y: 0 } }, node: (view: NodeView) => {
-            const { width, height } = view.cell.size();
+            const { height } = view.cell.size();
             return { x: view.cell.getPosition().x - 100 - 40, y: view.cell.getPosition().y + height + 60 }
         }, sourcePort: 'left', targetPort: 'top'
 
     },
-    top: {
+    'outer-top': {
         template: { x: '50%', y: '100%', offset: { x: -90, y: 40 } }, node: (view: NodeView) => {
-            const { width, height } = view.cell.size();
+            const { height } = view.cell.size();
             return { x: view.cell.getPosition().x, y: view.cell.getPosition().y + height + 60 }
         }, sourcePort: 'bottom', targetPort: 'top'
     },
@@ -161,9 +233,13 @@ export const addRectPanel = (option: string) => {
                             },
                         },
                     },
+                    // @ts-expect-error 正常报错
                     ports: { ...ports },
                     label: "",
                 });
+                newNode.port.ports.forEach((item) => {
+                    newNode.portProp(item.id!, "attrs/circle/r", 0);
+                })
                 const sourcePort = view.cell.getPortsByGroup(config.sourcePort);
                 const targetPort = newNode.getPortsByGroup(config.targetPort);
                 if (sourcePort.length && targetPort.length) {
@@ -204,27 +280,27 @@ export const addRectPanel = (option: string) => {
     };
 }
 const addPolygonConfig: Record<string, any> = {
-    right: {
+    'outer-right': {
         template: { x: '100%', y: '-100%', offset: { x: 40, y: 40 } }, node: (view: NodeView) => {
             const { width, height } = view.cell.size();
             return { x: view.cell.getPosition().x + width + 40, y: view.cell.getPosition().y + height + 60 }
         }, sourcePort: 'right', targetPort: 'top'
     },
-    bottom: {
+    'outer-bottom': {
         template: { x: '50%', y: '100%', offset: { x: -25, y: 40 } }, node: (view: NodeView) => {
-            const { width, height } = view.cell.size();
+            const { height } = view.cell.size();
             return { x: view.cell.getPosition().x, y: view.cell.getPosition().y + height + 60 }
         }, sourcePort: 'bottom', targetPort: 'top'
     },
-    left: {
+    'outer-left': {
         template: { x: '-100%', y: '-100%', offset: { x: 0, y: 40 } }, node: (view: NodeView) => {
-            const { width, height } = view.cell.size();
+            const { height } = view.cell.size();
             return { x: view.cell.getPosition().x - 100 - 40, y: view.cell.getPosition().y + height + 60 }
         }, sourcePort: 'left', targetPort: 'top'
     },
-    top: {
+    'outer-top': {
         template: { x: '50%', y: '100%', offset: { x: -25, y: 40 } }, node: (view: NodeView) => {
-            const { width, height } = view.cell.size();
+            const { height } = view.cell.size();
             return { x: view.cell.getPosition().x, y: view.cell.getPosition().y + height + 60 }
         }, sourcePort: 'bottom', targetPort: 'top'
     },
@@ -280,8 +356,12 @@ export const addPolygonPanel = (option: string) => {
                         },
                     },
                     label: "",
+                    // @ts-expect-error 正常报错
                     ports: { ...ports },
                 });
+                newNode.port.ports.forEach((item) => {
+                    newNode.portProp(item.id!, "attrs/circle/r", 0);
+                })
                 const sourcePort = view.cell.getPortsByGroup(config.sourcePort);
                 const targetPort = newNode.getPortsByGroup(config.targetPort);
                 if (sourcePort.length && targetPort.length) {
@@ -322,27 +402,27 @@ export const addPolygonPanel = (option: string) => {
     };
 }
 const addRoundRectConfig: Record<string, any> = {
-    right: {
+    'outer-right': {
         template: { x: '100%', y: '-100%', offset: { x: 40, y: 80 } }, node: (view: NodeView) => {
             const { width, height } = view.cell.size();
             return { x: view.cell.getPosition().x + width + 40, y: view.cell.getPosition().y + height + 60 }
         }, sourcePort: 'right', targetPort: 'top'
     },
-    bottom: {
+    'outer-bottom': {
         template: { x: '50%', y: '100%', offset: { x: 40, y: 40 } }, node: (view: NodeView) => {
-            const { width, height } = view.cell.size();
+            const { height } = view.cell.size();
             return { x: view.cell.getPosition().x, y: view.cell.getPosition().y + height + 60 }
         }, sourcePort: 'bottom', targetPort: 'top'
     },
-    left: {
+    'outer-left': {
         template: { x: '-100%', y: '-100%', offset: { x: 0, y: 80 } }, node: (view: NodeView) => {
-            const { width, height } = view.cell.size();
+            const { height } = view.cell.size();
             return { x: view.cell.getPosition().x - 100 - 40, y: view.cell.getPosition().y + height + 60 }
         }, sourcePort: 'left', targetPort: 'top'
     },
-    top: {
+    'outer-top': {
         template: { x: '50%', y: '100%', offset: { x: 40, y: 40 } }, node: (view: NodeView) => {
-            const { width, height } = view.cell.size();
+            const { height } = view.cell.size();
             return { x: view.cell.getPosition().x, y: view.cell.getPosition().y + height + 60 }
         }, sourcePort: 'bottom', targetPort: 'top'
     },
@@ -401,9 +481,13 @@ export const addRoundRectPanel = (option: string) => {
                             },
                         },
                     },
+                    // @ts-expect-error 正常报错
                     ports: { ...ports },
                     label: "结束",
                 });
+                newNode.port.ports.forEach((item) => {
+                    newNode.portProp(item.id!, "attrs/circle/r", 0);
+                })
                 const sourcePort = view.cell.getPortsByGroup(config.sourcePort);
                 const targetPort = newNode.getPortsByGroup(config.targetPort);
                 if (sourcePort.length && targetPort.length) {

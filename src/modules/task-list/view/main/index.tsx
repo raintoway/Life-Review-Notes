@@ -3,10 +3,11 @@ import s from "./index.module.scss";
 import { nanoid } from "nanoid";
 import {
   AddCircleOutline,
+  ArrowDownCircleOutline,
   CheckCircleOutline,
   CloseCircleOutline,
 } from "antd-mobile-icons";
-import { Button, Dialog, Input, Slider } from "antd-mobile";
+import { Button, Dialog, Input, Slider, Space } from "antd-mobile";
 import LocalStorage from "../../../../common/storage/localstorage";
 export interface IProps {
   tasks: Task[];
@@ -37,9 +38,9 @@ export const TaskList = (props: IProps) => {
         emergencyScore: 0,
       },
     ]);
-    requestAnimationFrame(() => {
-      localStorage.downloadAllDataAsJSON();
-    });
+  };
+  const download = () => {
+    localStorage.downloadAllDataAsJSON();
   };
   const delTask = (taskId: string) => {
     setTasks(
@@ -319,14 +320,24 @@ export const TaskList = (props: IProps) => {
           </FlipMove>
         </div>
         <div className={s.operation}>
-          <Button
-            color="primary"
-            fill="none"
-            onClick={addTask}
-            className={s.lowerMintGreen}
-          >
-            <AddCircleOutline />
-          </Button>
+          <Space direction="vertical">
+            <Button
+              color="primary"
+              fill="none"
+              onClick={download}
+              className={s.downloadBtn}
+            >
+              <ArrowDownCircleOutline />
+            </Button>
+            <Button
+              color="primary"
+              fill="none"
+              onClick={addTask}
+              className={s.lowerMintGreen}
+            >
+              <AddCircleOutline />
+            </Button>
+          </Space>
         </div>
       </div>
     </>

@@ -35,6 +35,27 @@
         display: none;
       }
     }
+    .x6-widget-transform-resize {
+      width: 16px !important;
+      height: 16px !important;
+      border-radius: 10px;
+    }
+    .x6-widget-transform-resize[data-position="top-right"] {
+      top: -8px !important;
+      right: -8px !important;
+    }
+    .x6-widget-transform-resize[data-position="bottom-right"] {
+      right: -8px !important;
+      bottom: -8px !important;
+    }
+    .x6-widget-transform-resize[data-position="bottom-left"] {
+      left: -8px !important;
+      bottom: -8px !important;
+    }
+    .x6-widget-transform-resize[data-position="top-left"] {
+      left: -8px !important;
+      top: -8px !important;
+    }
   }
 }
 

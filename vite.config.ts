@@ -6,21 +6,21 @@ import { VitePWA } from 'vite-plugin-pwa';
 export default defineConfig({
   plugins: [react(), VitePWA({
     manifest: {
-      "name": 'PWA Demo',
-      "description": "A PWA demo built with Vite and vite pwa",
+      "name": 'Life Review Note',
+      "short_name": 'Life Review Note',
+      "description": "Life Review Note",
       "theme_color": "#242424",
-
       // 为了方便，使用svg图标
       icons: [
         {
-          "src": "/public/taskList.svg",
+          "src": "icon.png",
           "sizes": "192x192",
-          "type": "image/svg+xml"
+          "type": "image/png"
         },
         {
-          "src": "/public/taskList.svg",
+          "src": "icon.png",
           "sizes": "512x512",
-          "type": "image/svg+xml"
+          "type": "image/png"
         }
       ]
     },

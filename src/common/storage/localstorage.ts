@@ -115,6 +115,7 @@ class LocalStorage {
                 const objectStoreRequest = store.openCursor();
 
                 objectStoreRequest.onsuccess = (e) => {
+                    // @ts-expect-error 正常报错
                     const cursor = e.target?.result;
                     if (cursor) {
                         // 将键和值添加到allData对象的对应对象存储中

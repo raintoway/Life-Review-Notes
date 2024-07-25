@@ -1,5 +1,5 @@
 {
-  "name": "temp",
+  "name": "life_review_note",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -20,7 +20,7 @@
     "antd-mobile": "^5.36.0",
     "antd-mobile-icons": "^0.3.0",
     "d3": "^7.9.0",
-    "insert-css": "^2.0.0",
+    "hammerjs": "^2.0.8",
     "nanoid": "^5.0.7",
     "quill": "^2.0.2",
     "randomcolor": "^0.6.2",
@@ -29,10 +29,7 @@
     "react-dom": "^18.2.0",
     "react-flip-move": "^3.0.5",
     "react-quill": "^2.0.0",
-    "react-router-dom": "5.3.4",
-    "react-webgl-fluid-sim": "^1.5.1-1",
-    "styled-components": "^6.1.11",
-    "webgl-fluid-simulation": "^1.0.0"
+    "react-router-dom": "5.3.4"
   },
   "devDependencies": {
     "@types/d3": "^7.4.3",
