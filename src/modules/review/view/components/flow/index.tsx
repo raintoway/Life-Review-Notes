@@ -486,12 +486,11 @@ const FlowEditor = ({
       } catch (err) {}
     });
 
-    // if (data.content) {
-    //   graph.fromJSON(JSON.parse(data.content));
-    // } else {
-    //   init(graph);
-    // }
-    init(graph);
+    if (data.content) {
+      graph.fromJSON(JSON.parse(data.content));
+    } else {
+      init(graph);
+    }
 
     graph.centerContent();
 
