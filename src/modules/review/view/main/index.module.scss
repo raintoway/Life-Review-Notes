@@ -11,7 +11,7 @@
   }
   .listSwitch {
     position: absolute;
-    bottom: calc(20px + env(safe-area-inset-bottom));
+    bottom: calc(20px);
     right: 30px;
     height: 48px;
     width: 48px;
@@ -23,7 +23,7 @@
   }
   .addReviewBtn {
     position: absolute;
-    bottom: calc(80px + env(safe-area-inset-bottom));
+    bottom: calc(80px);
     right: 30px;
     height: 48px;
     width: 48px;
