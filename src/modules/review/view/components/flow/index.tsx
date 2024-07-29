@@ -158,7 +158,7 @@ const FlowEditor = ({
         connector: {
           name: "rounded",
           args: {
-            radius: 6,
+            radius: 10,
           },
         },
         anchor: "center",
@@ -340,7 +340,7 @@ const FlowEditor = ({
           switch (item.group) {
             case "outer-top":
               cell.portProp(item.id!, "args/y", -20);
-              cell.portProp(item.id!, "attrs/circle/r", 8);
+              cell.portProp(item.id!, "attrs/circle/r", 10);
               cell.portProp(item.id!, "attrs/circle/stroke", "transparent");
               cell.portProp(item.id!, "attrs/circle/fill", cellColor);
               break;
@@ -350,13 +350,13 @@ const FlowEditor = ({
                 "args/y",
                 cell.store.data.size.height + 20
               );
-              cell.portProp(item.id!, "attrs/circle/r", 8);
+              cell.portProp(item.id!, "attrs/circle/r", 10);
               cell.portProp(item.id!, "attrs/circle/stroke", "transparent");
               cell.portProp(item.id!, "attrs/circle/fill", cellColor);
               break;
             case "outer-left":
               cell.portProp(item.id!, "args/x", -20);
-              cell.portProp(item.id!, "attrs/circle/r", 8);
+              cell.portProp(item.id!, "attrs/circle/r", 10);
               cell.portProp(item.id!, "attrs/circle/stroke", "transparent");
               cell.portProp(item.id!, "attrs/circle/fill", cellColor);
               break;
@@ -366,7 +366,7 @@ const FlowEditor = ({
                 "args/x",
                 cell.store.data.size.width + 20
               );
-              cell.portProp(item.id!, "attrs/circle/r", 8);
+              cell.portProp(item.id!, "attrs/circle/r", 10);
               cell.portProp(item.id!, "attrs/circle/stroke", "transparent");
               cell.portProp(item.id!, "attrs/circle/fill", cellColor);
               break;
@@ -492,7 +492,7 @@ const FlowEditor = ({
       init(graph);
     }
 
-    graph.centerContent();
+    graph.zoomToFit({ maxScale: 1 });
 
     const pointerDownHandler = (e?: PointerEvent) => {
       // 假设 `graph` 是你的 X6 图对象
@@ -528,7 +528,7 @@ const FlowEditor = ({
                   node.portProp(item.id!, "args/x", node.store.data.size.width);
                   break;
               }
-              node.portProp(item.id!, "attrs/circle/r", 6);
+              node.portProp(item.id!, "attrs/circle/r",8);
               node.portProp(item.id!, "attrs/circle/stroke", "#8f8f8f");
               node.portProp(item.id!, "attrs/circle/fill", "#fff");
             });

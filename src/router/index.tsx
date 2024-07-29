@@ -2,6 +2,8 @@ import WrapTaskList from "../modules/task-list/view/main/wrapper";
 import WrapAbstractConcreteLibrary from "../modules/abstract-concrete-library/view/main/wrapper";
 import Experience from "../modules/experience/view/main/wrapper.tsx";
 import Review from "../modules/review/view/main/wrapper.tsx";
+import { UserOutline } from "antd-mobile-icons";
+import My from "../modules/my/index.tsx";
 
 export const routerConfig = [
   {
@@ -9,12 +11,7 @@ export const routerConfig = [
     title: "任务列表",
     icon: () => {
       return (
-        <svg
-          viewBox="0 0 1024 1024"
-          version="1.1"
-          width="22"
-          height="22"
-        >
+        <svg viewBox="0 0 1024 1024" version="1.1" width="22" height="22">
           <path
             d="M765.3 130.2h-44.6c0-36.3-28.8-65.1-65.1-65.1H376.7c-36.3 0-65.1 28.8-65.1 65.1h-52.1c-34.4 0-66.9 13-91.1 37.2-23.2 24.2-37.2 56.7-37.2 91.1v571.7c0 34.4 13.9 66.9 38.1 91.1 24.2 24.2 56.7 37.2 90.2 37.2h506.6c69.7-0.9 127.4-58.6 127.4-129.2V258.5c0.1-70.7-57.5-128.3-128.2-128.3z m-397.9 0c0-5.6 3.7-9.3 9.3-9.3h278.9c5.6 0 9.3 3.7 9.3 9.3v93c0 5.6-3.7 9.3-9.3 9.3H376.7c-5.6 0-9.3-3.7-9.3-9.3v-93z m470.4 699.1c0 40-32.5 72.5-72.5 72.5H259.6c-40 0-72.5-32.5-72.5-72.5V258.5c0-40 32.5-72.5 72.5-72.5h52.1v37.2c0 36.3 28.8 65.1 65.1 65.1h278.9c36.3 0 65.1-28.8 65.1-65.1V186h43.7c40.9 0 72.5 32.5 72.5 72.5v570.8h0.8z m0 0"
             p-id="12644"
@@ -35,12 +32,7 @@ export const routerConfig = [
     title: "抽象具象库",
     icon: () => {
       return (
-        <svg
-          viewBox="0 0 1024 1024"
-          version="1.1"
-          width="22"
-          height="22"
-        >
+        <svg viewBox="0 0 1024 1024" version="1.1" width="22" height="22">
           <path d="M0 0h1024v1024H0z" fill-opacity="0" p-id="24027"></path>
           <path
             d="M352 499.2L217.6 160l345.6 12.8v25.6l-313.6-12.8 121.6 294.4 268.8 128 268.8-89.6 6.4 25.6-281.6 83.2z"
@@ -67,12 +59,7 @@ export const routerConfig = [
     title: "个人经验",
     icon: () => {
       return (
-        <svg
-          viewBox="0 0 1024 1024"
-          version="1.1"
-          width="22"
-          height="22"
-        >
+        <svg viewBox="0 0 1024 1024" version="1.1" width="22" height="22">
           <path
             d="M901.12 250.88a25.6 25.6 0 0 0-25.6 25.6v573.44a56.32 56.32 0 0 1-56.32 56.32H327.68a25.6 25.6 0 0 0 0 51.2H819.2a107.52 107.52 0 0 0 107.52-107.52V276.48a25.6 25.6 0 0 0-25.6-25.6z"
             fill="currentColor"
@@ -98,12 +85,7 @@ export const routerConfig = [
     title: "复盘",
     icon: () => {
       return (
-        <svg
-          viewBox="0 0 1024 1024"
-          version="1.1"
-          width="22"
-          height="22"
-        >
+        <svg viewBox="0 0 1024 1024" version="1.1" width="22" height="22">
           <path
             d="M186.9 838.4V156.9c0-16.4-13.3-29.6-29.6-29.6-16.4 0-29.6 13.3-29.6 29.6v706.5c-0.2 1.5-0.4 3-0.4 4.6 0 16.4 13.3 29.6 29.6 29.6h710.5c16.4 0 29.6-13.3 29.6-29.6 0-16.4-13.3-29.6-29.6-29.6H186.9z"
             fill="currentColor"
@@ -123,5 +105,13 @@ export const routerConfig = [
       );
     },
     comp: <Review />,
+  },
+  {
+    key: "/my",
+    title: "我的",
+    icon: () => {
+      return <UserOutline />;
+    },
+    comp: <My />,
   },
 ];

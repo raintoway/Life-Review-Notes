@@ -5,7 +5,7 @@ const groups = {
     bottom: {
         attrs: {
             circle: {
-                r: 6,
+                r: 8,
                 magnet: true,
                 stroke: "#8f8f8f",
                 strokeWidth: 1,
@@ -20,7 +20,7 @@ const groups = {
     'outer-bottom': {
         attrs: {
             circle: {
-                r: 6,
+                r: 10,
                 magnet: true,
                 stroke: "#8f8f8f",
                 strokeWidth: 1,
@@ -35,7 +35,7 @@ const groups = {
     top: {
         attrs: {
             circle: {
-                r: 6,
+                r: 8,
                 magnet: true,
                 stroke: "#8f8f8f",
                 strokeWidth: 1,
@@ -50,7 +50,7 @@ const groups = {
     'outer-top': {
         attrs: {
             circle: {
-                r: 6,
+                r: 10,
                 magnet: true,
                 stroke: "#8f8f8f",
                 strokeWidth: 1,
@@ -65,7 +65,7 @@ const groups = {
     left: {
         attrs: {
             circle: {
-                r: 6,
+                r: 8,
                 magnet: true,
                 stroke: "#8f8f8f",
                 strokeWidth: 1,
@@ -80,7 +80,7 @@ const groups = {
     'outer-left': {
         attrs: {
             circle: {
-                r: 6,
+                r: 10,
                 magnet: true,
                 stroke: "#8f8f8f",
                 strokeWidth: 1,
@@ -95,7 +95,7 @@ const groups = {
     right: {
         attrs: {
             circle: {
-                r: 6,
+                r: 8,
                 magnet: true,
                 stroke: "#8f8f8f",
                 strokeWidth: 1,
@@ -110,7 +110,7 @@ const groups = {
     'outer-right': {
         attrs: {
             circle: {
-                r: 6,
+                r: 10,
                 magnet: true,
                 stroke: "#8f8f8f",
                 strokeWidth: 1,
@@ -154,7 +154,7 @@ export const ports = {
 };
 const addRectConfig: Record<string, any> = {
     'outer-right': {
-        template: { x: '100%', y: '-100%', offset: { x: 40, y: 0 } }, node: (view: NodeView) => {
+        template: { x: '100%', y: '50%', offset: { x: 40, y: -50 } }, node: (view: NodeView) => {
             const { width, height } = view.cell.size();
             return { x: view.cell.getPosition().x + width + 40, y: view.cell.getPosition().y + height + 60 }
         }, sourcePort: 'right', targetPort: 'top'
@@ -166,7 +166,7 @@ const addRectConfig: Record<string, any> = {
         }, sourcePort: 'bottom', targetPort: 'top'
     },
     'outer-left': {
-        template: { x: '-100%', y: '-100%', offset: { x: 0, y: 0 } }, node: (view: NodeView) => {
+        template: { x: '-100%', y: '50%', offset: { x: 0, y: -50 } }, node: (view: NodeView) => {
             const { height } = view.cell.size();
             return { x: view.cell.getPosition().x - 100 - 40, y: view.cell.getPosition().y + height + 60 }
         }, sourcePort: 'left', targetPort: 'top'
@@ -269,7 +269,7 @@ export const addRectPanel = (option: string) => {
                         connector: {
                             name: "rounded",
                             args: {
-                                radius: 8,
+                                radius: 10,
                             },
                         },
                         label: ''
@@ -282,7 +282,7 @@ export const addRectPanel = (option: string) => {
 }
 const addPolygonConfig: Record<string, any> = {
     'outer-right': {
-        template: { x: '100%', y: '-100%', offset: { x: 40, y: 40 } }, node: (view: NodeView) => {
+        template: { x: '100%', y: '50%', offset: { x: 40, y: -10 } }, node: (view: NodeView) => {
             const { width, height } = view.cell.size();
             return { x: view.cell.getPosition().x + width + 40, y: view.cell.getPosition().y + height + 60 }
         }, sourcePort: 'right', targetPort: 'top'
@@ -294,7 +294,7 @@ const addPolygonConfig: Record<string, any> = {
         }, sourcePort: 'bottom', targetPort: 'top'
     },
     'outer-left': {
-        template: { x: '-100%', y: '-100%', offset: { x: 0, y: 40 } }, node: (view: NodeView) => {
+        template: { x: '-100%', y: '50%', offset: { x: 0, y: -10 } }, node: (view: NodeView) => {
             const { height } = view.cell.size();
             return { x: view.cell.getPosition().x - 100 - 40, y: view.cell.getPosition().y + height + 60 }
         }, sourcePort: 'left', targetPort: 'top'
@@ -392,7 +392,7 @@ export const addPolygonPanel = (option: string) => {
                         connector: {
                             name: "rounded",
                             args: {
-                                radius: 8,
+                                radius: 10,
                             },
                         },
                         label: ''
@@ -405,7 +405,7 @@ export const addPolygonPanel = (option: string) => {
 }
 const addRoundRectConfig: Record<string, any> = {
     'outer-right': {
-        template: { x: '100%', y: '-100%', offset: { x: 40, y: 80 } }, node: (view: NodeView) => {
+        template: { x: '100%', y: '50%', offset: { x: 40, y: 30 } }, node: (view: NodeView) => {
             const { width, height } = view.cell.size();
             return { x: view.cell.getPosition().x + width + 40, y: view.cell.getPosition().y + height + 60 }
         }, sourcePort: 'right', targetPort: 'top'
@@ -417,7 +417,7 @@ const addRoundRectConfig: Record<string, any> = {
         }, sourcePort: 'bottom', targetPort: 'top'
     },
     'outer-left': {
-        template: { x: '-100%', y: '-100%', offset: { x: 0, y: 80 } }, node: (view: NodeView) => {
+        template: { x: '-100%', y: '50%', offset: { x: 0, y: 30 } }, node: (view: NodeView) => {
             const { height } = view.cell.size();
             return { x: view.cell.getPosition().x - 100 - 40, y: view.cell.getPosition().y + height + 60 }
         }, sourcePort: 'left', targetPort: 'top'
@@ -519,7 +519,7 @@ export const addRoundRectPanel = (option: string) => {
                         connector: {
                             name: "rounded",
                             args: {
-                                radius: 8,
+                                radius: 10,
                             },
                         },
                         label: ''

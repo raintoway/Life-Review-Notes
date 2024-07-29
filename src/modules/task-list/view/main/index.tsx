@@ -39,9 +39,6 @@ export const TaskList = (props: IProps) => {
       },
     ]);
   };
-  const download = () => {
-    localStorage.downloadAllDataAsJSON();
-  };
   const delTask = (taskId: string) => {
     setTasks(
       tasks.filter((task) => {
@@ -321,14 +318,14 @@ export const TaskList = (props: IProps) => {
         </div>
         <div className={s.operation}>
           <Space direction="vertical">
-            <Button
+            {/* <Button
               color="primary"
               fill="none"
               onClick={download}
               className={s.downloadBtn}
             >
               <ArrowDownCircleOutline />
-            </Button>
+            </Button> */}
             <Button
               color="primary"
               fill="none"

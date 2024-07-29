@@ -31,6 +31,6 @@ export default defineConfig({
       // Vite在dev模式下会使用浏览器原生的ESModule，将type设置为`"module"`与原先的保持一致
       type: "module"
     },
-    registerType: 'autoUpdate'
+    registerType: 'autoUpdate',
   })],
 })

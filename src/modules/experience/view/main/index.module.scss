@@ -4,8 +4,8 @@
   width: 100%;
   .operation {
     position: fixed;
-    right: 30px;
-    bottom: calc(70px + env(safe-area-inset-bottom));
+    right: 10px;
+    bottom: calc(60px + env(safe-area-inset-bottom));
     border: none;
     svg {
       border-radius: 100px;

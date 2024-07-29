@@ -1,0 +1,25 @@
+.container {
+  width: 100%;
+  height: 100%;
+  padding-top: 20vh;
+  padding-left: 40px;
+  padding-right: 40px;
+  line-height: 1.5;
+  color: #666666;
+  font-size: 17px;
+  p {
+    margin: 30px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .downloadBtn {
+    --background-color: #ffe3e8;
+    --text-color: #6f6d6d;
+    --border-color: none;
+  }
+  .syncBtn {
+    --background-color: #ffe3e8;
+    --text-color: #6f6d6d;
+    --border-color: none;
+  }
+}
