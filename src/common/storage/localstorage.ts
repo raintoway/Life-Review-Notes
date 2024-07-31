@@ -1,12 +1,13 @@
 class LocalStorage {
     db: IDBDatabase | null;
+    dbName: string = 'life-review-notes';
     constructor() {
         this.db = null
     }
     init() {
         return new Promise((resolve, reject) => {
             const arr = ['task-list', 'abstract-concrete-library', 'experience', 'review', 'utils']
-            const openRequest = indexedDB.open('life-review-notes', 1);
+            const openRequest = indexedDB.open(this.dbName);
             openRequest.onupgradeneeded = (event: IDBVersionChangeEvent) => {
                 // 版本升级事务，已知的版本升级情况有对象存储列表的改变
                 // @ts-expect-error 忽略错误
@@ -87,63 +88,93 @@ class LocalStorage {
             }
         })
     }
+    downloadJSONData(data: string) {
+        // 创建一个Blob对象，包含JSON数据
+        const blob = new Blob([data], { type: 'application/json' });
+
+        // 创建一个下载链接
+        const downloadLink = document.createElement('a');
+        downloadLink.href = URL.createObjectURL(blob);
+        downloadLink.download = 'allData.json'; // 下载文件的名称
+
+        // 触发下载
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+        document.body.removeChild(downloadLink);
+    }
     downloadAllDataAsJSON() {
-        const downloadJSONData = (data: string) => {
-            // 创建一个Blob对象，包含JSON数据
-            const blob = new Blob([data], { type: 'application/json' });
+        return new Promise((resolve, reject) => {
+            if (this.db) {
+                const allData: Record<string, any> = {};
+                // 遍历所有对象存储
+                for (let i = 0; i < this.db.objectStoreNames.length; i++) {
+                    const storeName = this.db.objectStoreNames[i];
+                    const transaction = this.db.transaction([storeName], 'readonly');
+                    const store = transaction.objectStore(storeName);
 
-            // 创建一个下载链接
-            const downloadLink = document.createElement('a');
-            downloadLink.href = URL.createObjectURL(blob);
-            downloadLink.download = 'allData.json'; // 下载文件的名称
+                    // 使用cursor遍历对象存储中的所有数据
+                    const objectStoreRequest = store.openCursor();
 
-            // 触发下载
-            document.body.appendChild(downloadLink);
-            downloadLink.click();
-            document.body.removeChild(downloadLink);
-        }
-        if (this.db) {
-            const allData: Record<string, any> = {};
+                    objectStoreRequest.onsuccess = (e) => {
+                        // @ts-expect-error 正常报错
+                        const cursor = e.target?.result;
+                        if (cursor) {
+                            // 将键和值添加到allData对象的对应对象存储中
+                            if (!allData[storeName]) {
+                                allData[storeName] = {};
+                            }
+                            allData[storeName][cursor.key] = cursor.value
 
-            // 遍历所有对象存储
-            for (let i = 0; i < this.db.objectStoreNames.length; i++) {
-                const storeName = this.db.objectStoreNames[i];
-                const transaction = this.db.transaction([storeName], 'readonly');
-                const store = transaction.objectStore(storeName);
-
-                // 使用cursor遍历对象存储中的所有数据
-                const objectStoreRequest = store.openCursor();
-
-                objectStoreRequest.onsuccess = (e) => {
-                    // @ts-expect-error 正常报错
-                    const cursor = e.target?.result;
-                    if (cursor) {
-                        // 将键和值添加到allData对象的对应对象存储中
-                        if (!allData[storeName]) {
-                            allData[storeName] = {};
+                            // 继续遍历
+                            cursor.continue();
+                        } else {
+                            // 检查是否是最后一个对象存储
+                            if (this.db && i === this.db.objectStoreNames.length - 1) {
+                                // 所有数据都已读取完毕，准备下载
+                                const data = JSON.stringify(allData, null, 2); // 格式化JSON
+                                resolve(data)
+                                return
+                                this.downloadJSONData(data);
+                            }
                         }
-                        allData[storeName][cursor.key] = cursor.value
+                    };
 
-                        // 继续遍历
-                        cursor.continue();
-                    } else {
-                        // 检查是否是最后一个对象存储
-                        if (this.db && i === this.db.objectStoreNames.length - 1) {
-                            // 所有数据都已读取完毕，准备下载
-                            const data = JSON.stringify(allData, null, 2); // 格式化JSON
-                            downloadJSONData(data);
-                        }
-                    }
-                };
-
-                objectStoreRequest.onerror = function (e) {
-                    console.error('读取对象存储数据失败', e);
-                };
+                    objectStoreRequest.onerror = function (e) {
+                        console.error('读取对象存储数据失败', e);
+                    };
+                }
+            } else {
+                reject('db不存在')
             }
-        }
-
+        })
     }
 
+    overwriteDataInIDB(jsonString: string) {
+        try {
+            const data = JSON.parse(jsonString);
+            if (this.db) {
+                for (const key in data) {
+                    if (Object.prototype.hasOwnProperty.call(data, key)) {
+                        const object = data[key]
+                        const transaction = this.db.transaction([key], 'readwrite');
+                        const store = transaction.objectStore(key);
 
+                        // 清空现有数据
+                        store.clear();
+
+                        // 将JSON数据写入对象存储
+                        for (const key in object) {
+                            if (object.hasOwnProperty(key)) {
+                                // debugger
+                                store.put(object[key],key);
+                            }
+                        }
+                    }
+                }
+            }
+        } catch (err) {
+
+        }
+    }
 }
 export default LocalStorage

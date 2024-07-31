@@ -8,8 +8,10 @@ import {
 import s from "./App.module.scss";
 import { Bottom } from "./common/view/components";
 import { routerConfig } from "./router";
-import { createContext, useEffect, useState } from "react";
+import { createContext, useCallback, useEffect, useState } from "react";
 import LocalStorage from "./common/storage/localstorage";
+import { host } from "./common/fetch";
+import { getCookie } from "./modules/my";
 
 export const StorageContext = createContext<{
   localStorage: LocalStorage | null;
@@ -24,9 +26,29 @@ const App = () => {
     await _localStorage.init();
     setLocalStorage(_localStorage);
   };
+  const syncData = useCallback(async () => {
+    if (localStorage) {
+      const res = await localStorage.downloadAllDataAsJSON();
+      const body = JSON.stringify({ data: res });
+      fetch(host + "api/syncData", {
+        method: "POST",
+        headers: new Headers({
+          Authorization: "Bearer " + getCookie("token"), // 设置认证令牌
+          "Content-Type": "application/json",
+        }),
+        body: body,
+      });
+    }
+  }, [localStorage]);
+
   useEffect(() => {
     initData();
   }, []);
+  useEffect(() => {
+    return () => {
+      syncData();
+    };
+  }, [syncData]);
 
   return (
     <Router initialEntries={["/task-list"]}>

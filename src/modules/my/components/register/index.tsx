@@ -1,14 +1,78 @@
-import { Button, Dialog, Form, Input } from "antd-mobile";
+import { Button, Dialog, Form, Input, Toast } from "antd-mobile";
 import s from "./index.module.scss";
-interface MobileValue {
-  preValue: string | number;
-  realValue: string;
-}
-export default function Register() {
+import { useState } from "react";
+import { host } from "../../../../common/fetch";
+export default function Register(props: { logIn: () => void }) {
+  const { logIn } = props;
+  const [isRegister, setIsRegister] = useState(false);
   const onFinish = (values: any) => {
-    Dialog.alert({
-      content: <pre>{JSON.stringify(values, null, 2)}</pre>,
-    });
+    const data = JSON.stringify(values);
+    if (isRegister) {
+      fetch(host + "api/user/register", {
+        method: "POST", // 指定请求方法为 POST
+        headers: {
+          "Content-Type": "application/json", // 设置请求头，告诉服务器发送的是 JSON 数据
+        },
+        body: data, // 请求体，这里是 JSON 字符串
+      })
+        .then((response) => {
+          if (response.status === 200) {
+            return response.json(); // 解析 JSON 响应体
+          } else {
+            Toast.show({
+              icon: "fail",
+              content: "注册失败：" + response.statusText,
+            });
+          }
+        })
+        .then((res) => {
+          if (res.code === 0) {
+            Toast.show({
+              icon: "success",
+              content: "注册成功",
+            });
+            setIsRegister(false);
+          } else {
+            Toast.show({
+              icon: "fail",
+              content: res.msg,
+            });
+          }
+        });
+    } else {
+      fetch(host + "api/user/login", {
+        method: "POST", // 指定请求方法为 POST
+        headers: {
+          "Content-Type": "application/json", // 设置请求头，告诉服务器发送的是 JSON 数据
+        },
+        body: data, // 请求体，这里是 JSON 字符串
+      })
+        .then((response) => {
+          if (response.status === 200) {
+            return response.json(); // 解析 JSON 响应体
+          } else {
+            Toast.show({
+              icon: "fail",
+              content: "登录失败：" + response.statusText,
+            });
+          }
+        })
+        .then((res) => {
+          if (res.code === 0) {
+            const { token } = res.data;
+            const expires = new Date();
+            expires.setTime(expires.getTime() + 24 * 60 * 60 * 1000); // 设置过期时间为当前时间加一天
+            expires.toUTCString(); // 转换为GMT格式的日期字符串
+            document.cookie = `token=${token}; expires=${expires}`;
+            logIn();
+          } else {
+            Toast.show({
+              icon: "fail",
+              content: res.msg,
+            });
+          }
+        });
+    }
   };
   return (
     <div className={s.container}>
@@ -17,8 +81,8 @@ export default function Register() {
         layout="horizontal"
         onFinish={onFinish}
         footer={
-          <Button className={s.registerBtn} block type="submit" size="large">
-            注册
+          <Button className={s.loginBtn} block type="submit" size="large">
+            {isRegister ? "注册" : "登录"}
           </Button>
         }
       >
@@ -50,18 +114,41 @@ export default function Register() {
         >
           <Input placeholder="请输入密码" type="password" clearable />
         </Form.Item>
-        <Form.Item
-          name="email"
-          label="邮箱"
-          rules={[
-            { required: true },
-            { type: "string", min: 6 },
-            { type: "email" },
-          ]}
-        >
-          <Input placeholder="请输入邮箱" clearable />
-        </Form.Item>
+        {isRegister ? (
+          <Form.Item
+            name="email"
+            label="邮箱"
+            rules={[
+              { required: true },
+              { type: "string", min: 6 },
+              { type: "email" },
+            ]}
+          >
+            <Input placeholder="请输入邮箱" clearable />
+          </Form.Item>
+        ) : null}
       </Form>
+      {isRegister ? (
+        <Button
+          onClick={() => setIsRegister(false)}
+          block
+          fill="none"
+          size="large"
+          className={s.registerBtn}
+        >
+          登录
+        </Button>
+      ) : (
+        <Button
+          onClick={() => setIsRegister(true)}
+          block
+          fill="none"
+          size="large"
+          className={s.registerBtn}
+        >
+          注册
+        </Button>
+      )}
     </div>
   );
 }

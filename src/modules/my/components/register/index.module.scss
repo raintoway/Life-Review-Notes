@@ -5,11 +5,20 @@
   padding-left: 40px;
   padding-right: 40px;
   .form {
-    height: 100%;
-    .registerBtn {
+    .loginBtn {
       --background-color: #ffe3e8;
       --text-color: #6f6d6d;
       --border-color: none;
     }
+    :global {
+      .adm-form-footer {
+        padding-bottom: 0;
+      }
+    }
+  }
+  .registerBtn {
+    margin-top: 10px;
+    --text-color: #b1adad;
+    --border-color: none;
   }
 }

@@ -33,4 +33,15 @@ export default defineConfig({
     },
     registerType: 'autoUpdate',
   })],
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:5174/',
+        changeOrigin: true,
+        rewrite: (path) => {
+          return path
+        }
+      }
+    }
+  }
 })
