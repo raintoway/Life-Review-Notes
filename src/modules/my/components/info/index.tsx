@@ -3,9 +3,9 @@ import s from "./index.module.scss";
 import { Button, Dialog, Divider, Space, Toast } from "antd-mobile";
 import { DownlandOutline, UploadOutline } from "antd-mobile-icons";
 import LocalStorage from "../../../../common/storage/localstorage";
-import { getCookie } from "../..";
 import { host } from "../../../../common/fetch";
 import dayjs from "dayjs";
+import { proxyGetLocalStorage } from "../../../../common/utils";
 export interface IProps {
   localStorage: LocalStorage;
   logOut: () => void;
@@ -38,7 +38,7 @@ export default function Info(props: IProps) {
       fetch(host + "api/syncData", {
         method: "POST",
         headers: new Headers({
-          Authorization: "Bearer " + getCookie("token"), // 设置认证令牌
+          Authorization: "Bearer " + proxyGetLocalStorage("token"), // 设置认证令牌
           "Content-Type": "application/json",
         }),
         body: body,
@@ -90,7 +90,7 @@ export default function Info(props: IProps) {
             onClick: () => {
               fetch(host + "api/getData", {
                 headers: new Headers({
-                  Authorization: "Bearer " + getCookie("token"), // 设置认证令牌
+                  Authorization: "Bearer " + proxyGetLocalStorage("token"), // 设置认证令牌
                 }),
               })
                 .then((response) => {
@@ -120,7 +120,7 @@ export default function Info(props: IProps) {
     });
   };
   useEffect(() => {
-    const token = getCookie("token");
+    const token = proxyGetLocalStorage("token");
     if (token) {
       const data = decodeJwtToken(token);
       setInfo(data);

@@ -2,6 +2,7 @@ import { Button, Form, Input, Toast } from "antd-mobile";
 import s from "./index.module.scss";
 import { useState } from "react";
 import { host } from "../../../../common/fetch";
+import { proxySetLocalStorage } from "../../../../common/utils";
 export default function Register(props: { logIn: () => void }) {
   const { logIn } = props;
   const [isRegister, setIsRegister] = useState(false);
@@ -63,7 +64,7 @@ export default function Register(props: { logIn: () => void }) {
             const expires = new Date();
             expires.setTime(expires.getTime() + 24 * 60 * 60 * 1000); // 设置过期时间为当前时间加一天
             expires.toUTCString(); // 转换为GMT格式的日期字符串
-            document.cookie = `token=${token}; expires=${expires}`;
+            proxySetLocalStorage("token", token);
             logIn();
           } else {
             Toast.show({

@@ -11,7 +11,7 @@ import { routerConfig } from "./router";
 import { createContext, useCallback, useEffect, useState } from "react";
 import LocalStorage from "./common/storage/localstorage";
 import { host } from "./common/fetch";
-import { getCookie } from "./modules/my";
+import { proxyGetLocalStorage } from "./common/utils";
 
 export const StorageContext = createContext<{
   localStorage: LocalStorage | null;
@@ -33,7 +33,7 @@ const App = () => {
       fetch(host + "api/syncData", {
         method: "POST",
         headers: new Headers({
-          Authorization: "Bearer " + getCookie("token"), // 设置认证令牌
+          Authorization: "Bearer " + proxyGetLocalStorage("token"), // 设置认证令牌
           "Content-Type": "application/json",
         }),
         body: body,
