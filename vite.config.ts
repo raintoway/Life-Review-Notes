@@ -36,7 +36,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:5174/',
+        target: 'http://cbcq.site:5173/',
         changeOrigin: true,
         rewrite: (path) => {
           return path
@@ -45,3 +45,4 @@ export default defineConfig({
     }
   }
 })
+
