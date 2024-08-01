@@ -3,7 +3,6 @@ import s from "./index.module.scss";
 import { nanoid } from "nanoid";
 import {
   AddCircleOutline,
-  ArrowDownCircleOutline,
   CheckCircleOutline,
   CloseCircleOutline,
 } from "antd-mobile-icons";

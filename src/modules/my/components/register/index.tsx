@@ -1,4 +1,4 @@
-import { Button, Dialog, Form, Input, Toast } from "antd-mobile";
+import { Button, Form, Input, Toast } from "antd-mobile";
 import s from "./index.module.scss";
 import { useState } from "react";
 import { host } from "../../../../common/fetch";

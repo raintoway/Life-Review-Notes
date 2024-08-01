@@ -44,7 +44,7 @@ export default function My() {
           setHadLogin(true);
         }
       })
-      .catch((error) => {})
+      .catch(() => {})
       .finally(() => {});
   };
   const initData = async () => {

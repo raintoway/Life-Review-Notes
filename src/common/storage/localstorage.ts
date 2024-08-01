@@ -134,7 +134,7 @@ class LocalStorage {
                                 const data = JSON.stringify(allData, null, 2); // 格式化JSON
                                 resolve(data)
                                 return
-                                this.downloadJSONData(data);
+                                // this.downloadJSONData(data);
                             }
                         }
                     };
@@ -173,7 +173,6 @@ class LocalStorage {
                 }
             }
         } catch (err) {
-
         }
     }
 }

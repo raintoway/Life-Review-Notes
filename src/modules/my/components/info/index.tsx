@@ -15,7 +15,7 @@ export interface Info {
   email: string;
   updateDate: number;
 }
-function decodeJwtToken(token) {
+function decodeJwtToken(token: string) {
   const parts = token.split(".");
   if (parts.length !== 3) {
     throw new Error("Invalid JWT token");
@@ -56,7 +56,7 @@ export default function Info(props: IProps) {
             });
           }
         })
-        .catch((error) => {})
+        .catch(() => {})
         .finally(() => {});
     }
   };
@@ -111,7 +111,7 @@ export default function Info(props: IProps) {
                     content: "数据同步成功",
                   });
                 })
-                .catch((error) => {})
+                .catch(() => {})
                 .finally(() => {});
             },
           },
@@ -120,8 +120,11 @@ export default function Info(props: IProps) {
     });
   };
   useEffect(() => {
-    const data = decodeJwtToken(getCookie("token"));
-    setInfo(data);
+    const token = getCookie("token");
+    if (token) {
+      const data = decodeJwtToken(token);
+      setInfo(data);
+    }
   }, []);
   return (
     <div className={s.container}>
@@ -143,9 +146,9 @@ export default function Info(props: IProps) {
           <span>同步数据至本地</span>
         </Space>
       </Button>
-      <Divider style={{textAlign:'center'}}>
+      <Divider style={{ textAlign: "center" }}>
         同时，数据也会自动同步至云端
-        <br/>
+        <br />
         {dayjs(updateDate).format("YYYY-MM-DD HH:mm:ss")}
       </Divider>
       <Button
