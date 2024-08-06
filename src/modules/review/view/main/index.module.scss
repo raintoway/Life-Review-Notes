@@ -34,3 +34,17 @@
     color: #ffe3e8;
   }
 }
+
+:global {
+  .adm-picker {
+    --item-font-size: 1.2rem;
+    --title-font-size: 1.2rem;
+    color: #6f6d6d;
+    .adm-picker-view-column {
+      &:nth-child(1) {
+        flex: none;
+        width: 100px;
+      }
+    }
+  }
+}

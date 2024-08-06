@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import AbstractConcreteLibrary, {
+  ICategory,
   ITransform,
   defaultTransform,
   type IData,
@@ -8,25 +9,26 @@ import { StorageContext } from "../../../../App";
 
 const WrapAbstractConcreteLibrary = () => {
   const [initFlag, setInitFlag] = useState(false);
-  const [data, setData] = useState<IData[]>([]);
+  const [category, setCategory] = useState<ICategory[]>([]);
+  const [activeKey, setActiveKey] = useState("");
   const [transform, setTransform] = useState<ITransform>(defaultTransform);
   const { localStorage } = useContext(StorageContext);
   const initData = async () => {
     if (localStorage) {
       const data = await localStorage.getData(
         "abstract-concrete-library",
-        "data"
+        "category"
       );
 
       if (Array.isArray(data)) {
-        setData(data as IData[]);
+        setCategory(data as ICategory[]);
       }
-      const transform = (await localStorage.getData(
+      const _activekey = (await localStorage.getData(
         "abstract-concrete-library",
-        "transform"
-      )) as ITransform;
+        "activeKey"
+      )) as string;
       if (transform) {
-        setTransform(transform);
+        setActiveKey(_activekey);
       }
       setInitFlag(true);
     }
@@ -36,8 +38,8 @@ const WrapAbstractConcreteLibrary = () => {
   }, [localStorage]);
   return initFlag && localStorage ? (
     <AbstractConcreteLibrary
-      data={data}
-      transform={transform}
+      category={category}
+      activeKey={activeKey}
       localStorage={localStorage}
     ></AbstractConcreteLibrary>
   ) : null;

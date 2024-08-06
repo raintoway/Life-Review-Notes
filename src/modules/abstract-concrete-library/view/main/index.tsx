@@ -6,19 +6,26 @@ import {
   RefObject,
   MutableRefObject,
   useCallback,
+  useMemo,
 } from "react";
 import * as d3 from "d3";
 import { nanoid } from "nanoid";
-import { Button, Dialog, Input } from "antd-mobile";
+import { Button, Dialog, Input, JumboTabs } from "antd-mobile";
 import randomColor from "randomcolor";
 import LocalStorage from "../../../../common/storage/localstorage";
 import s from "./index.module.scss";
 import { AddCircleOutline } from "antd-mobile-icons";
 
 interface IProps {
+  category: ICategory[];
+  localStorage: LocalStorage;
+  activeKey: string;
+}
+export interface ICategory {
+  key: string;
+  title: string;
   data: IData[];
   transform: ITransform;
-  localStorage: LocalStorage;
 }
 export interface IData {
   id: string;
@@ -50,8 +57,32 @@ const AbstractConcreteLibrary = (props: IProps) => {
     useRef<MutableRefObject<RefObject<HTMLDivElement> | null>>(null);
   const [editVisible, setEditVisible] = useState(false);
   const [currentNode, setCurrentNode] = useState<IData | null>(null);
-  const [data, setData] = useState<IData[]>(props.data);
-  const transformRef = useRef<ITransform>(props.transform);
+  const [category, setCategory] = useState<ICategory[]>(props.category);
+  const [activeKey, setActiveKey] = useState(
+    props.activeKey ?? (props.category.length && props.category[0].key) ?? ""
+  );
+  const [addCategory, setAddCategory] = useState<ICategory>();
+  const [addVisible, setAddVisible] = useState(false);
+
+  const data = useMemo(() => {
+    if (category && activeKey) {
+      const selectedCategory = category.find((item) => item.key === activeKey);
+      if (selectedCategory) {
+        return selectedCategory.data;
+      }
+    }
+    return [];
+  }, [category, activeKey]);
+  const transformRef = useMemo(() => {
+    if (category && activeKey) {
+      const selectedCategory = category.find((item) => item.key === activeKey);
+      if (selectedCategory) {
+        return selectedCategory.transform;
+      }
+    }
+    return { ...defaultTransform };
+  }, [category, activeKey]);
+
 
   const linkArc = (d) => {
     const r = Math.hypot(d.target.x - d.source.x, d.target.y - d.source.y);
@@ -62,13 +93,62 @@ const AbstractConcreteLibrary = (props: IProps) => {
   };
 
   const initTemplate = () => {
-    setData([
+    setCategory([
       {
-        id: nanoid(),
-        label: "抽象",
-        children: [],
-        type: "node",
-        color: "pink",
+        key: nanoid(),
+        title: "工作",
+        transform: { ...defaultTransform },
+        data: [
+          {
+            id: nanoid(),
+            label: "点击我",
+            children: [],
+            type: "node",
+            color: "pink",
+          },
+        ],
+      },
+      {
+        key: nanoid(),
+        title: "学习",
+        transform: { ...defaultTransform },
+        data: [
+          {
+            id: nanoid(),
+            label: "点击我",
+            children: [],
+            type: "node",
+            color: "pink",
+          },
+        ],
+      },
+      {
+        key: nanoid(),
+        title: "生活",
+        transform: { ...defaultTransform },
+        data: [
+          {
+            id: nanoid(),
+            label: "点击我",
+            children: [],
+            type: "node",
+            color: "pink",
+          },
+        ],
+      },
+      {
+        key: nanoid(),
+        title: "爱情",
+        transform: { ...defaultTransform },
+        data: [
+          {
+            id: nanoid(),
+            label: "点击我",
+            children: [],
+            type: "node",
+            color: "pink",
+          },
+        ],
       },
     ]);
   };
@@ -79,28 +159,35 @@ const AbstractConcreteLibrary = (props: IProps) => {
       "initFlag"
     );
     if (!initFlag) {
-      if (Array.isArray(props.data) && props.data.length === 0) {
+      if (Array.isArray(props.category) && props.category.length === 0) {
         initTemplate();
         localStorage.updateData("abstract-concrete-library", "initFlag", true);
       }
     }
-  }, [props.data, localStorage]);
+  }, [props.category, localStorage]);
+
+  useEffect(() => {
+    localStorage.updateData("abstract-concrete-library", "category", category);
+    localStorage.updateData(
+      "abstract-concrete-library",
+      "activeKey",
+      activeKey
+    );
+  }, [category, localStorage, activeKey]);
 
   useEffect(() => {
     init();
   }, [init]);
 
   const addNode = () => {
-    setData([
-      ...data,
-      {
-        id: nanoid(),
-        label: "新建节点",
-        children: [],
-        type: "node",
-        color: randomColor(),
-      },
-    ]);
+    data?.push({
+      id: nanoid(),
+      label: "新建节点",
+      children: [],
+      type: "node",
+      color: randomColor(),
+    });
+    setCategory([...category]);
   };
 
   const drag = (simulation) => {
@@ -201,14 +288,8 @@ const AbstractConcreteLibrary = (props: IProps) => {
   };
 
   const syncTransformToLocalStorage = useCallback(() => {
-    if (localStorage) {
-      localStorage.updateData(
-        "abstract-concrete-library",
-        "transform",
-        transformRef.current
-      );
-    }
-  }, [localStorage]);
+    return;
+  }, [localStorage, transformRef]);
 
   useEffect(() => {
     if (containerRef.current) {
@@ -267,24 +348,21 @@ const AbstractConcreteLibrary = (props: IProps) => {
 
       const zoomed = (args) => {
         const { transform } = args;
-        transformRef.current.translateX = transform.x;
-        transformRef.current.translateY = transform.y;
-        syncTransformToLocalStorage();
+        transformRef.translateX = transform.x;
+        transformRef.translateY = transform.y;
+        // syncTransformToLocalStorage();
         const { k } = transform;
-        transformRef.current.scale = k;
+        transformRef.scale = k;
         syncTransformToLocalStorage();
         g.attr(
           "transform",
-          `translate(${transformRef.current.translateX},${transformRef.current.translateY}) scale(${transformRef.current.scale})`
+          `translate(${transformRef.translateX},${transformRef.translateY}) scale(${transformRef.scale})`
         );
       };
       const zoom = d3.zoom().scaleExtent([0.5, 32]).on("zoom", zoomed);
       svg
         .call(zoom)
-        .call(
-          zoom.transform,
-          d3.zoomIdentity.scale(transformRef.current.scale)
-        );
+        .call(zoom.transform, d3.zoomIdentity.scale(transformRef.scale));
       // Per-type markers, as they don't inherit styles.
       g.append("defs")
         .selectAll("marker")
@@ -301,7 +379,7 @@ const AbstractConcreteLibrary = (props: IProps) => {
         .attr("fill", (d) => {
           return d.color;
         })
-        .attr("d", "M0,-5L10,0L0,5")
+        .attr("d", "M0,-5L10,0L0,5");
 
       const operationBox = g.append("g");
       operationBoxRef.current = operationBox;
@@ -343,7 +421,8 @@ const AbstractConcreteLibrary = (props: IProps) => {
               };
               const source = data.find((node) => node.id === currentData.id);
               source?.children.push(newId);
-              setData([...data, addOne]);
+              data?.push(addOne);
+              setCategory([...category]);
             }
           }
         });
@@ -368,14 +447,14 @@ const AbstractConcreteLibrary = (props: IProps) => {
                 const findIndex = node.children.indexOf(currentData.id);
                 findIndex >= 0 && node.children.splice(findIndex, 1);
               });
-              setData([...data]);
+              setCategory([...category]);
             } else if (currentData.svgType === "link") {
               const { id } = currentData.target;
               data.forEach((node) => {
                 const findIndex = node.children.indexOf(id);
                 findIndex >= 0 && node.children.splice(findIndex, 1);
               });
-              setData([...data]);
+              setCategory([...category]);
             }
           }
         });
@@ -443,19 +522,54 @@ const AbstractConcreteLibrary = (props: IProps) => {
       });
 
       // invalidation.then(() => simulation.stop());
-      if (localStorage) {
-        localStorage.updateData("abstract-concrete-library", "data", data);
-      }
       return () => {
+        if (localStorage && category) {
+          localStorage.updateData(
+            "abstract-concrete-library",
+            "category",
+            category
+          );
+        }
         svg.remove();
       };
     }
-  }, [data, localStorage, syncTransformToLocalStorage]);
+  }, [category, data, localStorage, syncTransformToLocalStorage, transformRef]);
 
   return (
-    <>
+    <div className={s.container}>
+      <JumboTabs
+        activeKey={activeKey}
+        onChange={(val) => {
+          if (val === "+") {
+            setAddCategory({
+              key: nanoid(),
+              title: "",
+              transform: { ...defaultTransform },
+              data: [
+                {
+                  id: nanoid(),
+                  label: "点击我",
+                  children: [],
+                  type: "node",
+                  color: "pink",
+                },
+              ],
+            });
+            setAddVisible(true);
+          } else {
+            setActiveKey(val);
+          }
+        }}
+      >
+        {category.map((item) => {
+          return (
+            <JumboTabs.Tab title={item.title} key={item.key}></JumboTabs.Tab>
+          );
+        })}
+        <JumboTabs.Tab title={"+"} key={"+"}></JumboTabs.Tab>
+      </JumboTabs>
       <div
-        style={{ width: "100%", height: "calc(100vh - 55px)" }}
+        style={{ width: "100%", height: "calc(100vh - 55px - 48px)" }}
         id="svgContainer"
         ref={containerRef}
       ></div>
@@ -511,7 +625,7 @@ const AbstractConcreteLibrary = (props: IProps) => {
                   const target = data.find((item) => item.id === id);
                   if (target && currentNode) {
                     target.label = currentNode.label;
-                    setData([...data]);
+                    setCategory([...category]);
                   }
                 }
               },
@@ -530,7 +644,57 @@ const AbstractConcreteLibrary = (props: IProps) => {
           <AddCircleOutline />
         </Button>
       </div>
-    </>
+      <Dialog
+        visible={addVisible}
+        content={
+          <>
+            {addCategory ? (
+              <Input
+                style={{
+                  "--color": "#6f6d6d",
+                  "--text-align": "center",
+                }}
+                placeholder="请输入分类标题"
+                value={addCategory?.title}
+                onChange={(val) => {
+                  if (addCategory) {
+                    addCategory.title = val;
+                    setAddCategory({ ...addCategory });
+                  }
+                }}
+              />
+            ) : null}
+          </>
+        }
+        closeOnAction
+        closeOnMaskClick
+        onClose={() => {
+          setAddVisible(false);
+        }}
+        actions={[
+          [
+            {
+              key: "cancel",
+              text: "取消",
+              onClick: () => {
+                setAddVisible(false);
+              },
+              style: { color: "#6f6d6d" },
+            },
+            {
+              key: "confirm",
+              text: "添加",
+              onClick: () => {
+                if (addCategory?.title) {
+                  setCategory([...category, addCategory]);
+                }
+              },
+              style: { color: "#ffe3e8" },
+            },
+          ],
+        ]}
+      />
+    </div>
   );
 };
 export default AbstractConcreteLibrary;

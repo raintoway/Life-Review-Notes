@@ -12,6 +12,7 @@ import { createContext, useCallback, useEffect, useState } from "react";
 import LocalStorage from "./common/storage/localstorage";
 import { host } from "./common/fetch";
 import { proxyGetLocalStorage } from "./common/utils";
+import { SafeArea } from "antd-mobile";
 
 export const StorageContext = createContext<{
   localStorage: LocalStorage | null;
@@ -52,6 +53,7 @@ const App = () => {
 
   return (
     <Router initialEntries={["/task-list"]}>
+      <SafeArea position="top" />
       <StorageContext.Provider value={{ localStorage: localStorage }}>
         <div className={s.app}>
           <div className={s.body}>

@@ -9,7 +9,7 @@
   z-index: 1;
   .moneyBox {
     width: 100%;
-    margin-top: 30px;
+    margin-top: 20px;
     font-size: 1.5rem;
     font-weight: bold;
     color: #ffe3e8;
@@ -34,7 +34,7 @@
     margin-top: 30px;
     border: 2px solid #ddd;
     padding: 20px;
-    padding-top: 30px;
+    // padding-top: 30px;
     border-radius: 15px;
     &:first-child {
       margin-top: 10px;
@@ -42,6 +42,9 @@
     .content {
       width: 100%;
       .item {
+        .title {
+          margin: 10px 0;
+        }
         .label {
           min-width: 4.5rem;
           width: 65px;
@@ -50,11 +53,11 @@
         .value {
         }
         .taskName {
-          margin-left: 8px;
           color: #6f6d6d;
           font-size: 2rem;
           min-height: 2rem;
-          width: calc(100% - 73px);
+          // width: calc(100% - 73px);
+          width: 100%;
           margin-top: -2px;
         }
         .slider {
@@ -116,8 +119,9 @@
     }
     :global {
       .ql-toolbar {
-        top: -6px;
-        margin-left: -85px;
+        top: -5px;
+        left: 28px;
+        // margin-left: -85px;
       }
     }
   }

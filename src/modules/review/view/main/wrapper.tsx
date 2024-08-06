@@ -1,5 +1,5 @@
 import { useCallback, useContext, useEffect, useState } from "react";
-import Review, { ICollection } from ".";
+import Review, { ICategory, ICollection } from ".";
 import { StorageContext } from "../../../../App";
 
 export interface IExperience {
@@ -8,21 +8,21 @@ export interface IExperience {
 }
 const WrapReview = () => {
   const [initFlag, setInitFlag] = useState(false);
-  const [data, setData] = useState<ICollection[]>([]);
-  const [currentCollectionKey, setCurrentCollectionKey] = useState<string>("");
+  const [activeCategory, setActiveCategory] = useState<string[]>([]);
+  const [category, setCategory] = useState<ICategory[]>([]);
   const { localStorage } = useContext(StorageContext);
   const initData = useCallback(async () => {
     if (localStorage) {
-      const data = await localStorage.getData("review", "data");
-      const _currentCollectionKey = (await localStorage.getData(
+      const data = await localStorage.getData("review", "category");
+      const _activeCategory = (await localStorage.getData(
         "review",
-        "currentCollectionKey"
-      )) as string;
+        "activeCategory"
+      )) as string[];
       if (Array.isArray(data)) {
-        setData(data as ICollection[]);
+        setCategory(data as ICategory[]);
       }
-      if (_currentCollectionKey) {
-        setCurrentCollectionKey(_currentCollectionKey);
+      if (_activeCategory) {
+        setActiveCategory(_activeCategory);
       }
       setInitFlag(true);
     }
@@ -32,8 +32,8 @@ const WrapReview = () => {
   }, [localStorage, initData]);
   return initFlag && localStorage ? (
     <Review
-      data={data}
-      currentCollectionKey={currentCollectionKey}
+      category={category}
+      activeCategory={activeCategory}
       localStorage={localStorage}
     ></Review>
   ) : null;

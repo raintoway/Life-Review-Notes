@@ -1,3 +1,41 @@
+.container {
+  width: 100%;
+  :global {
+    .adm-jumbo-tabs {
+      padding: 0 30px;
+      .adm-jumbo-tabs-tab {
+        color: #6f6d6d;
+      }
+      .adm-jumbo-tabs-tab-active {
+        color: #ffe3e8;
+      }
+      .adm-jumbo-tabs-tab-title {
+        font-size: 1.2rem;
+      }
+      .adm-jumbo-tabs-tab-wrapper {
+        padding: 0 15px;
+        &:nth-child(1) {
+          padding-left: 0;
+        }
+        &:nth-last-child(1) {
+          padding-left: 0;
+          padding-right: 0;
+          .adm-jumbo-tabs-tab-title {
+            margin-top: -0.3rem;
+            font-size: 1.5rem;
+          }
+        }
+      }
+      .adm-jumbo-tabs-tab-list {
+        margin: 10px 0;
+        padding: 0;
+      }
+      .adm-jumbo-tabs-header {
+        border: none;
+      }
+    }
+  }
+}
 .item {
   font-size: 1.2rem;
   padding: 10px 10px;

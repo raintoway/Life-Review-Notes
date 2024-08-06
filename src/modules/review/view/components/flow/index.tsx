@@ -73,7 +73,7 @@ const FlowEditor = ({
   updateData,
 }: {
   data: ICollection;
-  updateData: (collection: ICollection, syncToView?: boolean) => void;
+  updateData: (collection: ICollection) => void;
 }) => {
   const containerRef = useRef<HTMLElement>(null);
   const [title, setTitle] = useState("");
@@ -136,7 +136,7 @@ const FlowEditor = ({
   );
 
   useEffect(() => {
-    setTitle(data.title);
+    setTitle(data.label);
     if (!containerRef.current) return;
     let updatePngBlobUrl = "";
     fetch(updatePng)
@@ -528,7 +528,7 @@ const FlowEditor = ({
                   node.portProp(item.id!, "args/x", node.store.data.size.width);
                   break;
               }
-              node.portProp(item.id!, "attrs/circle/r",8);
+              node.portProp(item.id!, "attrs/circle/r", 8);
               node.portProp(item.id!, "attrs/circle/stroke", "#8f8f8f");
               node.portProp(item.id!, "attrs/circle/fill", "#fff");
             });
@@ -647,7 +647,7 @@ const FlowEditor = ({
           setTitle(val);
           updateData({
             ...data,
-            title: val,
+            label: val,
           });
         }}
         value={title}

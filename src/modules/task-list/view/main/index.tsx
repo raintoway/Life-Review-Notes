@@ -164,10 +164,10 @@ export const TaskList = (props: IProps) => {
                     ].join(" ")}
                   >
                     <div className={s.content}>
-                      <div
-                        className={[s.item, "flex-row-start-start"].join(" ")}
-                      >
-                        <div className={s.label}>任务描述</div>
+                      <div className={[s.item].join(" ")}>
+                        <div className={[s.label, s.title].join(" ")}>
+                          任务描述
+                        </div>
                         <div
                           className={[s.taskName, s.value, "flex1"].join(" ")}
                         >
@@ -190,12 +190,22 @@ export const TaskList = (props: IProps) => {
                             task.importanceScore = e as number;
                             setTasks([...tasks]);
                           }}
+                          onChange={(e) => {
+                            const target = document.querySelector(
+                              `#${task.id}-importanceScore`
+                            );
+                            if (target) {
+                              //@ts-expect-error 正常错误
+                              target.textContent = e;
+                            }
+                          }}
                           max={10}
                           defaultValue={task.importanceScore}
                           className={[s.slider, s.value, "flex1"].join(" ")}
                           icon={<></>}
                         />
                         <div
+                          id={`${task.id}-importanceScore`}
                           className={s[`color-level-${task.importanceScore}`]}
                         >
                           {task.importanceScore}
@@ -254,12 +264,22 @@ export const TaskList = (props: IProps) => {
                             task.emergencyScore = e as number;
                             setTasks([...tasks]);
                           }}
+                          onChange={(e) => {
+                            const target = document.querySelector(
+                              `#${task.id}-emergencyScore`
+                            );
+                            if (target) {
+                              //@ts-expect-error 正常错误
+                              target.textContent = e;
+                            }
+                          }}
                           max={10}
                           defaultValue={task.emergencyScore}
                           className={[s.slider, s.value, "flex1"].join(" ")}
                           icon={<></>}
                         />
                         <div
+                          id={`${task.id}-emergencyScore`}
                           className={s[`color-level-${task.emergencyScore}`]}
                         >
                           {task.emergencyScore}
