@@ -1,5 +1,5 @@
 import { useCallback, useContext, useEffect, useState } from "react";
-import Review, { ICategory, ICollection } from ".";
+import Review, { ICategory } from ".";
 import { StorageContext } from "../../../../App";
 
 export interface IExperience {

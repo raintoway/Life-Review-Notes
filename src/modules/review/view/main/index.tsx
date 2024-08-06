@@ -3,7 +3,7 @@ import s from "./index.module.scss";
 import FlowEditor from "../components/flow";
 import { nanoid } from "nanoid";
 import LocalStorage from "../../../../common/storage/localstorage";
-import { Button, CascadePicker, Dialog, Input, TextArea } from "antd-mobile";
+import { Button, CascadePicker, Dialog, Input } from "antd-mobile";
 import { ContentOutline, DeleteOutline } from "antd-mobile-icons";
 import { PickerColumnItem } from "antd-mobile/es/components/picker-view";
 type Props = {
