@@ -83,7 +83,6 @@ const AbstractConcreteLibrary = (props: IProps) => {
     return { ...defaultTransform };
   }, [category, activeKey]);
 
-
   const linkArc = (d) => {
     const r = Math.hypot(d.target.x - d.source.x, d.target.y - d.source.y);
     return `
@@ -93,9 +92,10 @@ const AbstractConcreteLibrary = (props: IProps) => {
   };
 
   const initTemplate = () => {
+    const firstKey = nanoid();
     setCategory([
       {
-        key: nanoid(),
+        key: firstKey,
         title: "工作",
         transform: { ...defaultTransform },
         data: [
@@ -151,6 +151,7 @@ const AbstractConcreteLibrary = (props: IProps) => {
         ],
       },
     ]);
+    setActiveKey(firstKey);
   };
 
   const init = useCallback(async () => {

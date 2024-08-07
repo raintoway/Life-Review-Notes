@@ -70,9 +70,10 @@ const Experience = (props: Props) => {
   }, [data, localStorage, activeKey]);
 
   const initTemplate = () => {
+    const firstKey = nanoid();
     setData([
       {
-        key: nanoid(),
+        key: firstKey,
         title: "工作",
         data: [
           {
@@ -116,6 +117,7 @@ const Experience = (props: Props) => {
         ],
       },
     ]);
+    setActiveKey(firstKey);
   };
 
   const init = useCallback(async () => {
