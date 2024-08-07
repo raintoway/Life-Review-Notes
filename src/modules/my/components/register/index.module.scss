@@ -1,7 +1,7 @@
 .container {
   width: 100%;
   height: 100%;
-  padding-top: 20vh;
+  padding-top: 15vh;
   padding-left: 40px;
   padding-right: 40px;
   .form {
@@ -10,9 +10,13 @@
       --text-color: #6f6d6d;
       --border-color: none;
     }
+
     :global {
       .adm-form-footer {
         padding-bottom: 0;
+      }
+      .adm-list-item-content-prefix {
+        width: 4rem;
       }
     }
   }

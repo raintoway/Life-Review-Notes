@@ -9,7 +9,7 @@
   z-index: 1;
   .moneyBox {
     width: 100%;
-    margin-top: 20px;
+    margin-top: 15px;
     font-size: 1.5rem;
     font-weight: bold;
     color: #ffe3e8;
@@ -43,7 +43,7 @@
       width: 100%;
       .item {
         .title {
-          margin: 10px 0;
+          margin: 5px 0;
         }
         .label {
           min-width: 4.5rem;
@@ -119,8 +119,9 @@
     }
     :global {
       .ql-toolbar {
-        top: -5px;
-        left: 28px;
+        top: -10px;
+        left: 7px;
+        // left: 28px;
         // margin-left: -85px;
       }
     }

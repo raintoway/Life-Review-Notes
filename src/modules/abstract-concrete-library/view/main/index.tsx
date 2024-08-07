@@ -569,7 +569,7 @@ const AbstractConcreteLibrary = (props: IProps) => {
         <JumboTabs.Tab title={"+"} key={"+"}></JumboTabs.Tab>
       </JumboTabs>
       <div
-        style={{ width: "100%", height: "calc(100vh - 55px - 48px)" }}
+        style={{ width: "100%", height: "calc(100vh - 55px - 45px)" }}
         id="svgContainer"
         ref={containerRef}
       ></div>

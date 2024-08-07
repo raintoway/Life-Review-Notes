@@ -140,6 +140,7 @@ const Experience = (props: Props) => {
   return (
     <div className={s.wrapper}>
       <JumboTabs
+        style={{ marginBottom: "20px" }}
         activeKey={activeKey}
         onChange={(val) => {
           if (val === "+") {
