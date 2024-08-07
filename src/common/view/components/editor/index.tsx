@@ -20,6 +20,9 @@ const modules = {
       "image",
     ],
   ],
+  clipboard: {
+    matchVisual: false,
+  },
 };
 
 const formats = [
