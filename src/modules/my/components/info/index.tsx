@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import s from "./index.module.scss";
 import { Button, Dialog, Divider, Space, Toast } from "antd-mobile";
-import { DownlandOutline, UploadOutline } from "antd-mobile-icons";
+import { DownlandOutline, UndoOutline, UploadOutline } from "antd-mobile-icons";
 import LocalStorage from "../../../../common/storage/localstorage";
 import { host } from "../../../../common/fetch";
 import dayjs from "dayjs";
@@ -30,6 +30,7 @@ function decodeJwtToken(token: string) {
 export default function Info(props: IProps) {
   const [info, setInfo] = useState<Info>();
   const [updateDate, setUpdateDate] = useState<number>();
+  const [snapShotUpdateDate, setSnapShotUpdateDate] = useState<number>();
   const { localStorage, logOut } = props;
   const syncData = async () => {
     const res = await localStorage.downloadAllDataAsJSON();
@@ -60,6 +61,7 @@ export default function Info(props: IProps) {
         .finally(() => {});
     }
   };
+
   const download = async () => {
     Dialog.show({
       closeOnAction: true,
@@ -104,7 +106,7 @@ export default function Info(props: IProps) {
                   }
                 })
                 .then((res) => {
-                  localStorage.overwriteDataInIDB(res.data.data);
+                  localStorage.overwriteDataFromIDB(res.data.data);
                   setUpdateDate(res.data.updateDate);
                   Toast.show({
                     icon: "success",
@@ -119,13 +121,78 @@ export default function Info(props: IProps) {
       ],
     });
   };
+  const loadSnapshot = async () => {
+    try {
+      Dialog.show({
+        closeOnAction: true,
+        closeOnMaskClick: true,
+        content: (
+          <p
+            style={{
+              textAlign: "center",
+              fontSize: "1.2rem",
+              color: "#6f6d6d",
+              fontWeight: "bold",
+            }}
+          >
+            回退至备份会覆盖已有的数据，确定同步吗
+          </p>
+        ),
+        actions: [
+          [
+            {
+              key: "cancel",
+              text: "取消",
+              style: { color: "#6f6d6d" },
+            },
+            {
+              key: "delete",
+              text: "确定",
+              style: { color: "pink" },
+              onClick: async () => {
+                try {
+                  const snapshot = await localStorage.getData(
+                    "snapshot",
+                    "snapshot"
+                  );
+                  localStorage.overwriteDataFromIDB(snapshot as string);
+                  Toast.show({
+                    icon: "success",
+                    content: "回退成功",
+                  });
+                } catch (err) {
+                  Toast.show({
+                    icon: "error",
+                    content: "回退失败",
+                  });
+                }
+              },
+            },
+          ],
+        ],
+      });
+    } catch (err) {
+      Toast.show({
+        icon: "success",
+        content: "回退失败",
+      });
+    }
+  };
+  const getSnapShotUpdateDate = async () => {
+    const _updateDate = await localStorage.getData("snapshot", "updateDate");
+    if (typeof _updateDate === "number") {
+      setSnapShotUpdateDate(_updateDate);
+    }
+  };
   useEffect(() => {
     const token = proxyGetLocalStorage("token");
     if (token) {
       const data = decodeJwtToken(token);
       setInfo(data);
+      getSnapShotUpdateDate();
     }
   }, []);
+
   return (
     <div className={s.container}>
       <p>帐号：{info?.account}</p>
@@ -143,13 +210,17 @@ export default function Info(props: IProps) {
       >
         <Space>
           <DownlandOutline />
-          <span>同步数据至本地</span>
+          <span>同步云端数据至本地</span>
         </Space>
       </Button>
       <Divider style={{ textAlign: "center" }}>
         同时，数据也会自动同步至云端
-        <br />
-        {dayjs(updateDate).format("YYYY-MM-DD HH:mm:ss")}
+        {updateDate ? (
+          <>
+            <br />
+            {dayjs(updateDate).format("YYYY-MM-DD HH:mm:ss")}{" "}
+          </>
+        ) : null}
       </Divider>
       <Button
         block
@@ -160,7 +231,28 @@ export default function Info(props: IProps) {
       >
         <Space>
           <UploadOutline />
-          <span>同步数据至云端</span>
+          <span>同步本地数据至云端</span>
+        </Space>
+      </Button>
+      <Divider style={{ textAlign: "center" }}>
+        并且，本地保留最近一次的备份
+        {snapShotUpdateDate ? (
+          <>
+            <br />
+            {dayjs(snapShotUpdateDate).format("YYYY-MM-DD HH:mm:ss")}
+          </>
+        ) : null}
+      </Divider>
+      <Button
+        block
+        color="primary"
+        size="large"
+        className={s.syncBtn}
+        onClick={() => loadSnapshot()}
+      >
+        <Space>
+          <UndoOutline />
+          <span>回退至最近一次备份</span>
         </Space>
       </Button>
       <Button

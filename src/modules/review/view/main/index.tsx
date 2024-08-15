@@ -319,8 +319,9 @@ export default function Flow(props: Props) {
             }}
           />
         }
-        closeOnAction={true}
-        closeOnMaskClick={true}
+        destroyOnClose
+        closeOnAction
+        closeOnMaskClick
         onClose={() => {
           setAddCategoryVisible(false);
         }}
@@ -361,8 +362,9 @@ export default function Flow(props: Props) {
             }}
           />
         }
-        closeOnAction={true}
-        closeOnMaskClick={true}
+        destroyOnClose
+        closeOnAction
+        closeOnMaskClick
         onClose={() => {
           setAddNoteVisible(false);
         }}

@@ -7,6 +7,7 @@ import {
   proxyDeleteLocalStorage,
   proxyGetLocalStorage,
 } from "../../common/utils";
+import { SpinLoading } from "antd-mobile";
 export default function My() {
   const [hadLogin, setHadLogin] = useState<boolean | undefined>(undefined);
   const [initFlag, setInitFlag] = useState(false);
@@ -51,6 +52,10 @@ export default function My() {
           setHadLogin(true);
         }}
       ></Register>
-    ) : null
+    ) : (
+      <SpinLoading
+        style={{ marginTop: "30vh", "--size": "60px", "--color": "#ffe3e8" }}
+      />
+    )
   ) : null;
 }

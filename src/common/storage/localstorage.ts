@@ -6,7 +6,7 @@ class LocalStorage {
     }
     init() {
         return new Promise((resolve, reject) => {
-            const arr = ['task-list', 'abstract-concrete-library', 'experience', 'review', 'utils']
+            const arr = ['task-list', 'abstract-concrete-library', 'experience', 'review', 'utils', 'snapshot']
             const openRequest = indexedDB.open(this.dbName);
             openRequest.onupgradeneeded = (event: IDBVersionChangeEvent) => {
                 // 版本升级事务，已知的版本升级情况有对象存储列表的改变
@@ -88,6 +88,7 @@ class LocalStorage {
             }
         })
     }
+
     downloadJSONData(data: string) {
         // 创建一个Blob对象，包含JSON数据
         const blob = new Blob([data], { type: 'application/json' });
@@ -102,6 +103,7 @@ class LocalStorage {
         downloadLink.click();
         document.body.removeChild(downloadLink);
     }
+
     downloadAllDataAsJSON() {
         return new Promise((resolve, reject) => {
             if (this.db) {
@@ -109,6 +111,7 @@ class LocalStorage {
                 // 遍历所有对象存储
                 for (let i = 0; i < this.db.objectStoreNames.length; i++) {
                     const storeName = this.db.objectStoreNames[i];
+                    if (storeName === 'snapshot') continue
                     const transaction = this.db.transaction([storeName], 'readonly');
                     const store = transaction.objectStore(storeName);
 
@@ -134,7 +137,6 @@ class LocalStorage {
                                 const data = JSON.stringify(allData, null, 2); // 格式化JSON
                                 resolve(data)
                                 return
-                                // this.downloadJSONData(data);
                             }
                         }
                     };
@@ -149,7 +151,7 @@ class LocalStorage {
         })
     }
 
-    overwriteDataInIDB(jsonString: string) {
+    overwriteDataFromIDB(jsonString: string) {
         try {
             const data = JSON.parse(jsonString);
             if (this.db) {
@@ -166,11 +168,24 @@ class LocalStorage {
                         for (const key in object) {
                             if (object.hasOwnProperty(key)) {
                                 // debugger
-                                store.put(object[key],key);
+                                store.put(object[key], key);
                             }
                         }
                     }
                 }
+            }
+        } catch (err) {
+        }
+    }
+
+    async saveToSnapShot() {
+        try {
+            const snapShot = await this.downloadAllDataAsJSON()
+            if (this.db) {
+                const transaction = this.db.transaction(['snapshot'], 'readwrite');
+                const store = transaction.objectStore('snapshot');
+                store.put(snapShot, 'snapshot');
+                store.put(new Date().getTime(), 'updateDate');
             }
         } catch (err) {
         }

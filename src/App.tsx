@@ -50,6 +50,11 @@ const App = () => {
       syncData();
     };
   }, [syncData]);
+  useEffect(() => {
+    if (localStorage) {
+      localStorage.saveToSnapShot();
+    }
+  }, [localStorage]);
 
   return (
     <Router initialEntries={["/task-list"]}>

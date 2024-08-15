@@ -237,6 +237,7 @@ const Experience = (props: Props) => {
             ) : null}
           </>
         }
+        destroyOnClose
         closeOnAction
         closeOnMaskClick
         onClose={() => {

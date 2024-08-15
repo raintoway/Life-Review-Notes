@@ -10,7 +10,7 @@ import {
 } from "react";
 import * as d3 from "d3";
 import { nanoid } from "nanoid";
-import { Button, Dialog, Input, JumboTabs } from "antd-mobile";
+import { Button, Dialog, Input, JumboTabs, TextArea } from "antd-mobile";
 import randomColor from "randomcolor";
 import LocalStorage from "../../../../common/storage/localstorage";
 import s from "./index.module.scss";
@@ -236,15 +236,13 @@ const AbstractConcreteLibrary = (props: IProps) => {
           // 返回x和y的值
           const rsl = {
             x: parseFloat(values[0]),
-            y: parseFloat(values[1]),
+            y: parseFloat(values[1]) + height + 12,
           };
           operationBoxRef.current
             .raise()
             .attr(
               "transform",
-              `translate(${rsl.x + width / 2},${
-                rsl.y + height / 2
-              }) scale(0.01)`
+              `translate(${rsl.x + 10},${rsl.y - 20}) scale(0.01)`
             )
             .selectAll("path")
             .attr("fill", (d) => {
@@ -262,13 +260,13 @@ const AbstractConcreteLibrary = (props: IProps) => {
         // 假设你已经有一个SVG path元素，它包含一个圆弧
         const pathElement = currentElementRef.current;
         // 获取圆弧的总长度
-        var totalLength = pathElement.getTotalLength();
+        const totalLength = pathElement.getTotalLength();
 
         // 圆弧的中点长度
-        var midLength = totalLength / 2;
+        const midLength = totalLength / 2;
 
         // 使用getPointAtLength()方法找到中点的坐标
-        var midPoint = pathElement.getPointAtLength(midLength);
+        const midPoint = pathElement.getPointAtLength(midLength);
         operationBoxRef.current
           .attr(
             "transform",
@@ -502,18 +500,26 @@ const AbstractConcreteLibrary = (props: IProps) => {
           return d.color;
         });
 
+      // 定义每个tspan的最大字符数
+      const maxCharsPerTspan = 15;
+      // 创建text元素并设置基本属性
       node
         .append("text")
         .attr("x", 8)
         .attr("y", "0.31em")
         .attr("stroke", (d) => d.color)
-        .text((d) => d.label)
         .style("opacity", "0.6")
-        .clone(true)
-        .lower()
         .attr("fill", "none")
-        .attr("stroke", "white")
-        .attr("stroke-width", 3);
+        .attr("stroke-width", 1)
+        .selectAll("tspan") // 这里使用selectAll来选择所有tspan，但初始时它们还不存在
+        .data((d) => {
+          return d.label.match(new RegExp(`.{1,${maxCharsPerTspan}}`, "g"));
+        }) // 将文本分割成数组
+        .enter() // 创建缺失的元素
+        .append("tspan")
+        .attr("x", 8)
+        .attr("dy", (d, i) => (i === 0 ? 0 : "1.2em")) // 每行tspan的垂直间距
+        .text((d) => d); // 设置tspan的文本内容
 
       simulation.on("tick", () => {
         link.attr("d", linkArc);
@@ -588,22 +594,26 @@ const AbstractConcreteLibrary = (props: IProps) => {
                 >
                   名称：
                 </div>
-                <Input
+                <TextArea
                   style={{
                     "--color": currentNode.color,
                   }}
-                  placeholder="请输入内容"
+                  placeholder="请输入节点内容"
                   value={currentNode.label}
                   onChange={(val) => {
                     currentNode.label = val;
                     setCurrentNode({ ...currentNode });
                   }}
+                  rows={1}
+                  autoSize={{ minRows: 1, maxRows: 12 }}
                 />
               </div>
             ) : null}
           </>
         }
+        destroyOnClose
         closeOnAction
+        closeOnMaskClick
         onClose={() => {
           setEditVisible(false);
         }}
@@ -667,6 +677,7 @@ const AbstractConcreteLibrary = (props: IProps) => {
             ) : null}
           </>
         }
+        destroyOnClose
         closeOnAction
         closeOnMaskClick
         onClose={() => {

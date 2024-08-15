@@ -8,6 +8,72 @@
       border: none;
       .ql-editor {
         padding: 0;
+        ol {
+          padding-left: 1em;
+          li {
+            padding-left: 1em;
+          }
+          .ql-indent-1 {
+            padding-left: 2.2em;
+          }
+          .ql-indent-2 {
+            padding-left: 3.2em;
+          }
+          .ql-indent-3 {
+            padding-left: 4.2em;
+          }
+          .ql-indent-4 {
+            padding-left: 5.2em;
+          }
+          .ql-indent-5 {
+            padding-left: 6.2em;
+          }
+          .ql-indent-6 {
+            padding-left: 7.2em;
+          }
+          .ql-indent-7 {
+            padding-left: 8.2em;
+          }
+          .ql-indent-8 {
+            padding-left: 9.2em;
+          }
+          .ql-indent-9 {
+            padding-left: 10.2em;
+          }
+        }
+        ul {
+          padding-left: 1em;
+          li {
+            padding-left: 1em;
+          }
+          .ql-indent-1 {
+            padding-left: 2.2em;
+          }
+          .ql-indent-2 {
+            padding-left: 3.2em;
+          }
+          .ql-indent-3 {
+            padding-left: 4.2em;
+          }
+          .ql-indent-4 {
+            padding-left: 5.2em;
+          }
+          .ql-indent-5 {
+            padding-left: 6.2em;
+          }
+          .ql-indent-6 {
+            padding-left: 7.2em;
+          }
+          .ql-indent-7 {
+            padding-left: 8.2em;
+          }
+          .ql-indent-8 {
+            padding-left: 9.2em;
+          }
+          .ql-indent-9 {
+            padding-left: 10.2em;
+          }
+        }
       }
     }
     .ql-toolbar {

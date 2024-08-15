@@ -652,7 +652,7 @@ const FlowEditor = ({
         }}
         value={title}
         rows={1}
-        autoSize={{ minRows: 1, maxRows: 2 }}
+        autoSize={{ minRows: 1, maxRows: 3 }}
       />
       <div className={[s.graphBox].join(" ")} ref={containerRef}></div>
       <Dialog
@@ -724,8 +724,9 @@ const FlowEditor = ({
             吗？
           </p>
         }
-        closeOnAction={true}
-        closeOnMaskClick={true}
+        destroyOnClose
+        closeOnAction
+        closeOnMaskClick
         onClose={() => {
           setDeleteVisible(false);
         }}
