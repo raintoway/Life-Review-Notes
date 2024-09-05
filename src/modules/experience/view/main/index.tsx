@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { useCallback, useEffect, useState, useMemo } from "react";
+import { useCallback, useEffect, useState, useMemo, useRef } from "react";
 import s from "./index.module.scss";
 import {
   DragDropContext,
@@ -49,7 +49,7 @@ const Experience = (props: Props) => {
   const [addCategory, setAddCategory] = useState<IExperienceData>();
   const [addVisible, setAddVisible] = useState(false);
 
-  const onDragEnd = (result: DropResult) => {
+  const onDetailDragEnd = (result: DropResult) => {
     if (!result.destination) return;
     const { source, destination } = result;
     const sourceIndex = source.index;
@@ -59,6 +59,19 @@ const Experience = (props: Props) => {
     currentData.splice(sourceIndex, 1);
     const newDestinationIndex = destinationIndex;
     currentData.splice(newDestinationIndex, 0, sourceIndexEle);
+    setData([...data]);
+  };
+
+  const onCategoryDragEnd = (result: DropResult) => {
+    if (!result.destination) return;
+    const { source, destination } = result;
+    const sourceIndex = source.index;
+    const destinationIndex = destination.index;
+    if (sourceIndex === destinationIndex) return;
+    const sourceIndexEle = data[sourceIndex];
+    data.splice(sourceIndex, 1);
+    const newDestinationIndex = destinationIndex;
+    data.splice(newDestinationIndex, 0, sourceIndexEle);
     setData([...data]);
   };
 
@@ -141,27 +154,65 @@ const Experience = (props: Props) => {
 
   return (
     <div className={s.wrapper}>
-      <JumboTabs
-        style={{ marginBottom: "20px" }}
-        activeKey={activeKey}
-        onChange={(val) => {
-          if (val === "+") {
-            setAddCategory({ key: nanoid(), title: "", data: [] });
-            setAddVisible(true);
-          } else {
-            setActiveKey(val);
-          }
-        }}
-      >
-        {data.map((item) => {
-          return (
-            <JumboTabs.Tab title={item.title} key={item.key}></JumboTabs.Tab>
-          );
-        })}
-        <JumboTabs.Tab title={"+"} key={"+"}></JumboTabs.Tab>
-      </JumboTabs>
-      <DragDropContext onDragEnd={(result) => onDragEnd(result)}>
-        <Droppable droppableId={"id"}>
+      <DragDropContext onDragEnd={(result) => onCategoryDragEnd(result)}>
+        <Droppable droppableId="horizontal-list" direction="horizontal">
+          {(provided) => {
+            return (
+              <div
+                id="category-wrapper"
+                className="category-wrapper"
+                {...provided.droppableProps}
+                ref={provided.innerRef}
+              >
+                {data.map((item, index) => (
+                  <Draggable
+                    key={item.key}
+                    draggableId={item.key}
+                    index={index}
+                  >
+                    {(provided) => (
+                      <div
+                        ref={provided.innerRef}
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                        key={item.key}
+                        style={{
+                          ...provided.draggableProps.style,
+                        }}
+                        className={[
+                          "category-item",
+                          activeKey === item.key ? "activeCategory" : "",
+                        ].join(" ")}
+                        onClick={() => {
+                          setActiveKey(item.key);
+                        }}
+                      >
+                        {item.title}
+                      </div>
+                    )}
+                  </Draggable>
+                ))}
+                <div
+                  className={"category-item"}
+                  key={"+"}
+                  onClick={() => {
+                    setAddCategory({
+                      key: nanoid(),
+                      title: "",
+                      data: [],
+                    });
+                    setAddVisible(true);
+                  }}
+                >
+                  +
+                </div>
+              </div>
+            );
+          }}
+        </Droppable>
+      </DragDropContext>
+      <DragDropContext onDragEnd={(result) => onDetailDragEnd(result)}>
+        <Droppable droppableId={"detail"}>
           {(provided) => {
             return (
               <div {...provided.droppableProps} ref={provided.innerRef}>

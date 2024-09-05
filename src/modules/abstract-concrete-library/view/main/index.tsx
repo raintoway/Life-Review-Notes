@@ -15,6 +15,13 @@ import randomColor from "randomcolor";
 import LocalStorage from "../../../../common/storage/localstorage";
 import s from "./index.module.scss";
 import { AddCircleOutline } from "antd-mobile-icons";
+import {
+  DragDropContext,
+  Draggable,
+  Droppable,
+  DropResult,
+  // @ts-expect-error 正常报错
+} from "react-beautiful-dnd";
 
 interface IProps {
   category: ICategory[];
@@ -286,6 +293,19 @@ const AbstractConcreteLibrary = (props: IProps) => {
     }
   };
 
+  const onCategoryDragEnd = (result: DropResult) => {
+    if (!result.destination) return;
+    const { source, destination } = result;
+    const sourceIndex = source.index;
+    const destinationIndex = destination.index;
+    if (sourceIndex === destinationIndex) return;
+    const sourceIndexEle = category[sourceIndex];
+    category.splice(sourceIndex, 1);
+    const newDestinationIndex = destinationIndex;
+    category.splice(newDestinationIndex, 0, sourceIndexEle);
+    setCategory([...category]);
+  };
+
   const syncTransformToLocalStorage = useCallback(() => {
     return;
   }, [localStorage, transformRef]);
@@ -435,27 +455,64 @@ const AbstractConcreteLibrary = (props: IProps) => {
           "M85.333333 512a64 64 0 0 1 64-64h725.333334a64 64 0 0 1 0 128h-725.333334A64 64 0 0 1 85.333333 512z"
         )
         .on("click", (e) => {
-          if (currentElementRef.current) {
-            const currentData = currentElementRef.current.__data__;
-            if (currentData.svgType === "node") {
-              const targetIndex = data.findIndex(
-                (node) => node.id === currentData.id
-              );
-              targetIndex > -1 && data.splice(targetIndex, 1);
-              data.forEach((node) => {
-                const findIndex = node.children.indexOf(currentData.id);
-                findIndex >= 0 && node.children.splice(findIndex, 1);
-              });
-              setCategory([...category]);
-            } else if (currentData.svgType === "link") {
-              const { id } = currentData.target;
-              data.forEach((node) => {
-                const findIndex = node.children.indexOf(id);
-                findIndex >= 0 && node.children.splice(findIndex, 1);
-              });
-              setCategory([...category]);
-            }
-          }
+          const currentData = currentElementRef.current?.__data__;
+          const { id } = currentData;
+          const node = data.find((item) => item.id === id);
+          Dialog.show({
+            content: (
+              <p
+                style={{
+                  textAlign: "center",
+                  fontSize: "1.2rem",
+                  color: "#6f6d6d",
+                  fontWeight: "bold",
+                }}
+              >
+                确定删除该节点吗？
+              </p>
+            ),
+            closeOnAction: true,
+            closeOnMaskClick: true,
+            actions: [
+              [
+                {
+                  key: "cancel",
+                  text: "取消",
+                  style: { color: "#6f6d6d" },
+                },
+                {
+                  key: "delete",
+                  text: "确定",
+                  style: { color: node?.color ?? "pink" },
+                  onClick: () => {
+                    if (currentElementRef.current) {
+                      const currentData = currentElementRef.current.__data__;
+                      if (currentData.svgType === "node") {
+                        const targetIndex = data.findIndex(
+                          (node) => node.id === currentData.id
+                        );
+                        targetIndex > -1 && data.splice(targetIndex, 1);
+                        data.forEach((node) => {
+                          const findIndex = node.children.indexOf(
+                            currentData.id
+                          );
+                          findIndex >= 0 && node.children.splice(findIndex, 1);
+                        });
+                        setCategory([...category]);
+                      } else if (currentData.svgType === "link") {
+                        const { id } = currentData.target;
+                        data.forEach((node) => {
+                          const findIndex = node.children.indexOf(id);
+                          findIndex >= 0 && node.children.splice(findIndex, 1);
+                        });
+                        setCategory([...category]);
+                      }
+                    }
+                  },
+                },
+              ],
+            ],
+          });
         });
 
       const link = g
@@ -509,8 +566,8 @@ const AbstractConcreteLibrary = (props: IProps) => {
         .attr("y", "0.31em")
         .attr("stroke", (d) => d.color)
         .style("opacity", "0.6")
-        .attr("fill", "none")
-        .attr("stroke-width", 1)
+        .attr("fill", (d) => d.color)
+        .attr("stroke-width", 0.4)
         .selectAll("tspan") // 这里使用selectAll来选择所有tspan，但初始时它们还不存在
         .data((d) => {
           return d.label.match(new RegExp(`.{1,${maxCharsPerTspan}}`, "g"));
@@ -544,37 +601,72 @@ const AbstractConcreteLibrary = (props: IProps) => {
 
   return (
     <div className={s.container}>
-      <JumboTabs
-        activeKey={activeKey}
-        onChange={(val) => {
-          if (val === "+") {
-            setAddCategory({
-              key: nanoid(),
-              title: "",
-              transform: { ...defaultTransform },
-              data: [
-                {
-                  id: nanoid(),
-                  label: "点击我",
-                  children: [],
-                  type: "node",
-                  color: "pink",
-                },
-              ],
-            });
-            setAddVisible(true);
-          } else {
-            setActiveKey(val);
-          }
-        }}
-      >
-        {category.map((item) => {
-          return (
-            <JumboTabs.Tab title={item.title} key={item.key}></JumboTabs.Tab>
-          );
-        })}
-        <JumboTabs.Tab title={"+"} key={"+"}></JumboTabs.Tab>
-      </JumboTabs>
+      <DragDropContext onDragEnd={(result) => onCategoryDragEnd(result)}>
+        <Droppable droppableId="horizontal-list" direction="horizontal">
+          {(provided) => {
+            return (
+              <div
+                id="category-wrapper"
+                className="category-wrapper"
+                {...provided.droppableProps}
+                ref={provided.innerRef}
+              >
+                {category.map((item, index) => (
+                  <Draggable
+                    key={item.key}
+                    draggableId={item.key}
+                    index={index}
+                  >
+                    {(provided) => (
+                      <div
+                        ref={provided.innerRef}
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                        key={item.key}
+                        style={{
+                          ...provided.draggableProps.style,
+                        }}
+                        className={[
+                          "category-item",
+                          activeKey === item.key ? "activeCategory" : "",
+                        ].join(" ")}
+                        onClick={() => {
+                          setActiveKey(item.key);
+                        }}
+                      >
+                        {item.title}
+                      </div>
+                    )}
+                  </Draggable>
+                ))}
+                <div
+                  className={"category-item"}
+                  key={"+"}
+                  onClick={() => {
+                    setAddCategory({
+                      key: nanoid(),
+                      title: "",
+                      transform: { ...defaultTransform },
+                      data: [
+                        {
+                          id: nanoid(),
+                          label: "点击我",
+                          children: [],
+                          type: "node",
+                          color: "pink",
+                        },
+                      ],
+                    });
+                    setAddVisible(true);
+                  }}
+                >
+                  +
+                </div>
+              </div>
+            );
+          }}
+        </Droppable>
+      </DragDropContext>
       <div
         style={{ width: "100%", height: "calc(100vh - 55px - 45px)" }}
         id="svgContainer"

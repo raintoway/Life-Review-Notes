@@ -1,6 +1,54 @@
 .container {
   width: 100%;
   :global {
+    .category-wrapper {
+      margin: 0 30px;
+      padding-top: 5px;
+      -webkit-user-select: none; /* Safari */
+      -moz-user-select: none; /* Firefox */
+      -ms-user-select: none; /* IE/Edge */
+      user-select: none; /* 标准语法 */
+      width: calc(100% - 60px);
+      overflow-x: auto;
+      white-space: nowrap;
+      &::-webkit-scrollbar {
+        scrollbar-width: none;
+        /* Firefox */
+        -ms-overflow-style: none;
+        /* IE 10+ */
+        display: none;
+        width: 0;
+        /* 滚动条宽度 */
+        height: 0;
+        /* 滚动条高度 */
+      }
+      .category-item {
+        display: inline-block;
+        padding: 0 10px;
+        width: 25%;
+        height: 48px;
+        line-height: 48px;
+        font-size: 1.2rem;
+        color: #6f6d6d;
+        border-radius: 8px;
+        background-color: #fff;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        &:nth-last-child(1) {
+          margin-left: 20px;
+          width: fit-content;
+        }
+        &:nth-last-child(2) {
+          width: fit-content;
+          max-width: 24%;
+        }
+      }
+      .activeCategory {
+        color: #ffe3e8;
+      }
+    }
+
     .adm-jumbo-tabs {
       padding: 0 30px;
       .adm-jumbo-tabs-tab {
