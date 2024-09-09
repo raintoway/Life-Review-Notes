@@ -1,9 +1,10 @@
 .wrapper {
-  padding: 0 30px;
+  padding: 0 20px;
   width: 100%;
 
   :global {
     .category-wrapper {
+      margin-bottom: 10px;
       padding-top: 5px;
       -webkit-user-select: none; /* Safari */
       -moz-user-select: none; /* Firefox */

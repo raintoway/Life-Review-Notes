@@ -5,10 +5,11 @@ import "react-quill/dist/quill.snow.css";
 import s from "./index.module.scss";
 import { CloseCircleOutline } from "antd-mobile-icons";
 import { Dialog } from "antd-mobile";
+// 自定义加粗格式的handler
+
 const modules = {
   toolbar: [
     [
-      { header: 1 },
       { header: 2 },
       "bold",
       "italic",
@@ -17,7 +18,10 @@ const modules = {
       "blockquote",
       { list: "ordered" },
       { list: "bullet" },
-      "image",
+      { indent: "-1" },
+      { indent: "+1" },
+      "clean",
+      // "image",
     ],
   ],
   clipboard: {
@@ -81,8 +85,6 @@ function Editor({
           if (container) {
             container.querySelector(".ql-toolbar").style.opacity = 1;
             container.querySelector(".ql-toolbar").style.visibility = "visible";
-            container.querySelector(".ql-toolbar").style.animation =
-              "fadeInOut 1s ease-in-out;";
           }
         }}
         onBlur={() => {
@@ -90,8 +92,6 @@ function Editor({
             const container = containerRef.current;
             container.querySelector(".ql-toolbar").style.opacity = 0;
             container.querySelector(".ql-toolbar").style.visibility = "hidden";
-            container.querySelector(".ql-toolbar").style.animation =
-              "fadeInOut 1s ease-in-out;";
           }
         }}
         theme="snow"
