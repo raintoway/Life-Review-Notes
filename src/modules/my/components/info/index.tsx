@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useEffect, useState } from "react";
 import s from "./index.module.scss";
 import { Button, Dialog, Divider, Space, Toast } from "antd-mobile";
@@ -5,6 +6,7 @@ import { DownlandOutline, UndoOutline, UploadOutline } from "antd-mobile-icons";
 import LocalStorage from "../../../../common/storage/localstorage";
 import { host } from "../../../../common/fetch";
 import dayjs from "dayjs";
+import backupData from "../../../../backup/2025-05-07.json";
 import { proxyGetLocalStorage } from "../../../../common/utils";
 export interface IProps {
   localStorage: LocalStorage;
@@ -32,6 +34,7 @@ export default function Info(props: IProps) {
   const [updateDate, setUpdateDate] = useState<number>();
   const [snapShotUpdateDate, setSnapShotUpdateDate] = useState<number>();
   const { localStorage, logOut } = props;
+  const [isInit, setIsInit] = useState(false);
   const syncData = async () => {
     const res = await localStorage.downloadAllDataAsJSON();
     const body = JSON.stringify({ data: res });
@@ -185,6 +188,29 @@ export default function Info(props: IProps) {
     }
   };
   useEffect(() => {
+    const isInit = window.localStorage.getItem("isInit");
+    if (isInit === "1") {
+      setIsInit(true);
+    }
+  }, []);
+  const loadBackupData = async () => {
+    await localStorage.overwriteDataFromIDB(JSON.stringify(backupData));
+    Toast.show({
+      icon: "success",
+      content: "初始化成功",
+    });
+    setIsInit(true);
+    window.localStorage.setItem("isInit", "1");
+  };
+  const backup = async () => {
+    const data = await localStorage.downloadAllDataAsJSON();
+    localStorage.downloadJSONData(data as string);
+    Toast.show({
+      icon: "success",
+      content: "下载成功",
+    });
+  };
+  useEffect(() => {
     const token = proxyGetLocalStorage("token");
     if (token) {
       const data = decodeJwtToken(token);
@@ -195,7 +221,35 @@ export default function Info(props: IProps) {
 
   return (
     <div className={s.container}>
-      <p>帐号：{info?.account}</p>
+      <div style={{ marginTop: "60px" }}></div>
+      {isInit ? null : (
+        <Button
+          block
+          color="primary"
+          size="large"
+          className={s.syncBtn}
+          onClick={() => loadBackupData()}
+        >
+          <Space>
+            <DownlandOutline />
+            <span>初始化</span>
+          </Space>
+        </Button>
+      )}
+      <div style={{ marginTop: "60px" }}></div>
+      <Button
+        block
+        color="primary"
+        size="large"
+        className={s.syncBtn}
+        onClick={() => backup()}
+      >
+        <Space>
+          <UploadOutline />
+          <span>下载备份</span>
+        </Space>
+      </Button>
+      {/* <p>帐号：{info?.account}</p>
       <p>邮箱：{info?.email}</p>
 
       <Divider style={{ marginTop: "60px" }}>
@@ -265,7 +319,7 @@ export default function Info(props: IProps) {
         }}
       >
         退出登录
-      </Button>
+      </Button> */}
     </div>
   );
 }

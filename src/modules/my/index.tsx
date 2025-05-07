@@ -13,6 +13,8 @@ export default function My() {
   const [initFlag, setInitFlag] = useState(false);
   const { localStorage } = useContext(StorageContext);
   const checkLogin = async () => {
+    setHadLogin(true);
+    return;
     fetch(host + "api/user/checkLogin", {
       headers: new Headers({
         Authorization: "Bearer " + proxyGetLocalStorage("token"), // 设置认证令牌

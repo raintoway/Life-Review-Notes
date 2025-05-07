@@ -1,0 +1,1140 @@
+{
+  "abstract-concrete-library": {
+    "activeKey": "-Mif8Z4d4i2EpuiDvSb7A",
+    "category": [
+      {
+        "key": "_JVZlobYx3fuIMxsQlod2",
+        "title": "工作",
+        "transform": {
+          "translateX": 0,
+          "translateY": 0,
+          "scale": 1.1835447647287074
+        },
+        "data": [
+          {
+            "id": "JorfsDjgXlybN_iGK4O_Z",
+            "label": "点击我",
+            "children": [
+              "gF5HT2mG"
+            ],
+            "type": "node",
+            "color": "pink"
+          },
+          {
+            "id": "gF5HT2mG",
+            "label": "gF5HT2mG",
+            "children": [],
+            "type": "gF5HT2mG",
+            "color": "#03a881"
+          }
+        ]
+      },
+      {
+        "key": "iT0vT4crd64vp2glpQ74C",
+        "title": "学习",
+        "transform": {
+          "translateX": 0,
+          "translateY": 0,
+          "scale": 2
+        },
+        "data": [
+          {
+            "id": "i4NaP7ZhDba9FTKEdO-ci",
+            "label": "点击我",
+            "children": [],
+            "type": "node",
+            "color": "pink"
+          }
+        ]
+      },
+      {
+        "key": "-Mif8Z4d4i2EpuiDvSb7A",
+        "title": "生活",
+        "transform": {
+          "translateX": 0,
+          "translateY": 0,
+          "scale": 2
+        },
+        "data": [
+          {
+            "id": "Xy469m8_neP1eDx_OD06v",
+            "label": "点击我",
+            "children": [],
+            "type": "node",
+            "color": "pink"
+          }
+        ]
+      },
+      {
+        "key": "mwXQYkr_wD5YzIaByZ5a9",
+        "title": "爱情",
+        "transform": {
+          "translateX": 0,
+          "translateY": 0,
+          "scale": 0.8894588392897782
+        },
+        "data": [
+          {
+            "id": "5VVrwVccEgeNiNXL5QE1S",
+            "label": "点击我cccccccccccffffffff发个滚滚滚发发发发发发发发发尴尬发发发发发",
+            "children": [
+              "8eiPq2EL"
+            ],
+            "type": "node",
+            "color": "pink"
+          },
+          {
+            "id": "8eiPq2EL",
+            "label": "8eiPq2EL",
+            "children": [
+              "0DyiPZJK"
+            ],
+            "type": "8eiPq2EL",
+            "color": "#0004ff"
+          },
+          {
+            "id": "0DyiPZJK",
+            "label": "0DyiPZJK",
+            "children": [
+              "2b0-IBtC"
+            ],
+            "type": "0DyiPZJK",
+            "color": "#b1f97a"
+          },
+          {
+            "id": "2b0-IBtC",
+            "label": "2b0-IBt",
+            "children": [
+              "9u-YyDhF"
+            ],
+            "type": "2b0-IBtC",
+            "color": "#12913f"
+          },
+          {
+            "id": "9u-YyDhF",
+            "label": "9u-YyDhF",
+            "children": [
+              "9_MWBw3h"
+            ],
+            "type": "9u-YyDhF",
+            "color": "#7b8402"
+          },
+          {
+            "id": "9_MWBw3h",
+            "label": "9_MWBw3h",
+            "children": [],
+            "type": "9_MWBw3h",
+            "color": "#f9dcbb"
+          }
+        ]
+      },
+      {
+        "key": "qhxTvm8EjGVPMgMrVZgbw",
+        "title": "正循环",
+        "transform": {
+          "translateX": 0,
+          "translateY": 0,
+          "scale": 0.5
+        },
+        "data": [
+          {
+            "id": "a36AL3XE9IJClOTF5NVs9",
+            "label": "知行合一",
+            "children": [],
+            "type": "node",
+            "color": "pink"
+          },
+          {
+            "id": "zCgFURM7ORXp4ww98RqGi",
+            "label": "准备",
+            "children": [
+              "Eg_fbHyC"
+            ],
+            "type": "node",
+            "color": "#2d16fc"
+          },
+          {
+            "id": "Eg_fbHyC",
+            "label": "执行",
+            "children": [
+              "WpDvE9US"
+            ],
+            "type": "Eg_fbHyC",
+            "color": "#76a8cc"
+          },
+          {
+            "id": "WpDvE9US",
+            "label": "校验",
+            "children": [
+              "_SXHkqgW"
+            ],
+            "type": "WpDvE9US",
+            "color": "#72c136"
+          },
+          {
+            "id": "_SXHkqgW",
+            "label": "复盘",
+            "children": [],
+            "type": "_SXHkqgW",
+            "color": "#ff8114"
+          },
+          {
+            "id": "b8i7jPa2kanpicMCm9gvE",
+            "label": "进步",
+            "children": [
+              "hu44cfIz"
+            ],
+            "type": "node",
+            "color": "#2a58b2"
+          },
+          {
+            "id": "hu44cfIz",
+            "label": "站的更高、获得更多资源",
+            "children": [],
+            "type": "hu44cfIz",
+            "color": "#8dc6fc"
+          },
+          {
+            "id": "BKVM2hUIav1K9AUOaFuQH",
+            "label": "旁氏骗局上半部1",
+            "children": [
+              "MNMyd_Fw"
+            ],
+            "type": "node",
+            "color": "#6fba07"
+          },
+          {
+            "id": "MNMyd_Fw",
+            "label": "资金池变大",
+            "children": [
+              "VepBqaRp"
+            ],
+            "type": "MNMyd_Fw",
+            "color": "#6bf48b"
+          },
+          {
+            "id": "VepBqaRp",
+            "label": "吸引更多资金",
+            "children": [],
+            "type": "VepBqaRp",
+            "color": "#e4acef"
+          },
+          {
+            "id": "DsECy2Iw",
+            "label": "资金盘变大",
+            "children": [
+              "od26axaE"
+            ],
+            "type": "DsECy2Iw",
+            "color": "#71a517"
+          },
+          {
+            "id": "od26axaE",
+            "label": "吸引别的资金",
+            "children": [],
+            "type": "od26axaE",
+            "color": "#f78ce0"
+          },
+          {
+            "id": "8ihLgzvSlcyrOBv3A8IKf",
+            "label": "做A事情",
+            "children": [
+              "75iPUyVA"
+            ],
+            "type": "node",
+            "color": "#7605aa"
+          },
+          {
+            "id": "75iPUyVA",
+            "label": "得到奖励",
+            "children": [
+              "DpAHRjrC"
+            ],
+            "type": "75iPUyVA",
+            "color": "#a9f9c7"
+          },
+          {
+            "id": "DpAHRjrC",
+            "label": "有动力",
+            "children": [],
+            "type": "DpAHRjrC",
+            "color": "#b2ffce"
+          },
+          {
+            "id": "S1PWrS4l",
+            "label": "兑现",
+            "children": [
+              "Ud8cFEZo"
+            ],
+            "type": "S1PWrS4l",
+            "color": "#a3a2e8"
+          },
+          {
+            "id": "Ud8cFEZo",
+            "label": "风险",
+            "children": [],
+            "type": "Ud8cFEZo",
+            "color": "#ea1cd9"
+          },
+          {
+            "id": "Ql-BAEbL0gA6Av53hl7-v",
+            "label": "金本位",
+            "children": [
+              "RNCPelhM"
+            ],
+            "type": "node",
+            "color": "#dae81b"
+          },
+          {
+            "id": "RNCPelhM",
+            "label": "信用",
+            "children": [
+              "Gf3ytqkA"
+            ],
+            "type": "RNCPelhM",
+            "color": "#ba7821"
+          },
+          {
+            "id": "Gf3ytqkA",
+            "label": "兑现",
+            "children": [
+              "EAO4fDpl"
+            ],
+            "type": "Gf3ytqkA",
+            "color": "#afe1ed"
+          },
+          {
+            "id": "EAO4fDpl",
+            "label": "风险",
+            "children": [],
+            "type": "EAO4fDpl",
+            "color": "#dac7fc"
+          }
+        ]
+      },
+      {
+        "key": "II9Gu5RayKLImH_ZguzvP",
+        "title": "负循环",
+        "transform": {
+          "translateX": 0,
+          "translateY": 0,
+          "scale": 0.7124588072171769
+        },
+        "data": [
+          {
+            "id": "oVsg7IY1SiXFPxrW3NFEF",
+            "label": "成长型思维",
+            "children": [],
+            "type": "node",
+            "color": "pink"
+          },
+          {
+            "id": "GVYPRiQ4xzmrf-Kinl4G1",
+            "label": "提效",
+            "children": [
+              "GdGqJPqS"
+            ],
+            "type": "node",
+            "color": "#aff720"
+          },
+          {
+            "id": "GdGqJPqS",
+            "label": "无条件加速",
+            "children": [
+              "sZ69cwOk"
+            ],
+            "type": "GdGqJPqS",
+            "color": "#87f2c2"
+          },
+          {
+            "id": "sZ69cwOk",
+            "label": "出错",
+            "children": [
+              "ahXsUPYc"
+            ],
+            "type": "sZ69cwOk",
+            "color": "#990200"
+          },
+          {
+            "id": "ahXsUPYc",
+            "label": "降效",
+            "children": [],
+            "type": "ahXsUPYc",
+            "color": "#ffc9d5"
+          },
+          {
+            "id": "9qt_NHuqeqxMMoR3vpydf",
+            "label": "旁氏骗局下半部",
+            "children": [
+              "gPIXC5Z_"
+            ],
+            "type": "node",
+            "color": "#d1605e"
+          },
+          {
+            "id": "gPIXC5Z_",
+            "label": "资金盘变小",
+            "children": [
+              "BgcvwmeJ"
+            ],
+            "type": "gPIXC5Z_",
+            "color": "#0fff3b"
+          },
+          {
+            "id": "BgcvwmeJ",
+            "label": "价格下降",
+            "children": [
+              "-Z7kVGks"
+            ],
+            "type": "BgcvwmeJ",
+            "color": "#affffc"
+          },
+          {
+            "id": "-Z7kVGks",
+            "label": "资金盘变小",
+            "children": [],
+            "type": "-Z7kVGks",
+            "color": "#f296b0"
+          },
+          {
+            "id": "UBB1YJpJMRBypwT6xvEjp",
+            "label": "做B事情",
+            "children": [
+              "vGibvRxs"
+            ],
+            "type": "node",
+            "color": "#6a97c4"
+          },
+          {
+            "id": "vGibvRxs",
+            "label": "被惩罚",
+            "children": [
+              "BYQ7sFx4"
+            ],
+            "type": "vGibvRxs",
+            "color": "#2fb517"
+          },
+          {
+            "id": "BYQ7sFx4",
+            "label": "动力变小",
+            "children": [
+              "IUWqXarH"
+            ],
+            "type": "BYQ7sFx4",
+            "color": "#e8a58b"
+          },
+          {
+            "id": "IUWqXarH",
+            "label": "不做B事情",
+            "children": [],
+            "type": "IUWqXarH",
+            "color": "#46d646"
+          }
+        ]
+      },
+      {
+        "key": "Wk7yl53pqxQxKVmtbH-hV",
+        "title": "美国霸权",
+        "transform": {
+          "translateX": -39,
+          "translateY": -63,
+          "scale": 2.260851138633982
+        },
+        "data": [
+          {
+            "id": "DkUQUbZyttx50j8gCFs17",
+            "label": "霸权",
+            "children": [
+              "mwYyp2tZ",
+              "ulv19U94",
+              "R-haJdBR",
+              "hRAU4BGk"
+            ],
+            "type": "node",
+            "color": "pink"
+          },
+          {
+            "id": "mwYyp2tZ",
+            "label": "科技霸权",
+            "children": [],
+            "type": "mwYyp2tZ",
+            "color": "#85c615"
+          },
+          {
+            "id": "ulv19U94",
+            "label": "影视霸权",
+            "children": [],
+            "type": "ulv19U94",
+            "color": "#5892ef"
+          },
+          {
+            "id": "R-haJdBR",
+            "label": "金融霸权",
+            "children": [],
+            "type": "R-haJdBR",
+            "color": "#00a897"
+          },
+          {
+            "id": "hRAU4BGk",
+            "label": "人才霸权",
+            "children": [],
+            "type": "hRAU4BGk",
+            "color": "#d10ac3"
+          }
+        ]
+      },
+      {
+        "key": "R5GJ5KDLaSJ9muV_DoOwo",
+        "title": "普通环",
+        "transform": {
+          "translateX": -4.999999999999993,
+          "translateY": -86,
+          "scale": 1.5415778785253587
+        },
+        "data": [
+          {
+            "id": "0bb3_ejftHwv756f2wgc_",
+            "label": "经济周期",
+            "children": [],
+            "type": "node",
+            "color": "pink"
+          }
+        ]
+      },
+      {
+        "key": "vc2IpxtA0dSNoRxlgvcU_",
+        "title": "工程",
+        "transform": {
+          "translateX": 0,
+          "translateY": 0,
+          "scale": 2
+        },
+        "data": [
+          {
+            "id": "Dht_Un5t-MicdVLjzYMVt",
+            "label": "设计模式",
+            "children": [
+              "396HGrCi"
+            ],
+            "type": "node",
+            "color": "pink"
+          },
+          {
+            "id": "396HGrCi",
+            "label": "解耦、复用",
+            "children": [
+              "RO42xTOb"
+            ],
+            "type": "396HGrCi",
+            "color": "#a6aaf4"
+          },
+          {
+            "id": "RO42xTOb",
+            "label": "单一职责",
+            "children": [
+              "-lNNEL18"
+            ],
+            "type": "RO42xTOb",
+            "color": "#efb169"
+          },
+          {
+            "id": "-lNNEL18",
+            "label": "对修改闭源、对拓展开源",
+            "children": [],
+            "type": "-lNNEL18",
+            "color": "#392487"
+          }
+        ]
+      }
+    ]
+  },
+  "experience": {
+    "activeKey": "tu9-skLSQU37Nn-sf22G7",
+    "data": [
+      {
+        "key": "1FtD2NoN7PgzMgyxrYep5",
+        "title": "工作",
+        "data": [
+          {
+            "id": "n3IUROuBT45C4sPWoHKsm",
+            "content": "<p>别人反驳自己，导致的排斥心理是正常的，是因为不同场景下的不同观点，需要理性探讨</p>"
+          },
+          {
+            "id": "W2_HN8-7x8dKP5tyTLcxI",
+            "content": "<p>什么东西适合初始化时收集，什么东西适合运行时获取</p>"
+          },
+          {
+            "id": "HV8OYq6p-C02JJDBen1sm",
+            "content": "<p>闭环</p><ol><li>事事有回应，回应不怕多</li></ol>"
+          },
+          {
+            "id": "DYghgqzd1oNAWF8zbcUIa",
+            "content": "<p>评估用时，事情拆分的越细，评估的准确率越高</p>"
+          },
+          {
+            "id": "E6ly7myj9t2aPQwpM0sF9",
+            "content": "<p>风险控制</p><ol><li>风险评估</li><li class=\"ql-indent-1\">事情分的越细，风险越小</li><li class=\"ql-indent-1\">减少依赖方/上游</li><li>风险前置</li><li>阶段性啦通对齐，而不是等快做完了再拉通</li></ol>"
+          },
+          {
+            "id": "shZVTvoIXuMt1KIhNtj8p",
+            "content": "<p>赋能：赋能他人，提升整体效率，减少自身工作量</p>"
+          },
+          {
+            "id": "P1dnMzxQ6UF8PeLWuKN1f",
+            "content": "<p>发散</p><ol><li>方案的发散</li><li>思维的发散</li></ol><p>收敛</p><ol><li>问题的收敛</li><li>缺陷的收敛</li><li>代办的收敛</li></ol>"
+          },
+          {
+            "id": "1d7_nbw2nL2RCV6zySyVM",
+            "content": "<p>博弈</p><ol><li>站在对方角度，给自己建立成熟可靠的形象</li><li>站在对方的利益角度说服之</li></ol>"
+          },
+          {
+            "id": "CVAbi6OEgDClCf-z4409y",
+            "content": "<p>疲劳的时候向上看</p>"
+          },
+          {
+            "id": "3tR34QDOh2_Dl0-8uEEMq",
+            "content": "<p>协调资源、上下游、相关方</p>"
+          },
+          {
+            "id": "gPNWV1HsIowwfGOXlP6ky",
+            "content": "<p>做事情</p><ol><li>做好计划</li><li>计划外的事情请随机应变</li></ol>"
+          },
+          {
+            "id": "Hvn8V26AWBQiLaA8x-Gm6",
+            "content": "<p>可行性与不可行性都需要输出其原因</p>"
+          },
+          {
+            "id": "_2HfNRpBB4eBlTkRpTM4B",
+            "content": "<p>对一个功能的完成性达成可以通过记住多个特殊🌰，来覆盖所有异常情况</p>"
+          },
+          {
+            "id": "UT5wYr6Sm4UVUCaHK2sMl",
+            "content": "<p>独行快，众行远</p>"
+          },
+          {
+            "id": "uHfFZiz-dWCBAFfzSHt7Y",
+            "content": "<p>设计模式的学习可以在一个项目的复盘阶段</p>"
+          },
+          {
+            "id": "xOMgOWsQNpOzRsO73SRSj",
+            "content": "<p>别人在演讲时，站在他的角度，实时同步地思考如何说的更好</p>"
+          },
+          {
+            "id": "axwchj3MFjTFt8Z3Syt-S",
+            "content": "<p>主动可控，被动不可控</p>"
+          },
+          {
+            "id": "T9gwI3mUG9gaQN2oQ36Kc",
+            "content": "<p>了解事物的整体可从以下方向走</p><ol><li>整体的流程</li><li>整体架构，自上而下&nbsp;</li></ol>"
+          },
+          {
+            "id": "n8oK1B_6Md_nnVQ_Ol4SM",
+            "content": "<p>提效技巧</p><ol><li>非交互类事情可以提速</li><li>交互事件时，需要降低速度应对</li></ol>"
+          },
+          {
+            "id": "fX5ClFAyut9rsfrE7eq0-",
+            "content": "<p>对于现象和要求，要知道其背后的原因</p>"
+          },
+          {
+            "id": "X6b1w6ixnkrZh5l_5ae7A",
+            "content": "<ul><li>对于步骤，需要先知道其目的，对于复盘日记，我们优先聚焦的应该是目的（为什么这么做，为什么不这么做），而不是步骤，因为目的/原因/抽象能对应多条路径/步骤</li><li>场景 -&gt; 目标 -&gt; 步骤</li><li>千万别陷入场景 -&gt; 步骤的惯性执行，这会漏掉目标，而目标的实现路径很多，不止复盘日记里的</li><li>确定场景后，确定目标，然后从复盘日记/分析中获取步骤，执行完后需要校验结果和目标的一致性。</li><li>偶尔需要改变一下执行的步骤，避免机械式执行</li></ul>"
+          },
+          {
+            "id": "dS3i1OB6nOKOOa9M12Cx2",
+            "content": "<p>早会想把东西说丰富，就说细节，结合黑话，所以需要在实际开发时，用笔记本记录</p>"
+          },
+          {
+            "id": "daZcY_obvsWbZWFyYlyah",
+            "content": "<p>听别人的思路时，不要一味顺着别人的思路走，利用认知事物的方式来分析他说的对不对，这样能拿回思维主动权</p><p><br></p><p>同样与看文章、看视频</p>"
+          }
+        ]
+      },
+      {
+        "key": "-qiFujs2CZFcXkOxuYCST",
+        "title": "学习",
+        "data": [
+          {
+            "id": "9ucrhYqMlRYUKMTIU7uTa",
+            "content": "<p>知行合一：</p><ul><li>准备、执行、复盘三个阶段三分时间</li><li>莫让行动上的勤奋掩盖思维上的懒惰</li></ul>"
+          },
+          {
+            "id": "n4IIBlhC9630t-AQZa5YY",
+            "content": "<p>真正让自身成长的是：场景丶复盘丶总结 三者组成的环。而不是花费的时间</p>"
+          },
+          {
+            "id": "YGdVXLsyudq-YfknQWfkG",
+            "content": "<p>主动可控，被动不可控</p><p><br></p><p>掌握主动权时</p><ul><li>可以利用假操作骗出对方的操作</li></ul><p>处于被动情况时</p><ul><li>避开</li><li>想办法将主动权拿回来</li><li>需要另辟蹊径才有赢得机会，但是你往往不得不根据对方的操作做出对应的操作，不然的话，会被...</li></ul><p>平权时，想办法获得主动权</p><ol><li>构建信息不对称，让别人无信息源，然后诱导别人提前做出行为</li></ol><p><br></p><p><br></p><p>给主动程度定量，一点点的积累主动权，从而发生质变</p><p><br></p><p>看文章、看视频、听别人讲解时，如果一味得按别人的思路走，那么你将完全失去主动权，最明显的现象就是会在这过程中失去最开始的目标。</p><p>所以不要一味顺着别人的思路走，时刻把握目标的同时，利用认知事物的方式来分析他说的对不对，这样能拿回思维主动权</p>"
+          },
+          {
+            "id": "E2LDU9BNgYOgduV0gCQdj",
+            "content": "<p>提高记忆力</p><ul><li>专注</li><li>养成事物井然有序的强迫症</li><li>养成做事先思考其执行顺序的强迫症</li><li>吃坚果 西洋参 鱼</li><li>质疑不利于对事物的记忆</li><li class=\"ql-indent-1\">质疑不属于自我认知的事物是合理的</li></ul>"
+          },
+          {
+            "id": "TsIHlXbpsVzqDLgUvU80W",
+            "content": "<p>给认知的事物定量，即对该事物认知了百分之多少</p>"
+          },
+          {
+            "id": "prZOAYai0kCQ7c4u5TpSb",
+            "content": "<p>在对一个事物认知程度不够时，不要去做，大概率浪费时间</p>"
+          },
+          {
+            "id": "BQsUecpCl5HTZX8E1kMor",
+            "content": "<p>独行快，众行远</p>"
+          },
+          {
+            "id": "66iKOyfaW21bnKD_0mbB_",
+            "content": "<p>别人在演讲时，站在他的角度，实时同步地思考如何说的更好</p>"
+          },
+          {
+            "id": "S8O4Pdp8bQv6c2UECW04u",
+            "content": "<p>提效技巧</p><ol><li>非交互类事情可以提速</li><li>交互事件时，需要降低速度应对</li></ol>"
+          },
+          {
+            "id": "jtoGauuBxetfX5lR0SmLG",
+            "content": "<p>抽象与具象</p><ol><li>请保持随时能分辨 接收的事物 / 表达的事物 是抽象还是具象的</li><li>请保持随时能在抽象与具象之间来回切换的能力</li><li>从具象中抽象，利用已有的抽象库来快速认知该具象，同时更新抽象库</li><li>对于自身的抽象，可以通过一个具象来说明</li><li>对于他人的抽象，可以匹配自身的具象库来理解，或者诱导别人说出一个具象来理解</li></ol>"
+          },
+          {
+            "id": "p6zS0ncJfx7Z5CnDz_piJ",
+            "content": "<p>对于现象和要求，要知道其背后的原因，这样思路才能打开</p>"
+          },
+          {
+            "id": "bFVsKfkOpba8fhKDXQ4Ld",
+            "content": "<p>区分论证和快速验证的耗时</p>"
+          },
+          {
+            "id": "VqkA6NBjpdlkbCjU7tPGv",
+            "content": "<p>抽象与具象</p><ol><li>请保持随时能分辨 接收的事物 / 表达的事物 是抽象还是具象的</li><li>请保持随时能在抽象与具象之间来回切换的能力</li><li>从具象中抽象，利用已有的抽象库来快速认知该具象，同时更新抽象库</li><li>对于自身的抽象，可以通过一个具象来说明</li><li>对于他人的抽象，可以匹配自身的具象库来理解，或者诱导别人说出一个具象来理解</li></ol>"
+          },
+          {
+            "id": "CXYaexn5EDxvEpLo0cLbv",
+            "content": "<p>复盘日记使用准则</p><ul><li>对于步骤，需要先知道其目的，对于复盘日记，我们优先聚焦的应该是目的（为什么这么做，为什么不这么做），而不是步骤，因为目的/原因/抽象能对应多条路径/步骤</li><li>场景 -&gt; 目标 -&gt; 步骤</li><li>千万别陷入场景 -&gt; 步骤的惯性执行，这会漏掉目标，而目标的实现路径很多，不止复盘日记里的</li><li>确定场景、目标后，然后从复盘日记/分析中获取步骤，执行完后需要校验结果和目标的一致性。</li><li>偶尔需要改变一下执行的步骤，避免机械式执行</li></ul>"
+          },
+          {
+            "id": "czufewRYDDkvO9izJqIut",
+            "content": "<p>先解决情绪，再解决问题，对己对他都一样</p>"
+          },
+          {
+            "id": "zQvhER7pBmAwibj4gS0ma",
+            "content": "<p>对于一件事物的认知除了定性、定量、还有定趋势，它能提高你对事物认知的颗粒度，让其成为可迭代的事情（比如可提升、可销毁）</p>"
+          },
+          {
+            "id": "T4ulxH5vW63IpQlHDZvw9",
+            "content": "<p>内耗和外耗</p><ol><li>要分清楚适合内耗和外耗的场景</li><li>内耗性的人好控制，好引导</li><li>外耗性的人不好控制，不好引导，适合做大头兵</li><li>内圣外王的人才能做领导者</li></ol>"
+          },
+          {
+            "id": "AqCjW6JFm-R16DNvimA5r",
+            "content": "<p>成长性思维（注重过程、而非结果导向，注重过程才能一点点的提高自身、提高做事积极性）</p><ol><li>识别壳</li><li>转换</li><li class=\"ql-indent-1\">暂时不行，只要向专业的人学习，我也行</li><li class=\"ql-indent-1\">不一定只能</li><li class=\"ql-indent-1\">切换到第三方、未来视角</li><li>突破</li><li class=\"ql-indent-1\">利用例外的情况应用于此刻的情况</li><li>坚持</li><li class=\"ql-indent-1\">提高执行力的方法论</li><li class=\"ql-indent-2\">wish</li><li class=\"ql-indent-2\">outcome</li><li class=\"ql-indent-2\">obstacle</li><li class=\"ql-indent-2\">plan</li></ol><p>对未知的模糊会诱发人性的胆怯和烦躁，所以让事情明确起来能很明显提高执行力，明确的方法：复盘-》已有经验获取，并且想着美好的结果和未达成的后果</p>"
+          },
+          {
+            "id": "ri9Ywv4026gbvBJ_P9lIj",
+            "content": "<p>提升思维积极性</p><ul><li>对于一个现象、要求，其来源有多个，需要客观看待，才能拓宽解决手段</li><li>遇到特例时，不必烦躁，这既是麻烦，也是拓展复盘日记和抽象具象库的机会</li><li>事物都是有两面性的，盯着好的一面看会提高思维积极性</li></ul>"
+          },
+          {
+            "id": "h1YWpPhMLjSRb3_Yl8PRL",
+            "content": "<p>循环</p><ul><li>可以尝试用正循环达成目标</li><li>可以尝试用负循环解决问题</li></ul>"
+          },
+          {
+            "id": "k8LFZfkAN1C-6LfglrOeV",
+            "content": "<p>脑子里维护一个任务列表</p><ul><li>可按任务重要紧急程度来排序</li><li>可以随时打断</li><li>可以随时插入更高级的任务</li></ul>"
+          },
+          {
+            "id": "s91UU4X9aWjsKi2HPabTg",
+            "content": "<p>思考分为快思考和慢思考</p><p>快思考：知识的匹配和输出</p><p>慢思考：思维链的构建</p><p>问：如何用工程能力深化大模型在这两类思考的能力</p>"
+          },
+          {
+            "id": "GpE1fn_7ugPr2RNCvFe7q",
+            "content": "<p>在内圣场景下，对于事物的认知，要摈弃“”我”的主语。否则很容易因为别人或者场景与自身的认知不一样导致情绪的产生。</p><p><br></p><p>一个事情的认知要经历多方和场景的验证才能完善</p>"
+          },
+          {
+            "id": "k9lFpYByZXfUvcVQ3ord6",
+            "content": "<p>情绪和压力会极大影响理智且杀死神经细胞，解决办法</p><ol><li>跳过引起源，比如难题</li><li>4-4-6深度呼吸法</li><li>一点冰水能让自己快速冷静下来，比如考试时遇到难度，心态发生波动时可以喝一点冷静下来</li></ol>"
+          },
+          {
+            "id": "c5s_Ed5WG9CeM3Bg0tlU6",
+            "content": "<p>不要低头，低头坏处如下</p><ul><li>呼吸不畅</li><li>精神不振</li></ul>"
+          }
+        ]
+      },
+      {
+        "key": "Z3I-urE5oCLeHgGuPk_W4",
+        "title": "工程",
+        "data": [
+          {
+            "id": "ik5s5J3Xl0S0nnVQ_ZOg5",
+            "content": "<p>什么逻辑适合收集起来集中处理；</p><ol><li>优点</li><li class=\"ql-indent-1\">优化：可以将多个节点触发的逻辑整合优化</li><li class=\"ql-indent-1\">整体可控：多个节点的行为所造成的影响完全可控</li><li>缺点</li><li class=\"ql-indent-1\">耗时：集中处理的逻辑一般比较耗时</li><li class=\"ql-indent-1\">额外操作：集中处理的逻辑会被离散的节点高频触发，需要做batch</li><li class=\"ql-indent-1\">影响范围大：只是某些节点触发，会影响所有的节点。</li></ol><p><br></p><p>什么逻辑适合下放给各个节点;</p><ol><li>优点</li><li class=\"ql-indent-1\">节点可控：各个节点自主可控</li><li class=\"ql-indent-1\">影响范围小：节点上下游明细，做的逻辑只影响有关联的节点</li><li>缺点</li><li class=\"ql-indent-1\">整体不可控：多个节点之间相互交互，在整体上会偶发性出现意外的情况，</li><li class=\"ql-indent-1\">难溯源：出现的整体性问题涉及哪些节点、哪些逻辑都是很难排查的。</li></ol>"
+          },
+          {
+            "id": "z1GS1wbbFjmYgFFw5t-dH",
+            "content": "<p>减少依赖，对依赖方的缺失进行兜底&nbsp;</p>"
+          },
+          {
+            "id": "Kthf9awEUwWTlpUizgNLi",
+            "content": "<ol><li>动态与静态</li><li>初始化时与获取时</li><li>分布式与集中式</li></ol>"
+          },
+          {
+            "id": "74brp3cuMKEP3ZSr26I01",
+            "content": "<p>聚焦与非聚焦</p>"
+          },
+          {
+            "id": "ndU-Tk2u3jeOEW03EtMDk",
+            "content": "<p>减少内存泄漏</p><ol><li>数据传递时用id而非对象</li></ol>"
+          },
+          {
+            "id": "ofLmJTIQrvJIe26kvtWjF",
+            "content": "<p>对修改闭源，对拓展开源</p>"
+          },
+          {
+            "id": "FLiig8-joRff2hkRmxD0k",
+            "content": "<p>使用设计模式时，其 实例的实现尽量不要有变化的数据源。</p><p>响应数据变化而产生副作用的载体应该是hook，或者更上层的组件。</p><p>不要陷入hook式设计模式的怪圈里，比如策略模式</p>"
+          },
+          {
+            "id": "OTvrv3J_0HNGi9yUmn8Zg",
+            "content": "<p>浏览器事件（函数）很多，不同分类的函数有不同的优先级，函数应该有打断能力，且不可阻塞别的优先级高的</p>"
+          },
+          {
+            "id": "0KDaHefVrf881cSPeVSdj",
+            "content": "<p>设计模式</p><ol><li>单一职责</li><li>策略模式</li><li>控制反转</li><li>适配模式</li><li><br></li></ol>"
+          },
+          {
+            "id": "o5MId_dksBoGr0MMPK7vJ",
+            "content": "<p>solid</p><ol><li>单一职责</li><li>开闭原则</li></ol>"
+          },
+          {
+            "id": "Vi2kdJhB_mnSZLmBPyrkl",
+            "content": "<p>当一个模块和别的模块产生关联时，通过约定接口来解耦，而不是互相引用</p>"
+          },
+          {
+            "id": "sXXeS4ApcFLdKd0PoIMy2",
+            "content": "<p>set和map和arrayt的区别</p>"
+          },
+          {
+            "id": "nPJij4fNdxZ91igon_6DF",
+            "content": "<p>可读性和复用性的权衡</p>"
+          }
+        ]
+      },
+      {
+        "key": "tu9-skLSQU37Nn-sf22G7",
+        "title": "投资",
+        "data": [
+          {
+            "id": "H6nf1ry92sbJJjlsW__-h",
+            "content": "<p>信息不对称 = 资源</p><p>风险、困难天生自带风险不对称</p>"
+          },
+          {
+            "id": "YwOiNk6takrPQ3AE8sb6F",
+            "content": "<p>成功率多1%，实际收益率其实是多2%</p>"
+          },
+          {
+            "id": "wWJKiDkSjMy10SQqFLqRr",
+            "content": "<p>时间允许的情况下，在把握最大的时候执行</p>"
+          },
+          {
+            "id": "AkdHSAtsdD2u2mpiTYjEv",
+            "content": "<p>中国人潜意识对风险不关注，尝试找办法将风险转嫁给别人来获利（比如主动给出蝇头小利，其背后隐藏巨大风险），并在这个过程中形成正循环</p>"
+          },
+          {
+            "id": "twkhkFi0vJ8y3sQQTXyLT",
+            "content": "<p>不“赌”的话，连主动“输”的资格都没有</p>"
+          },
+          {
+            "id": "vP0Nzp0955mhQOOryfVCw",
+            "content": "<p>交易策略</p><ol><li>微笑曲线打底</li><li>花车理论</li><li class=\"ql-indent-1\">追有预兆的大涨</li><li class=\"ql-indent-1\">杀有预兆的大跌</li><li>震荡 -- 尽量不要操作</li><li>经济下行期，跟着国家队买卖</li><li>长节前会持续下探，然后节前一周开始大涨，然后节后阴跌</li><li class=\"ql-indent-1\">清明节前后不要买</li></ol>"
+          },
+          {
+            "id": "m1p_bs5TvZ17A6bKYPB9i",
+            "content": "<ol><li>交易策略成型</li><li>提升技术力</li><li>打好经济基础</li><li>运转交易策略</li><li>薄发</li></ol>"
+          },
+          {
+            "id": "VOe3o9LCQJHW6IF7X__El",
+            "content": "<p>欧美觉得将产品卖给消费者，是消费者的荣幸，并看不起消费者，习惯于教育用户，是刻入骨子里的傲慢。</p><p>东亚觉得将产品卖给消费者，是产品的荣幸，消费者才是大爷，习惯于聆听用户，是刻入骨子里的“自卑”</p><p><br></p><p>两方各去特性，在制作好产品的同时，一定程度上教育用户</p>"
+          },
+          {
+            "id": "Sr9BCitgDJFQAoKW2lAYK",
+            "content": "<p>支付宝备用金可以用来加杠杠</p>"
+          },
+          {
+            "id": "QCEi7u2lA8VRCDI1o1tRg",
+            "content": "<p>乐观买股</p><p>悲观买黄金或者国债</p>"
+          },
+          {
+            "id": "XyUnEqqCrRfN7JjAOvNJV",
+            "content": "<p>投资本质就是买预期</p>"
+          },
+          {
+            "id": "NIsrsWj1K603GC9eMZh8j",
+            "content": "<p>对于a股，要学会动态实时判断国家预想的底线，它不一定是3000点以下</p>"
+          }
+        ]
+      },
+      {
+        "key": "hjdd7wSjLPvch2C9OTLGP",
+        "title": "生活",
+        "data": [
+          {
+            "id": "ap6U86LLzsFo8uqatJ_e6",
+            "content": "<p>吃完饭后不要喝浓茶喝咖啡，会拉肚子</p>"
+          },
+          {
+            "id": "C1bB80qwzwShfNmuHvfU5",
+            "content": "<p>回广州时 从珠海站右侧去翠亨快线然后从中山站上高速 能避开拥堵路段</p>"
+          },
+          {
+            "id": "yJ5R-TV_Jz-DMcHJs8KFu",
+            "content": "<p>睡眠的本质：将体内腺苷消化掉</p><ul><li>咖啡要在不困时喝，自行查看咖啡作用原理</li><li>午睡前喝一杯咖啡，醒来后精神爆表</li></ul>"
+          },
+          {
+            "id": "H1DDokDIhKersb_AP1rcK",
+            "content": "<p>补脑</p><ul><li>西洋参</li><li>核桃</li><li>鱼</li></ul>"
+          },
+          {
+            "id": "sU0lZ3brrrMHJcFyfmJD8",
+            "content": "<p>补气血</p><ul><li>黄芪</li></ul>"
+          },
+          {
+            "id": "xBdieZDZLaBtN_JDNo5zr",
+            "content": "<p>8点之前 共乐园附近的充电桩0.48一度 可以早起充电 然后吃个早餐</p><ul><li>7.40起床去充电电</li><li>回18.40出发珠海走黄埔大桥+顺风车</li><li>回广州同上</li></ul>"
+          },
+          {
+            "id": "dkCAlkFvQqqG0hDyk5oWG",
+            "content": "<p>绝对绝对绝对不要发表让人嫉恨的言论，网上或者现实里，会被人诅咒导致近段时间的倒霉。尽量与人为善</p>"
+          },
+          {
+            "id": "XlBiDsB2T8Bc4x6_qphVI",
+            "content": "<p>可莉侧面撞墙时，不要慌，向哪个方向走导致的撞墙可以将方向盘往同方向打死然后倒车</p>"
+          },
+          {
+            "id": "Np4yRocMJILGcP3WrfRLM",
+            "content": "<p>不要开车去广州天河区，人和电鸡乱串</p>"
+          },
+          {
+            "id": "WTsYbW51u87dNhAWYToQk",
+            "content": "<p>高德美团订酒店和民宿</p><ol><li>提前很多天订价格便宜</li><li>酒店价格是根据剩余房间来波动的</li><li>从美团的酒店民宿-》民宿进去会便宜很多。其他入口会贵</li></ol>"
+          }
+        ]
+      },
+      {
+        "key": "ygHO7uPnH_FyytssD2F_K",
+        "title": "爱情",
+        "data": [
+          {
+            "id": "JhOfclzsIgiTN3EiaODGa",
+            "content": "<p>边界感问题</p><ul><li>爱宝的同性朋友 我不要主动去问</li><li>只聚焦在爱宝身上，不要管别的异性</li></ul><p>边界感</p><p>把握不好边界感会伤害我对你的信任以及我们之间的感情。边界感问题与忠诚度一样很重要，是我的底线，边界感会，忠诚度是对感情和对象的专一，精神出轨和肉体出轨我都接受不了</p><p><br></p><p>对男朋友没把握好跟其他异性的边界感问题感到气愤甚至想分手，主要有以下原因：</p><p><br></p><p>情感独占性：爱情具有独占性，我们希望伴侣只对自己有特殊的情感和关注。当男朋友与其他异性边界感模糊，比如和异性频繁单独相处、聊天内容过于亲密等，会让女朋友觉得自己的情感领地被侵犯，自己在男朋友心中的独特地位受到威胁，从而产生气愤情绪，严重时会考虑分手来捍卫自己的情感需求。</p><p><br></p><p>安全感缺失：健康的恋爱关系需要安全感。与其他异性边界不清，容易让对方产生各种猜疑，如担心男朋友会被别人吸引、担心感情出现危机等。长期处于这种缺乏安全感的状态，会让女朋友心理压力增大，气愤之下可能会觉得结束关系才能让自己不再受这种煎熬。</p><p><br></p><p>价值观冲突：在恋爱中，每个人对感情的忠诚度和与异性相处的原则都有自己的价值观。如果女朋友非常看重与异性保持明确边界，认为这是对感情的基本尊重，而男朋友却不以为然，这种价值观的冲突会让女朋友对这段关系感到失望和气愤，觉得两人不适合，进而想分手。</p><p><br></p><p>对未来的担忧：女朋友可能会从男朋友与异性边界感差的行为，联想到未来的生活。担心如果继续发展下去，在婚姻或长期关系中会出现更多问题，如出轨、家庭矛盾等。出于对未来的担忧和恐惧，会选择用分手来避免可能出现的更大伤害。</p><p><br></p><p>自身情绪投射：女朋友自身过往的经历或原生家庭等因素，可能会让她对这类问题格外敏感。比如曾经遭遇过背叛，或者在成长环境中看到过因异性关系处理不当而导致的感情悲剧，就会将这些负面情绪投射到当前的感情中，一旦男朋友出现类似问题，就会反应强烈，甚至想结束关系。</p><p><br></p><p>双方边界规则：</p><p>1. 社交平台互动：朋友圈、微博、QQ、抖音、小红书、网站等一切社交平台，不频繁点赞，不关注 、不评论异性（除对象和家人外的异性）的动态，也拒绝异性的关注，以免让对象感觉你过度关注某个异性的动态。如实在要回答或者评论异性内容，要谨慎：比如，避免发表暧昧或关于外貌身材的评论。</p><p><br></p><p>不主动索要、也不主动添加、也不给予其他异性自己的联系方式，非工作必要拒绝其他异性的添加好友申请，不论是哪个社交平台的好友申请，如果实在需要可以让女朋友或男朋友添加，达到同性沟通以避嫌的目的。（踩坑例子：之前qq微信加了很多人）</p><p><br></p><p>2. 聊天交流：不主动与其他异性聊天，拒绝其他异性对你开启的线上线下闲聊，尤其是生活分享。不与异性进行长时间、频繁的私聊。如果是工作相关，结束后应及时向对象说明。比如，“刚刚和她/他聊了下工作”，此外，聊天内容要健康、公开，不涉及私密话题。（踩坑例子：给初中生发想你、亲亲的表情包）</p><p><br></p><p>3. 单独相处：非必要不与其他异性单独相处。比如，避免单独与异性在封闭私人空间（如家里、车内）共处。如果是工作需要，选择开放、多人的空间进行交流。</p><p><br></p><p>4. 接受邀约：面对其他异性的私人邀约，如单独吃饭、看电影等果断拒绝。委婉表达自己已有伴侣，保持适当距离。如果是正常的公开的多人的社交活动，应提前告知男朋友/女朋友活动详情，包括参与人员、时间、地点等。</p><p><br></p><p>5. 肢体接触：有异性在场，与异性保持适当的身体距离，尊重彼此个人空间，不与异性有肢体接触，尤其禁止亲密接触：如勾肩搭背，牵手，拥抱，亲吻，以免产生不必要的误会。除非是在非常特殊、适当的公共场合，如因工作需要和合作伙伴握手，并及时告知对象。</p><p><br></p><p>6. 礼物往来：不给其他异性送礼物，也不接受其他异性的礼物，尤其是贵重或具有特殊意义的礼物。如果对方赠送礼物，应委婉拒绝并说明原因，若因某些原因无法拒绝，如在工作场合收到合作方的小礼品，应及时向对象报备说明情况，避免对方产生误解。</p><p>（踩坑例子：给那个初中生发红包）</p><p><br></p><p><br></p><p><br></p><p>与对象的朋友相处时保持边界感：</p><p>1.社交距离方面</p><p>①身体距离：与女朋友的女性朋友相处时，保持适当的身体距离，避免与她们有不必要的身体接触。比如在传递物品时避免手部接触。</p><p>踩坑例子：一次教研结束后去二中接我和我朋友（她男朋友是医生那个）去仁恒星园 后厨吃饭时，刚下车三个人并排走，你走在了我和她中间，隔开了我俩，你两第一次见面又不熟，会挺尴尬，按理说你应该走在我旁边，与她保持距离，不过后来我进行了位置调整后你也没再出错了，当时我会觉得你不太注意边界感问题。</p><p><br></p><p>②社交平台：不要在社交媒体上与女朋友的女性朋友有频繁或私密的互动，比如对她们的动态进行大量评论和点赞，给人特殊关注的感觉。不随意私信她们分享个人的私密事情或情感问题。</p><p><br></p><p>2.交流内容方面</p><p>①话题选择：交流的话题应保持在适当的范围内，避免涉及过于私密或敏感的话题，如个人感情生活细节、身体状况等。可以聊一些女朋友共同感兴趣的、积极健康的话题</p><p><br></p><p>②言语表达：注意言语的措辞和语气，不要使用暧昧、调侃或容易引起误会的语言，保持礼貌和尊重，以朋友间正常的交流方式相处。</p><p><br></p><p>3.行为表现方面</p><p>（1）避免单独相处：尽量避免与女朋友的女性朋友单独相处，如有必要，最好提前告知女朋友，并选择公开、合适的场所。（踩坑例子：参加完金凤婚礼回广州路上提出送她们回深圳就是和她们单独相处，并且是避开女朋友，在车上这种封闭的私人空间）</p><p>（2）不介入关系：不要轻易介入女朋友和她女性朋友之间的关系或矛盾，除非她们主动寻求帮助或建议。（踩坑例子：提出去女朋友的女性朋友家里）</p><p><br></p><p>（2）不做特殊关照：在与女朋友和她的女性朋友共同相处时，不对其女性朋友有特殊的关照或偏袒，特殊关照的行为如下：</p><p>①给予特别关注：在一群人相处时，将目光和话题焦点放在女朋友的女性朋友身上，忽视女朋友及其他人。比如大家聊天时，只回应那位女性朋友的话，对她的观点过度认同和赞扬、或是赞美女性朋友的外貌身材。（踩坑例子：金凤婚礼上连续夸了2次她穿那个敬酒服很好看，很适合她，事后金凤跟我说当时她被你夸，也觉得怪怪的）</p><p>②留意女朋友的女性朋友的喜好和需求超出边界。</p><p><br></p><p>③提供特殊帮助：</p><p>当女朋友和她的女性朋友都有需求时，没解决女朋友的需求就提出帮助女朋友的女性朋友。如在搬重物时，对女朋友的需求视而不见，提出帮助其女性朋友（踩坑例子1：参加完金凤婚礼回到广州南站停完车，帮我提一袋东西后，就问其他女生：要不要帮她们提东西，可是我手里还提着一袋，是优先考虑我的需求了，并提供了帮助，但没有完全帮助，同时还留意了她们的需求）</p><p><br></p><p>踩坑例子 2：当时我教研结束去二中接我和我朋友（她男朋友是医生那个）然后去仁恒星园后厨吃饭时，没位置在外面等了一下，后面因为要换位置，离开那个地方要走我们的伞，我和我朋友都带了伞，帮我拿伞后，提出要不要帮我朋友拿伞，帮女朋友拿伞是贴心行为，但提出帮女朋友的女性朋友拿伞就越界了，因为伞不是很重的物品，不需要别人的帮助，伞也是她的私人物品，会让人觉得男朋友的贴心可以给任何人，而不是出于对女朋友的偏爱）</p><p><br></p><p>④为女朋友的女性朋友提供超出普通朋友范畴的帮助，如利用自己的人脉和资源帮她解决工作或生活中的难题。</p><p><br></p><p>⑤有特殊的肢体语言或行为（如帮她夹菜，整理头发、拍肩膀或背部等亲密动作）</p><p><br></p><p>⑥对女朋友的女性朋友表现出特别的体贴行为，如主动提出送她回家，在寒冷天气里把自己的外套借她披，或者在走路时护着她，让女朋友走外侧</p><p>（踩坑例子：参加完金凤婚礼回广州路上主动提出送她们回深圳，亲自送她们回深圳，却让女朋友一个人坐高铁回珠海，也是没有优先考虑到女朋友的需求）</p><p><br></p><p>⑦在聚会或活动中，给女朋友的女性朋友特殊待遇，如优先把最好的座位让给她，优先满足她的娱乐需求等。</p>"
+          },
+          {
+            "id": "2D7Dmf9JblgK6Cp857w1V",
+            "content": "<p>不要问等下去吃什么 要问对方猜猜等下要去吃什么 这样就能知道对方想吃什么了</p>"
+          },
+          {
+            "id": "qB-k0Bh2R6OF9lo8cOKAN",
+            "content": "<p>不要说粗话 想办法减少说粗话</p>"
+          },
+          {
+            "id": "8kks5RnQjsN8stqbtPemC",
+            "content": "<p>不要说：趴在我身上。她不喜欢趴这个词，可以换成抱着她</p>"
+          },
+          {
+            "id": "MWa1u1TIKjIE23g7AJnEE",
+            "content": "<p>报备要详细 站在对方角度着想</p>"
+          },
+          {
+            "id": "6drTDjQSm8cmLh-nsyGm5",
+            "content": "<p>双方都生气时，我先认错，先让对方气消了，先解决对方情绪问题再解决实际问题，对方会反思的。</p>"
+          },
+          {
+            "id": "E2oOz0LYbDSvMKrAwkB2F",
+            "content": "<p>她乳糖不耐受 得和舒化奶</p>"
+          },
+          {
+            "id": "wvirF3R831D8u5vrYYvX5",
+            "content": "<p>在不适合做深度思考的时刻 不要随意回复 先说稍等</p>"
+          },
+          {
+            "id": "yrNOLsTBlTkFnV_KO-AKf",
+            "content": "<p>我们之前的机制是 先猜测 做出决策（生气） 然后从对方的回答里验证猜测</p><p><br></p><p>正确的机制是 先猜测 得到回复 验证猜测 做出决策（生大气）</p><p><br></p><p>这落实到行动上不就是对于我有了猜测，我需要平静的询问你，根据你的回答，去验证猜测，如果猜测对了我理解了后续就没有矛盾了，如果没猜测对我应该生气那我就应该生大气</p>"
+          },
+          {
+            "id": "pXeVYBnFcaYQ-8t42DlJy",
+            "content": "<p>爱宝在处理情绪时是会冷冷的 我不可以也冷哒 要一直给爱宝发消息 让爱宝觉得我爱她</p>"
+          }
+        ]
+      },
+      {
+        "key": "g-1U6Erh6LksoXi7GT8oA",
+        "title": "社交",
+        "data": [
+          {
+            "id": "1Izs1QaA5bDnJ-xFRvt3N",
+            "content": "<p>不是什么情况下都需要把主动权拿在手里的，什么场景适合掌握主动权，什么场景适合放开主动权</p>"
+          },
+          {
+            "id": "HfslACfPmQTpg6piW6Mcp",
+            "content": "<p>建立成熟可靠的形象</p>"
+          },
+          {
+            "id": "eCXT0Jxk_C1crzXwxaEMU",
+            "content": "<p>与人交谈沟通尽可能将自身的的优势、思想深度给传达出去</p>"
+          },
+          {
+            "id": "X_ot75Lfhpkko7KXnxxHN",
+            "content": "<p>使用我语言，尽可能不要用你语言，这样指向性太强</p>"
+          },
+          {
+            "id": "SwEVs-k95p89J-AYOH4Gw",
+            "content": "<p>与人谈判时，说出对方劣势，并说出自身优势来建立主动权</p>"
+          },
+          {
+            "id": "IX5qqCm64NZKEIgpFOuT3",
+            "content": "<p>描述一件事用4w1h</p>"
+          },
+          {
+            "id": "Spjn0DJx60BaMtxYnTeUt",
+            "content": "<p>自我评价和他人对自身评价的拉通对齐</p>"
+          },
+          {
+            "id": "3QQtbCvGzHQqdvN572I6m",
+            "content": "<p>观察他人吃饭的偏好，能大致判断是主动性还是被动型</p>"
+          },
+          {
+            "id": "rHdDb_SgOt_sVmGP203IE",
+            "content": "<p>禁忌：不要我以为 ，不要理所当然。这样百分百会有误会。</p><p>你需要和别人同步你以为的东西</p>"
+          }
+        ]
+      },
+      {
+        "key": "gzN15siFmbfZ4agtQBbho",
+        "title": "创业",
+        "data": [
+          {
+            "id": "DUIIZxMzdU8VCAThBPDAi",
+            "content": "<p>内核一样，可以换一种受众更多的表现形式来呈现，这样观众</p>"
+          },
+          {
+            "id": "pE5mt0qGTW810GydBnGLI",
+            "content": "<p>利用现实世界的算力</p>"
+          }
+        ]
+      }
+    ]
+  },
+  "review": {
+    "activeCategory": [
+      "category-9XK7lQkqnVh5OmEHFUVDl",
+      "lk9UDAO2d4U3Xi7TUbvTB"
+    ],
+    "category": [
+      {
+        "value": "category-9XK7lQkqnVh5OmEHFUVDl",
+        "label": "工作",
+        "children": [
+          {
+            "value": "lk9UDAO2d4U3Xi7TUbvTB",
+            "label": "使用示例：一件事情的复盘 = 一颗决策树 = 为什么这么做，为什么不这么做 = 流程图",
+            "content": "{\"cells\":[{\"shape\":\"edge\",\"attrs\":{\"line\":{\"stroke\":\"rgb(162, 177, 195)\"},\"text\":{\"fill\":\"#6f6d6d\"}},\"id\":\"ccc23fed-a4f4-43ae-9889-9b576366cd88\",\"zIndex\":-1,\"router\":{\"name\":\"manhattan\"},\"connector\":{\"name\":\"rounded\",\"args\":{\"radius\":10}},\"source\":{\"cell\":\"3c5c7d5a-d7af-413a-b05b-4bf70d86b73d\",\"port\":\"f63588a7-e090-4ae8-8899-1063f513eea2\"},\"target\":{\"cell\":\"7a68b8ab-a76a-4248-96c3-7b977ed755ec\",\"port\":\"3a2edbf8-2786-48ab-a444-51db020becab\"}},{\"position\":{\"x\":-100,\"y\":-200},\"size\":{\"width\":100,\"height\":50},\"attrs\":{\"text\":{\"fill\":\"#6f6d6d\",\"text\":\"开始\"},\"body\":{\"stroke\":\"transparent\",\"fill\":\"#dbf4f7\",\"rx\":20,\"ry\":22,\"stroke-width\":1,\"cursor\":\"pointer\",\"padding\":10,\"isStart\":true},\"label\":{\"textWrap\":{\"width\":\"100%\",\"height\":\"100%\",\"ellipsis\":true,\"breakWord\":false}}},\"visible\":true,\"shape\":\"custom-rect\",\"ports\":{\"groups\":{\"bottom\":{\"attrs\":{\"circle\":{\"r\":6,\"magnet\":true,\"stroke\":\"#8f8f8f\",\"strokeWidth\":1,\"fill\":\"#fff\"}},\"position\":{\"args\":{\"x\":\"50%\",\"y\":\"100%\"},\"name\":\"absolute\"}},\"outer-bottom\":{\"attrs\":{\"circle\":{\"r\":6,\"magnet\":true,\"stroke\":\"#8f8f8f\",\"strokeWidth\":1,\"fill\":\"#fff\"}},\"position\":{\"args\":{\"x\":\"50%\",\"y\":\"100%\"},\"name\":\"absolute\"}},\"top\":{\"attrs\":{\"circle\":{\"r\":6,\"magnet\":true,\"stroke\":\"#8f8f8f\",\"strokeWidth\":1,\"fill\":\"#fff\"}},\"position\":{\"args\":{\"x\":\"50%\",\"y\":\"0%\"},\"name\":\"absolute\"}},\"outer-top\":{\"attrs\":{\"circle\":{\"r\":6,\"magnet\":true,\"stroke\":\"#8f8f8f\",\"strokeWidth\":1,\"fill\":\"#fff\"}},\"position\":{\"args\":{\"x\":\"50%\",\"y\":\"0%\"},\"name\":\"absolute\"}},\"left\":{\"attrs\":{\"circle\":{\"r\":6,\"magnet\":true,\"stroke\":\"#8f8f8f\",\"strokeWidth\":1,\"fill\":\"#fff\"}},\"position\":{\"args\":{\"x\":\"0%\",\"y\":\"50%\"},\"name\":\"absolute\"}},\"outer-left\":{\"attrs\":{\"circle\":{\"r\":6,\"magnet\":true,\"stroke\":\"#8f8f8f\",\"strokeWidth\":1,\"fill\":\"#fff\"}},\"position\":{\"args\":{\"x\":\"0%\",\"y\":\"50%\"},\"name\":\"absolute\"}},\"right\":{\"attrs\":{\"circle\":{\"r\":6,\"magnet\":true,\"stroke\":\"#8f8f8f\",\"strokeWidth\":1,\"fill\":\"#fff\"}},\"position\":{\"args\":{\"x\":\"100%\",\"y\":\"50%\"},\"name\":\"absolute\"}},\"outer-right\":{\"attrs\":{\"circle\":{\"r\":6,\"magnet\":true,\"stroke\":\"#8f8f8f\",\"strokeWidth\":1,\"fill\":\"#fff\"}},\"position\":{\"args\":{\"x\":\"100%\",\"y\":\"50%\"},\"name\":\"absolute\"}}},\"items\":[{\"group\":\"top\",\"id\":\"aa202c8a-6a48-40ea-9f82-0b2fb042e39a\",\"attrs\":{\"circle\":{\"r\":0}}},{\"group\":\"outer-top\",\"id\":\"72825ab7-3e9d-402e-8cbe-6f4f7ec6e9a2\",\"args\":{\"y\":0},\"attrs\":{\"circle\":{\"r\":0,\"stroke\":\"transparent\",\"fill\":\"#dbf4f7\"}}},{\"group\":\"bottom\",\"id\":\"f63588a7-e090-4ae8-8899-1063f513eea2\",\"attrs\":{\"circle\":{\"r\":0}}},{\"group\":\"outer-bottom\",\"id\":\"bcd70df2-74a3-4c06-ae22-d1d4d87b9a22\",\"args\":{\"y\":50},\"attrs\":{\"circle\":{\"r\":0,\"stroke\":\"transparent\",\"fill\":\"#dbf4f7\"}}},{\"group\":\"left\",\"id\":\"17391854-870a-4cad-838c-8d1169ad21d2\",\"attrs\":{\"circle\":{\"r\":0}}},{\"group\":\"outer-left\",\"id\":\"d607a84c-12da-49a7-99d7-8e1986a636a7\",\"args\":{\"x\":0},\"attrs\":{\"circle\":{\"r\":0,\"stroke\":\"transparent\",\"fill\":\"#dbf4f7\"}}},{\"group\":\"right\",\"id\":\"c32cd9eb-2fb7-4268-895d-e71138c9c304\",\"attrs\":{\"circle\":{\"r\":0}}},{\"group\":\"outer-right\",\"id\":\"cbe9de2e-9b6f-4747-85d4-a7e36782bfc7\",\"args\":{\"x\":100},\"attrs\":{\"circle\":{\"r\":0,\"stroke\":\"transparent\",\"fill\":\"#dbf4f7\"}}}]},\"id\":\"3c5c7d5a-d7af-413a-b05b-4bf70d86b73d\",\"zIndex\":1},{\"position\":{\"x\":-100,\"y\":30},\"size\":{\"width\":100,\"height\":50},\"attrs\":{\"text\":{\"fill\":\"#6f6d6d\"},\"body\":{\"stroke\":\"transparent\",\"fill\":\"#ffeef1\",\"refPoints\":\"0,10 10,0 20,10 10,20\",\"stroke-width\":1,\"cursor\":\"pointer\"},\"label\":{\"textWrap\":{\"width\":\"100%\",\"height\":\"100%\",\"ellipsis\":true,\"breakWord\":false}}},\"visible\":true,\"shape\":\"custom-polygon\",\"ports\":{\"groups\":{\"bottom\":{\"attrs\":{\"circle\":{\"r\":8,\"magnet\":true,\"stroke\":\"#8f8f8f\",\"strokeWidth\":1,\"fill\":\"#fff\"}},\"position\":{\"args\":{\"x\":\"50%\",\"y\":\"100%\"},\"name\":\"absolute\"}},\"outer-bottom\":{\"attrs\":{\"circle\":{\"r\":10,\"magnet\":true,\"stroke\":\"#8f8f8f\",\"strokeWidth\":1,\"fill\":\"#fff\"}},\"position\":{\"args\":{\"x\":\"50%\",\"y\":\"100%\"},\"name\":\"absolute\"}},\"top\":{\"attrs\":{\"circle\":{\"r\":8,\"magnet\":true,\"stroke\":\"#8f8f8f\",\"strokeWidth\":1,\"fill\":\"#fff\"}},\"position\":{\"args\":{\"x\":\"50%\",\"y\":\"0%\"},\"name\":\"absolute\"}},\"outer-top\":{\"attrs\":{\"circle\":{\"r\":10,\"magnet\":true,\"stroke\":\"#8f8f8f\",\"strokeWidth\":1,\"fill\":\"#fff\"}},\"position\":{\"args\":{\"x\":\"50%\",\"y\":\"0%\"},\"name\":\"absolute\"}},\"left\":{\"attrs\":{\"circle\":{\"r\":8,\"magnet\":true,\"stroke\":\"#8f8f8f\",\"strokeWidth\":1,\"fill\":\"#fff\"}},\"position\":{\"args\":{\"x\":\"0%\",\"y\":\"50%\"},\"name\":\"absolute\"}},\"outer-left\":{\"attrs\":{\"circle\":{\"r\":10,\"magnet\":true,\"stroke\":\"#8f8f8f\",\"strokeWidth\":1,\"fill\":\"#fff\"}},\"position\":{\"args\":{\"x\":\"0%\",\"y\":\"50%\"},\"name\":\"absolute\"}},\"right\":{\"attrs\":{\"circle\":{\"r\":8,\"magnet\":true,\"stroke\":\"#8f8f8f\",\"strokeWidth\":1,\"fill\":\"#fff\"}},\"position\":{\"args\":{\"x\":\"100%\",\"y\":\"50%\"},\"name\":\"absolute\"}},\"outer-right\":{\"attrs\":{\"circle\":{\"r\":10,\"magnet\":true,\"stroke\":\"#8f8f8f\",\"strokeWidth\":1,\"fill\":\"#fff\"}},\"position\":{\"args\":{\"x\":\"100%\",\"y\":\"50%\"},\"name\":\"absolute\"}}},\"items\":[{\"group\":\"top\",\"id\":\"3a2edbf8-2786-48ab-a444-51db020becab\",\"attrs\":{\"circle\":{\"r\":0}}},{\"group\":\"outer-top\",\"id\":\"72daf50c-ab70-4ba6-9e8a-f73525875ace\",\"attrs\":{\"circle\":{\"r\":0,\"stroke\":\"transparent\",\"fill\":\"#ffeef1\"}},\"args\":{\"y\":0}},{\"group\":\"bottom\",\"id\":\"692eabaa-5ff1-4310-baad-5ff7a2303496\",\"attrs\":{\"circle\":{\"r\":0}}},{\"group\":\"outer-bottom\",\"id\":\"1e14047f-6d1f-43dd-af65-12d9d10ebf00\",\"attrs\":{\"circle\":{\"r\":0,\"stroke\":\"transparent\",\"fill\":\"#ffeef1\"}},\"args\":{\"y\":50}},{\"group\":\"left\",\"id\":\"244a49ef-1674-4e66-b6c6-51740f161b88\",\"attrs\":{\"circle\":{\"r\":0}}},{\"group\":\"outer-left\",\"id\":\"873745a1-3497-4bbf-b277-cad8303c89b7\",\"attrs\":{\"circle\":{\"r\":0,\"stroke\":\"transparent\",\"fill\":\"#ffeef1\"}},\"args\":{\"x\":0}},{\"group\":\"right\",\"id\":\"8e78f7ce-5d15-4b3d-ab3f-3cd633a363d2\",\"attrs\":{\"circle\":{\"r\":0}}},{\"group\":\"outer-right\",\"id\":\"d7caf727-10d7-419d-a06a-25e826e0afbd\",\"attrs\":{\"circle\":{\"r\":0,\"stroke\":\"transparent\",\"fill\":\"#ffeef1\"}},\"args\":{\"x\":100}}]},\"id\":\"7a68b8ab-a76a-4248-96c3-7b977ed755ec\",\"zIndex\":2}]}"
+          },
+          {
+            "value": "addNote",
+            "label": "+",
+            "content": ""
+          }
+        ]
+      },
+      {
+        "value": "category-addCategory",
+        "label": "+",
+        "children": []
+      }
+    ]
+  },
+  "snapshot": {
+    "snapshot": "{\n  \"abstract-concrete-library\": {\n    \"activeKey\": \"-Mif8Z4d4i2EpuiDvSb7A\",\n    \"category\": [\n      {\n        \"key\": \"_JVZlobYx3fuIMxsQlod2\",\n        \"title\": \"工作\",\n        \"transform\": {\n          \"translateX\": 0,\n          \"translateY\": 0,\n          \"scale\": 1.1835447647287074\n        },\n        \"data\": [\n          {\n            \"id\": \"JorfsDjgXlybN_iGK4O_Z\",\n            \"label\": \"点击我\",\n            \"children\": [\n              \"gF5HT2mG\"\n            ],\n            \"type\": \"node\",\n            \"color\": \"pink\"\n          },\n          {\n            \"id\": \"gF5HT2mG\",\n            \"label\": \"gF5HT2mG\",\n            \"children\": [],\n            \"type\": \"gF5HT2mG\",\n            \"color\": \"#03a881\"\n          }\n        ]\n      },\n      {\n        \"key\": \"iT0vT4crd64vp2glpQ74C\",\n        \"title\": \"学习\",\n        \"transform\": {\n          \"translateX\": 0,\n          \"translateY\": 0,\n          \"scale\": 2\n        },\n        \"data\": [\n          {\n            \"id\": \"i4NaP7ZhDba9FTKEdO-ci\",\n            \"label\": \"点击我\",\n            \"children\": [],\n            \"type\": \"node\",\n            \"color\": \"pink\"\n          }\n        ]\n      },\n      {\n        \"key\": \"-Mif8Z4d4i2EpuiDvSb7A\",\n        \"title\": \"生活\",\n        \"transform\": {\n          \"translateX\": 0,\n          \"translateY\": 0,\n          \"scale\": 2\n        },\n        \"data\": [\n          {\n            \"id\": \"Xy469m8_neP1eDx_OD06v\",\n            \"label\": \"点击我\",\n            \"children\": [],\n            \"type\": \"node\",\n            \"color\": \"pink\"\n          }\n        ]\n      },\n      {\n        \"key\": \"mwXQYkr_wD5YzIaByZ5a9\",\n        \"title\": \"爱情\",\n        \"transform\": {\n          \"translateX\": 0,\n          \"translateY\": 0,\n          \"scale\": 0.8894588392897782\n        },\n        \"data\": [\n          {\n            \"id\": \"5VVrwVccEgeNiNXL5QE1S\",\n            \"label\": \"点击我cccccccccccffffffff发个滚滚滚发发发发发发发发发尴尬发发发发发\",\n            \"children\": [\n              \"8eiPq2EL\"\n            ],\n            \"type\": \"node\",\n            \"color\": \"pink\"\n          },\n          {\n            \"id\": \"8eiPq2EL\",\n            \"label\": \"8eiPq2EL\",\n            \"children\": [\n              \"0DyiPZJK\"\n            ],\n            \"type\": \"8eiPq2EL\",\n            \"color\": \"#0004ff\"\n          },\n          {\n            \"id\": \"0DyiPZJK\",\n            \"label\": \"0DyiPZJK\",\n            \"children\": [\n              \"2b0-IBtC\"\n            ],\n            \"type\": \"0DyiPZJK\",\n            \"color\": \"#b1f97a\"\n          },\n          {\n            \"id\": \"2b0-IBtC\",\n            \"label\": \"2b0-IBt\",\n            \"children\": [\n              \"9u-YyDhF\"\n            ],\n            \"type\": \"2b0-IBtC\",\n            \"color\": \"#12913f\"\n          },\n          {\n            \"id\": \"9u-YyDhF\",\n            \"label\": \"9u-YyDhF\",\n            \"children\": [\n              \"9_MWBw3h\"\n            ],\n            \"type\": \"9u-YyDhF\",\n            \"color\": \"#7b8402\"\n          },\n          {\n            \"id\": \"9_MWBw3h\",\n            \"label\": \"9_MWBw3h\",\n            \"children\": [],\n            \"type\": \"9_MWBw3h\",\n            \"color\": \"#f9dcbb\"\n          }\n        ]\n      },\n      {\n        \"key\": \"qhxTvm8EjGVPMgMrVZgbw\",\n        \"title\": \"正循环\",\n        \"transform\": {\n          \"translateX\": 0,\n          \"translateY\": 0,\n          \"scale\": 0.5\n        },\n        \"data\": [\n          {\n            \"id\": \"a36AL3XE9IJClOTF5NVs9\",\n            \"label\": \"知行合一\",\n            \"children\": [],\n            \"type\": \"node\",\n            \"color\": \"pink\"\n          },\n          {\n            \"id\": \"zCgFURM7ORXp4ww98RqGi\",\n            \"label\": \"准备\",\n            \"children\": [\n              \"Eg_fbHyC\"\n            ],\n            \"type\": \"node\",\n            \"color\": \"#2d16fc\"\n          },\n          {\n            \"id\": \"Eg_fbHyC\",\n            \"label\": \"执行\",\n            \"children\": [\n              \"WpDvE9US\"\n            ],\n            \"type\": \"Eg_fbHyC\",\n            \"color\": \"#76a8cc\"\n          },\n          {\n            \"id\": \"WpDvE9US\",\n            \"label\": \"校验\",\n            \"children\": [\n              \"_SXHkqgW\"\n            ],\n            \"type\": \"WpDvE9US\",\n            \"color\": \"#72c136\"\n          },\n          {\n            \"id\": \"_SXHkqgW\",\n            \"label\": \"复盘\",\n            \"children\": [],\n            \"type\": \"_SXHkqgW\",\n            \"color\": \"#ff8114\"\n          },\n          {\n            \"id\": \"b8i7jPa2kanpicMCm9gvE\",\n            \"label\": \"进步\",\n            \"children\": [\n              \"hu44cfIz\"\n            ],\n            \"type\": \"node\",\n            \"color\": \"#2a58b2\"\n          },\n          {\n            \"id\": \"hu44cfIz\",\n            \"label\": \"站的更高、获得更多资源\",\n            \"children\": [],\n            \"type\": \"hu44cfIz\",\n            \"color\": \"#8dc6fc\"\n          },\n          {\n            \"id\": \"BKVM2hUIav1K9AUOaFuQH\",\n            \"label\": \"旁氏骗局上半部1\",\n            \"children\": [\n              \"MNMyd_Fw\"\n            ],\n            \"type\": \"node\",\n            \"color\": \"#6fba07\"\n          },\n          {\n            \"id\": \"MNMyd_Fw\",\n            \"label\": \"资金池变大\",\n            \"children\": [\n              \"VepBqaRp\"\n            ],\n            \"type\": \"MNMyd_Fw\",\n            \"color\": \"#6bf48b\"\n          },\n          {\n            \"id\": \"VepBqaRp\",\n            \"label\": \"吸引更多资金\",\n            \"children\": [],\n            \"type\": \"VepBqaRp\",\n            \"color\": \"#e4acef\"\n          },\n          {\n            \"id\": \"DsECy2Iw\",\n            \"label\": \"资金盘变大\",\n            \"children\": [\n              \"od26axaE\"\n            ],\n            \"type\": \"DsECy2Iw\",\n            \"color\": \"#71a517\"\n          },\n          {\n            \"id\": \"od26axaE\",\n            \"label\": \"吸引别的资金\",\n            \"children\": [],\n            \"type\": \"od26axaE\",\n            \"color\": \"#f78ce0\"\n          },\n          {\n            \"id\": \"8ihLgzvSlcyrOBv3A8IKf\",\n            \"label\": \"做A事情\",\n            \"children\": [\n              \"75iPUyVA\"\n            ],\n            \"type\": \"node\",\n            \"color\": \"#7605aa\"\n          },\n          {\n            \"id\": \"75iPUyVA\",\n            \"label\": \"得到奖励\",\n            \"children\": [\n              \"DpAHRjrC\"\n            ],\n            \"type\": \"75iPUyVA\",\n            \"color\": \"#a9f9c7\"\n          },\n          {\n            \"id\": \"DpAHRjrC\",\n            \"label\": \"有动力\",\n            \"children\": [],\n            \"type\": \"DpAHRjrC\",\n            \"color\": \"#b2ffce\"\n          },\n          {\n            \"id\": \"S1PWrS4l\",\n            \"label\": \"兑现\",\n            \"children\": [\n              \"Ud8cFEZo\"\n            ],\n            \"type\": \"S1PWrS4l\",\n            \"color\": \"#a3a2e8\"\n          },\n          {\n            \"id\": \"Ud8cFEZo\",\n            \"label\": \"风险\",\n            \"children\": [],\n            \"type\": \"Ud8cFEZo\",\n            \"color\": \"#ea1cd9\"\n          },\n          {\n            \"id\": \"Ql-BAEbL0gA6Av53hl7-v\",\n            \"label\": \"金本位\",\n            \"children\": [\n              \"RNCPelhM\"\n            ],\n            \"type\": \"node\",\n            \"color\": \"#dae81b\"\n          },\n          {\n            \"id\": \"RNCPelhM\",\n            \"label\": \"信用\",\n            \"children\": [\n              \"Gf3ytqkA\"\n            ],\n            \"type\": \"RNCPelhM\",\n            \"color\": \"#ba7821\"\n          },\n          {\n            \"id\": \"Gf3ytqkA\",\n            \"label\": \"兑现\",\n            \"children\": [\n              \"EAO4fDpl\"\n            ],\n            \"type\": \"Gf3ytqkA\",\n            \"color\": \"#afe1ed\"\n          },\n          {\n            \"id\": \"EAO4fDpl\",\n            \"label\": \"风险\",\n            \"children\": [],\n            \"type\": \"EAO4fDpl\",\n            \"color\": \"#dac7fc\"\n          }\n        ]\n      },\n      {\n        \"key\": \"II9Gu5RayKLImH_ZguzvP\",\n        \"title\": \"负循环\",\n        \"transform\": {\n          \"translateX\": 0,\n          \"translateY\": 0,\n          \"scale\": 0.7124588072171769\n        },\n        \"data\": [\n          {\n            \"id\": \"oVsg7IY1SiXFPxrW3NFEF\",\n            \"label\": \"成长型思维\",\n            \"children\": [],\n            \"type\": \"node\",\n            \"color\": \"pink\"\n          },\n          {\n            \"id\": \"GVYPRiQ4xzmrf-Kinl4G1\",\n            \"label\": \"提效\",\n            \"children\": [\n              \"GdGqJPqS\"\n            ],\n            \"type\": \"node\",\n            \"color\": \"#aff720\"\n          },\n          {\n            \"id\": \"GdGqJPqS\",\n            \"label\": \"无条件加速\",\n            \"children\": [\n              \"sZ69cwOk\"\n            ],\n            \"type\": \"GdGqJPqS\",\n            \"color\": \"#87f2c2\"\n          },\n          {\n            \"id\": \"sZ69cwOk\",\n            \"label\": \"出错\",\n            \"children\": [\n              \"ahXsUPYc\"\n            ],\n            \"type\": \"sZ69cwOk\",\n            \"color\": \"#990200\"\n          },\n          {\n            \"id\": \"ahXsUPYc\",\n            \"label\": \"降效\",\n            \"children\": [],\n            \"type\": \"ahXsUPYc\",\n            \"color\": \"#ffc9d5\"\n          },\n          {\n            \"id\": \"9qt_NHuqeqxMMoR3vpydf\",\n            \"label\": \"旁氏骗局下半部\",\n            \"children\": [\n              \"gPIXC5Z_\"\n            ],\n            \"type\": \"node\",\n            \"color\": \"#d1605e\"\n          },\n          {\n            \"id\": \"gPIXC5Z_\",\n            \"label\": \"资金盘变小\",\n            \"children\": [\n              \"BgcvwmeJ\"\n            ],\n            \"type\": \"gPIXC5Z_\",\n            \"color\": \"#0fff3b\"\n          },\n          {\n            \"id\": \"BgcvwmeJ\",\n            \"label\": \"价格下降\",\n            \"children\": [\n              \"-Z7kVGks\"\n            ],\n            \"type\": \"BgcvwmeJ\",\n            \"color\": \"#affffc\"\n          },\n          {\n            \"id\": \"-Z7kVGks\",\n            \"label\": \"资金盘变小\",\n            \"children\": [],\n            \"type\": \"-Z7kVGks\",\n            \"color\": \"#f296b0\"\n          },\n          {\n            \"id\": \"UBB1YJpJMRBypwT6xvEjp\",\n            \"label\": \"做B事情\",\n            \"children\": [\n              \"vGibvRxs\"\n            ],\n            \"type\": \"node\",\n            \"color\": \"#6a97c4\"\n          },\n          {\n            \"id\": \"vGibvRxs\",\n            \"label\": \"被惩罚\",\n            \"children\": [\n              \"BYQ7sFx4\"\n            ],\n            \"type\": \"vGibvRxs\",\n            \"color\": \"#2fb517\"\n          },\n          {\n            \"id\": \"BYQ7sFx4\",\n            \"label\": \"动力变小\",\n            \"children\": [\n              \"IUWqXarH\"\n            ],\n            \"type\": \"BYQ7sFx4\",\n            \"color\": \"#e8a58b\"\n          },\n          {\n            \"id\": \"IUWqXarH\",\n            \"label\": \"不做B事情\",\n            \"children\": [],\n            \"type\": \"IUWqXarH\",\n            \"color\": \"#46d646\"\n          }\n        ]\n      },\n      {\n        \"key\": \"Wk7yl53pqxQxKVmtbH-hV\",\n        \"title\": \"美国霸权\",\n        \"transform\": {\n          \"translateX\": -39,\n          \"translateY\": -63,\n          \"scale\": 2.260851138633982\n        },\n        \"data\": [\n          {\n            \"id\": \"DkUQUbZyttx50j8gCFs17\",\n            \"label\": \"霸权\",\n            \"children\": [\n              \"mwYyp2tZ\",\n              \"ulv19U94\",\n              \"R-haJdBR\",\n              \"hRAU4BGk\"\n            ],\n            \"type\": \"node\",\n            \"color\": \"pink\"\n          },\n          {\n            \"id\": \"mwYyp2tZ\",\n            \"label\": \"科技霸权\",\n            \"children\": [],\n            \"type\": \"mwYyp2tZ\",\n            \"color\": \"#85c615\"\n          },\n          {\n            \"id\": \"ulv19U94\",\n            \"label\": \"影视霸权\",\n            \"children\": [],\n            \"type\": \"ulv19U94\",\n            \"color\": \"#5892ef\"\n          },\n          {\n            \"id\": \"R-haJdBR\",\n            \"label\": \"金融霸权\",\n            \"children\": [],\n            \"type\": \"R-haJdBR\",\n            \"color\": \"#00a897\"\n          },\n          {\n            \"id\": \"hRAU4BGk\",\n            \"label\": \"人才霸权\",\n            \"children\": [],\n            \"type\": \"hRAU4BGk\",\n            \"color\": \"#d10ac3\"\n          }\n        ]\n      },\n      {\n        \"key\": \"R5GJ5KDLaSJ9muV_DoOwo\",\n        \"title\": \"普通环\",\n        \"transform\": {\n          \"translateX\": -4.999999999999993,\n          \"translateY\": -86,\n          \"scale\": 1.5415778785253587\n        },\n        \"data\": [\n          {\n            \"id\": \"0bb3_ejftHwv756f2wgc_\",\n            \"label\": \"经济周期\",\n            \"children\": [],\n            \"type\": \"node\",\n            \"color\": \"pink\"\n          }\n        ]\n      },\n      {\n        \"key\": \"vc2IpxtA0dSNoRxlgvcU_\",\n        \"title\": \"工程\",\n        \"transform\": {\n          \"translateX\": 0,\n          \"translateY\": 0,\n          \"scale\": 2\n        },\n        \"data\": [\n          {\n            \"id\": \"Dht_Un5t-MicdVLjzYMVt\",\n            \"label\": \"设计模式\",\n            \"children\": [\n              \"396HGrCi\"\n            ],\n            \"type\": \"node\",\n            \"color\": \"pink\"\n          },\n          {\n            \"id\": \"396HGrCi\",\n            \"label\": \"解耦、复用\",\n            \"children\": [\n              \"RO42xTOb\"\n            ],\n            \"type\": \"396HGrCi\",\n            \"color\": \"#a6aaf4\"\n          },\n          {\n            \"id\": \"RO42xTOb\",\n            \"label\": \"单一职责\",\n            \"children\": [\n              \"-lNNEL18\"\n            ],\n            \"type\": \"RO42xTOb\",\n            \"color\": \"#efb169\"\n          },\n          {\n            \"id\": \"-lNNEL18\",\n            \"label\": \"对修改闭源、对拓展开源\",\n            \"children\": [],\n            \"type\": \"-lNNEL18\",\n            \"color\": \"#392487\"\n          }\n        ]\n      }\n    ]\n  },\n  \"experience\": {\n    \"activeKey\": \"tu9-skLSQU37Nn-sf22G7\",\n    \"data\": [\n      {\n        \"key\": \"1FtD2NoN7PgzMgyxrYep5\",\n        \"title\": \"工作\",\n        \"data\": [\n          {\n            \"id\": \"n3IUROuBT45C4sPWoHKsm\",\n            \"content\": \"<p>别人反驳自己，导致的排斥心理是正常的，是因为不同场景下的不同观点，需要理性探讨</p>\"\n          },\n          {\n            \"id\": \"W2_HN8-7x8dKP5tyTLcxI\",\n            \"content\": \"<p>什么东西适合初始化时收集，什么东西适合运行时获取</p>\"\n          },\n          {\n            \"id\": \"HV8OYq6p-C02JJDBen1sm\",\n            \"content\": \"<p>闭环</p><ol><li>事事有回应，回应不怕多</li></ol>\"\n          },\n          {\n            \"id\": \"DYghgqzd1oNAWF8zbcUIa\",\n            \"content\": \"<p>评估用时，事情拆分的越细，评估的准确率越高</p>\"\n          },\n          {\n            \"id\": \"E6ly7myj9t2aPQwpM0sF9\",\n            \"content\": \"<p>风险控制</p><ol><li>风险评估</li><li class=\\\"ql-indent-1\\\">事情分的越细，风险越小</li><li class=\\\"ql-indent-1\\\">减少依赖方/上游</li><li>风险前置</li><li>阶段性啦通对齐，而不是等快做完了再拉通</li></ol>\"\n          },\n          {\n            \"id\": \"shZVTvoIXuMt1KIhNtj8p\",\n            \"content\": \"<p>赋能：赋能他人，提升整体效率，减少自身工作量</p>\"\n          },\n          {\n            \"id\": \"P1dnMzxQ6UF8PeLWuKN1f\",\n            \"content\": \"<p>发散</p><ol><li>方案的发散</li><li>思维的发散</li></ol><p>收敛</p><ol><li>问题的收敛</li><li>缺陷的收敛</li><li>代办的收敛</li></ol>\"\n          },\n          {\n            \"id\": \"1d7_nbw2nL2RCV6zySyVM\",\n            \"content\": \"<p>博弈</p><ol><li>站在对方角度，给自己建立成熟可靠的形象</li><li>站在对方的利益角度说服之</li></ol>\"\n          },\n          {\n            \"id\": \"CVAbi6OEgDClCf-z4409y\",\n            \"content\": \"<p>疲劳的时候向上看</p>\"\n          },\n          {\n            \"id\": \"3tR34QDOh2_Dl0-8uEEMq\",\n            \"content\": \"<p>协调资源、上下游、相关方</p>\"\n          },\n          {\n            \"id\": \"gPNWV1HsIowwfGOXlP6ky\",\n            \"content\": \"<p>做事情</p><ol><li>做好计划</li><li>计划外的事情请随机应变</li></ol>\"\n          },\n          {\n            \"id\": \"Hvn8V26AWBQiLaA8x-Gm6\",\n            \"content\": \"<p>可行性与不可行性都需要输出其原因</p>\"\n          },\n          {\n            \"id\": \"_2HfNRpBB4eBlTkRpTM4B\",\n            \"content\": \"<p>对一个功能的完成性达成可以通过记住多个特殊🌰，来覆盖所有异常情况</p>\"\n          },\n          {\n            \"id\": \"UT5wYr6Sm4UVUCaHK2sMl\",\n            \"content\": \"<p>独行快，众行远</p>\"\n          },\n          {\n            \"id\": \"uHfFZiz-dWCBAFfzSHt7Y\",\n            \"content\": \"<p>设计模式的学习可以在一个项目的复盘阶段</p>\"\n          },\n          {\n            \"id\": \"xOMgOWsQNpOzRsO73SRSj\",\n            \"content\": \"<p>别人在演讲时，站在他的角度，实时同步地思考如何说的更好</p>\"\n          },\n          {\n            \"id\": \"axwchj3MFjTFt8Z3Syt-S\",\n            \"content\": \"<p>主动可控，被动不可控</p>\"\n          },\n          {\n            \"id\": \"T9gwI3mUG9gaQN2oQ36Kc\",\n            \"content\": \"<p>了解事物的整体可从以下方向走</p><ol><li>整体的流程</li><li>整体架构，自上而下&nbsp;</li></ol>\"\n          },\n          {\n            \"id\": \"n8oK1B_6Md_nnVQ_Ol4SM\",\n            \"content\": \"<p>提效技巧</p><ol><li>非交互类事情可以提速</li><li>交互事件时，需要降低速度应对</li></ol>\"\n          },\n          {\n            \"id\": \"fX5ClFAyut9rsfrE7eq0-\",\n            \"content\": \"<p>对于现象和要求，要知道其背后的原因</p>\"\n          },\n          {\n            \"id\": \"X6b1w6ixnkrZh5l_5ae7A\",\n            \"content\": \"<ul><li>对于步骤，需要先知道其目的，对于复盘日记，我们优先聚焦的应该是目的（为什么这么做，为什么不这么做），而不是步骤，因为目的/原因/抽象能对应多条路径/步骤</li><li>场景 -&gt; 目标 -&gt; 步骤</li><li>千万别陷入场景 -&gt; 步骤的惯性执行，这会漏掉目标，而目标的实现路径很多，不止复盘日记里的</li><li>确定场景后，确定目标，然后从复盘日记/分析中获取步骤，执行完后需要校验结果和目标的一致性。</li><li>偶尔需要改变一下执行的步骤，避免机械式执行</li></ul>\"\n          },\n          {\n            \"id\": \"dS3i1OB6nOKOOa9M12Cx2\",\n            \"content\": \"<p>早会想把东西说丰富，就说细节，结合黑话，所以需要在实际开发时，用笔记本记录</p>\"\n          },\n          {\n            \"id\": \"daZcY_obvsWbZWFyYlyah\",\n            \"content\": \"<p>听别人的思路时，不要一味顺着别人的思路走，利用认知事物的方式来分析他说的对不对，这样能拿回思维主动权</p><p><br></p><p>同样与看文章、看视频</p>\"\n          }\n        ]\n      },\n      {\n        \"key\": \"-qiFujs2CZFcXkOxuYCST\",\n        \"title\": \"学习\",\n        \"data\": [\n          {\n            \"id\": \"9ucrhYqMlRYUKMTIU7uTa\",\n            \"content\": \"<p>知行合一：</p><ul><li>准备、执行、复盘三个阶段三分时间</li><li>莫让行动上的勤奋掩盖思维上的懒惰</li></ul>\"\n          },\n          {\n            \"id\": \"n4IIBlhC9630t-AQZa5YY\",\n            \"content\": \"<p>真正让自身成长的是：场景丶复盘丶总结 三者组成的环。而不是花费的时间</p>\"\n          },\n          {\n            \"id\": \"YGdVXLsyudq-YfknQWfkG\",\n            \"content\": \"<p>主动可控，被动不可控</p><p><br></p><p>掌握主动权时</p><ul><li>可以利用假操作骗出对方的操作</li></ul><p>处于被动情况时</p><ul><li>避开</li><li>想办法将主动权拿回来</li><li>需要另辟蹊径才有赢得机会，但是你往往不得不根据对方的操作做出对应的操作，不然的话，会被...</li></ul><p>平权时，想办法获得主动权</p><ol><li>构建信息不对称，让别人无信息源，然后诱导别人提前做出行为</li></ol><p><br></p><p><br></p><p>给主动程度定量，一点点的积累主动权，从而发生质变</p><p><br></p><p>看文章、看视频、听别人讲解时，如果一味得按别人的思路走，那么你将完全失去主动权，最明显的现象就是会在这过程中失去最开始的目标。</p><p>所以不要一味顺着别人的思路走，时刻把握目标的同时，利用认知事物的方式来分析他说的对不对，这样能拿回思维主动权</p>\"\n          },\n          {\n            \"id\": \"E2LDU9BNgYOgduV0gCQdj\",\n            \"content\": \"<p>提高记忆力</p><ul><li>专注</li><li>养成事物井然有序的强迫症</li><li>养成做事先思考其执行顺序的强迫症</li><li>吃坚果 西洋参 鱼</li><li>质疑不利于对事物的记忆</li><li class=\\\"ql-indent-1\\\">质疑不属于自我认知的事物是合理的</li></ul>\"\n          },\n          {\n            \"id\": \"TsIHlXbpsVzqDLgUvU80W\",\n            \"content\": \"<p>给认知的事物定量，即对该事物认知了百分之多少</p>\"\n          },\n          {\n            \"id\": \"prZOAYai0kCQ7c4u5TpSb\",\n            \"content\": \"<p>在对一个事物认知程度不够时，不要去做，大概率浪费时间</p>\"\n          },\n          {\n            \"id\": \"BQsUecpCl5HTZX8E1kMor\",\n            \"content\": \"<p>独行快，众行远</p>\"\n          },\n          {\n            \"id\": \"66iKOyfaW21bnKD_0mbB_\",\n            \"content\": \"<p>别人在演讲时，站在他的角度，实时同步地思考如何说的更好</p>\"\n          },\n          {\n            \"id\": \"S8O4Pdp8bQv6c2UECW04u\",\n            \"content\": \"<p>提效技巧</p><ol><li>非交互类事情可以提速</li><li>交互事件时，需要降低速度应对</li></ol>\"\n          },\n          {\n            \"id\": \"jtoGauuBxetfX5lR0SmLG\",\n            \"content\": \"<p>抽象与具象</p><ol><li>请保持随时能分辨 接收的事物 / 表达的事物 是抽象还是具象的</li><li>请保持随时能在抽象与具象之间来回切换的能力</li><li>从具象中抽象，利用已有的抽象库来快速认知该具象，同时更新抽象库</li><li>对于自身的抽象，可以通过一个具象来说明</li><li>对于他人的抽象，可以匹配自身的具象库来理解，或者诱导别人说出一个具象来理解</li></ol>\"\n          },\n          {\n            \"id\": \"p6zS0ncJfx7Z5CnDz_piJ\",\n            \"content\": \"<p>对于现象和要求，要知道其背后的原因，这样思路才能打开</p>\"\n          },\n          {\n            \"id\": \"bFVsKfkOpba8fhKDXQ4Ld\",\n            \"content\": \"<p>区分论证和快速验证的耗时</p>\"\n          },\n          {\n            \"id\": \"VqkA6NBjpdlkbCjU7tPGv\",\n            \"content\": \"<p>抽象与具象</p><ol><li>请保持随时能分辨 接收的事物 / 表达的事物 是抽象还是具象的</li><li>请保持随时能在抽象与具象之间来回切换的能力</li><li>从具象中抽象，利用已有的抽象库来快速认知该具象，同时更新抽象库</li><li>对于自身的抽象，可以通过一个具象来说明</li><li>对于他人的抽象，可以匹配自身的具象库来理解，或者诱导别人说出一个具象来理解</li></ol>\"\n          },\n          {\n            \"id\": \"CXYaexn5EDxvEpLo0cLbv\",\n            \"content\": \"<p>复盘日记使用准则</p><ul><li>对于步骤，需要先知道其目的，对于复盘日记，我们优先聚焦的应该是目的（为什么这么做，为什么不这么做），而不是步骤，因为目的/原因/抽象能对应多条路径/步骤</li><li>场景 -&gt; 目标 -&gt; 步骤</li><li>千万别陷入场景 -&gt; 步骤的惯性执行，这会漏掉目标，而目标的实现路径很多，不止复盘日记里的</li><li>确定场景、目标后，然后从复盘日记/分析中获取步骤，执行完后需要校验结果和目标的一致性。</li><li>偶尔需要改变一下执行的步骤，避免机械式执行</li></ul>\"\n          },\n          {\n            \"id\": \"czufewRYDDkvO9izJqIut\",\n            \"content\": \"<p>先解决情绪，再解决问题，对己对他都一样</p>\"\n          },\n          {\n            \"id\": \"zQvhER7pBmAwibj4gS0ma\",\n            \"content\": \"<p>对于一件事物的认知除了定性、定量、还有定趋势，它能提高你对事物认知的颗粒度，让其成为可迭代的事情（比如可提升、可销毁）</p>\"\n          },\n          {\n            \"id\": \"T4ulxH5vW63IpQlHDZvw9\",\n            \"content\": \"<p>内耗和外耗</p><ol><li>要分清楚适合内耗和外耗的场景</li><li>内耗性的人好控制，好引导</li><li>外耗性的人不好控制，不好引导，适合做大头兵</li><li>内圣外王的人才能做领导者</li></ol>\"\n          },\n          {\n            \"id\": \"AqCjW6JFm-R16DNvimA5r\",\n            \"content\": \"<p>成长性思维（注重过程、而非结果导向，注重过程才能一点点的提高自身、提高做事积极性）</p><ol><li>识别壳</li><li>转换</li><li class=\\\"ql-indent-1\\\">暂时不行，只要向专业的人学习，我也行</li><li class=\\\"ql-indent-1\\\">不一定只能</li><li class=\\\"ql-indent-1\\\">切换到第三方、未来视角</li><li>突破</li><li class=\\\"ql-indent-1\\\">利用例外的情况应用于此刻的情况</li><li>坚持</li><li class=\\\"ql-indent-1\\\">提高执行力的方法论</li><li class=\\\"ql-indent-2\\\">wish</li><li class=\\\"ql-indent-2\\\">outcome</li><li class=\\\"ql-indent-2\\\">obstacle</li><li class=\\\"ql-indent-2\\\">plan</li></ol><p>对未知的模糊会诱发人性的胆怯和烦躁，所以让事情明确起来能很明显提高执行力，明确的方法：复盘-》已有经验获取，并且想着美好的结果和未达成的后果</p>\"\n          },\n          {\n            \"id\": \"ri9Ywv4026gbvBJ_P9lIj\",\n            \"content\": \"<p>提升思维积极性</p><ul><li>对于一个现象、要求，其来源有多个，需要客观看待，才能拓宽解决手段</li><li>遇到特例时，不必烦躁，这既是麻烦，也是拓展复盘日记和抽象具象库的机会</li><li>事物都是有两面性的，盯着好的一面看会提高思维积极性</li></ul>\"\n          },\n          {\n            \"id\": \"h1YWpPhMLjSRb3_Yl8PRL\",\n            \"content\": \"<p>循环</p><ul><li>可以尝试用正循环达成目标</li><li>可以尝试用负循环解决问题</li></ul>\"\n          },\n          {\n            \"id\": \"k8LFZfkAN1C-6LfglrOeV\",\n            \"content\": \"<p>脑子里维护一个任务列表</p><ul><li>可按任务重要紧急程度来排序</li><li>可以随时打断</li><li>可以随时插入更高级的任务</li></ul>\"\n          },\n          {\n            \"id\": \"s91UU4X9aWjsKi2HPabTg\",\n            \"content\": \"<p>思考分为快思考和慢思考</p><p>快思考：知识的匹配和输出</p><p>慢思考：思维链的构建</p><p>问：如何用工程能力深化大模型在这两类思考的能力</p>\"\n          },\n          {\n            \"id\": \"GpE1fn_7ugPr2RNCvFe7q\",\n            \"content\": \"<p>在内圣场景下，对于事物的认知，要摈弃“”我”的主语。否则很容易因为别人或者场景与自身的认知不一样导致情绪的产生。</p><p><br></p><p>一个事情的认知要经历多方和场景的验证才能完善</p>\"\n          },\n          {\n            \"id\": \"k9lFpYByZXfUvcVQ3ord6\",\n            \"content\": \"<p>情绪和压力会极大影响理智且杀死神经细胞，解决办法</p><ol><li>跳过引起源，比如难题</li><li>4-4-6深度呼吸法</li><li>一点冰水能让自己快速冷静下来，比如考试时遇到难度，心态发生波动时可以喝一点冷静下来</li></ol>\"\n          },\n          {\n            \"id\": \"c5s_Ed5WG9CeM3Bg0tlU6\",\n            \"content\": \"<p>不要低头，低头坏处如下</p><ul><li>呼吸不畅</li><li>精神不振</li></ul>\"\n          }\n        ]\n      },\n      {\n        \"key\": \"Z3I-urE5oCLeHgGuPk_W4\",\n        \"title\": \"工程\",\n        \"data\": [\n          {\n            \"id\": \"ik5s5J3Xl0S0nnVQ_ZOg5\",\n            \"content\": \"<p>什么逻辑适合收集起来集中处理；</p><ol><li>优点</li><li class=\\\"ql-indent-1\\\">优化：可以将多个节点触发的逻辑整合优化</li><li class=\\\"ql-indent-1\\\">整体可控：多个节点的行为所造成的影响完全可控</li><li>缺点</li><li class=\\\"ql-indent-1\\\">耗时：集中处理的逻辑一般比较耗时</li><li class=\\\"ql-indent-1\\\">额外操作：集中处理的逻辑会被离散的节点高频触发，需要做batch</li><li class=\\\"ql-indent-1\\\">影响范围大：只是某些节点触发，会影响所有的节点。</li></ol><p><br></p><p>什么逻辑适合下放给各个节点;</p><ol><li>优点</li><li class=\\\"ql-indent-1\\\">节点可控：各个节点自主可控</li><li class=\\\"ql-indent-1\\\">影响范围小：节点上下游明细，做的逻辑只影响有关联的节点</li><li>缺点</li><li class=\\\"ql-indent-1\\\">整体不可控：多个节点之间相互交互，在整体上会偶发性出现意外的情况，</li><li class=\\\"ql-indent-1\\\">难溯源：出现的整体性问题涉及哪些节点、哪些逻辑都是很难排查的。</li></ol>\"\n          },\n          {\n            \"id\": \"z1GS1wbbFjmYgFFw5t-dH\",\n            \"content\": \"<p>减少依赖，对依赖方的缺失进行兜底&nbsp;</p>\"\n          },\n          {\n            \"id\": \"Kthf9awEUwWTlpUizgNLi\",\n            \"content\": \"<ol><li>动态与静态</li><li>初始化时与获取时</li><li>分布式与集中式</li></ol>\"\n          },\n          {\n            \"id\": \"74brp3cuMKEP3ZSr26I01\",\n            \"content\": \"<p>聚焦与非聚焦</p>\"\n          },\n          {\n            \"id\": \"ndU-Tk2u3jeOEW03EtMDk\",\n            \"content\": \"<p>减少内存泄漏</p><ol><li>数据传递时用id而非对象</li></ol>\"\n          },\n          {\n            \"id\": \"ofLmJTIQrvJIe26kvtWjF\",\n            \"content\": \"<p>对修改闭源，对拓展开源</p>\"\n          },\n          {\n            \"id\": \"FLiig8-joRff2hkRmxD0k\",\n            \"content\": \"<p>使用设计模式时，其 实例的实现尽量不要有变化的数据源。</p><p>响应数据变化而产生副作用的载体应该是hook，或者更上层的组件。</p><p>不要陷入hook式设计模式的怪圈里，比如策略模式</p>\"\n          },\n          {\n            \"id\": \"OTvrv3J_0HNGi9yUmn8Zg\",\n            \"content\": \"<p>浏览器事件（函数）很多，不同分类的函数有不同的优先级，函数应该有打断能力，且不可阻塞别的优先级高的</p>\"\n          },\n          {\n            \"id\": \"0KDaHefVrf881cSPeVSdj\",\n            \"content\": \"<p>设计模式</p><ol><li>单一职责</li><li>策略模式</li><li>控制反转</li><li>适配模式</li><li><br></li></ol>\"\n          },\n          {\n            \"id\": \"o5MId_dksBoGr0MMPK7vJ\",\n            \"content\": \"<p>solid</p><ol><li>单一职责</li><li>开闭原则</li></ol>\"\n          },\n          {\n            \"id\": \"Vi2kdJhB_mnSZLmBPyrkl\",\n            \"content\": \"<p>当一个模块和别的模块产生关联时，通过约定接口来解耦，而不是互相引用</p>\"\n          },\n          {\n            \"id\": \"sXXeS4ApcFLdKd0PoIMy2\",\n            \"content\": \"<p>set和map和arrayt的区别</p>\"\n          },\n          {\n            \"id\": \"nPJij4fNdxZ91igon_6DF\",\n            \"content\": \"<p>可读性和复用性的权衡</p>\"\n          }\n        ]\n      },\n      {\n        \"key\": \"tu9-skLSQU37Nn-sf22G7\",\n        \"title\": \"投资\",\n        \"data\": [\n          {\n            \"id\": \"H6nf1ry92sbJJjlsW__-h\",\n            \"content\": \"<p>信息不对称 = 资源</p><p>风险、困难天生自带风险不对称</p>\"\n          },\n          {\n            \"id\": \"YwOiNk6takrPQ3AE8sb6F\",\n            \"content\": \"<p>成功率多1%，实际收益率其实是多2%</p>\"\n          },\n          {\n            \"id\": \"wWJKiDkSjMy10SQqFLqRr\",\n            \"content\": \"<p>时间允许的情况下，在把握最大的时候执行</p>\"\n          },\n          {\n            \"id\": \"AkdHSAtsdD2u2mpiTYjEv\",\n            \"content\": \"<p>中国人潜意识对风险不关注，尝试找办法将风险转嫁给别人来获利（比如主动给出蝇头小利，其背后隐藏巨大风险），并在这个过程中形成正循环</p>\"\n          },\n          {\n            \"id\": \"twkhkFi0vJ8y3sQQTXyLT\",\n            \"content\": \"<p>不“赌”的话，连主动“输”的资格都没有</p>\"\n          },\n          {\n            \"id\": \"vP0Nzp0955mhQOOryfVCw\",\n            \"content\": \"<p>交易策略</p><ol><li>微笑曲线打底</li><li>花车理论</li><li class=\\\"ql-indent-1\\\">追有预兆的大涨</li><li class=\\\"ql-indent-1\\\">杀有预兆的大跌</li><li>震荡 -- 尽量不要操作</li><li>经济下行期，跟着国家队买卖</li><li>长节前会持续下探，然后节前一周开始大涨，然后节后阴跌</li><li class=\\\"ql-indent-1\\\">清明节前后不要买</li></ol>\"\n          },\n          {\n            \"id\": \"m1p_bs5TvZ17A6bKYPB9i\",\n            \"content\": \"<ol><li>交易策略成型</li><li>提升技术力</li><li>打好经济基础</li><li>运转交易策略</li><li>薄发</li></ol>\"\n          },\n          {\n            \"id\": \"VOe3o9LCQJHW6IF7X__El\",\n            \"content\": \"<p>欧美觉得将产品卖给消费者，是消费者的荣幸，并看不起消费者，习惯于教育用户，是刻入骨子里的傲慢。</p><p>东亚觉得将产品卖给消费者，是产品的荣幸，消费者才是大爷，习惯于聆听用户，是刻入骨子里的“自卑”</p><p><br></p><p>两方各去特性，在制作好产品的同时，一定程度上教育用户</p>\"\n          },\n          {\n            \"id\": \"Sr9BCitgDJFQAoKW2lAYK\",\n            \"content\": \"<p>支付宝备用金可以用来加杠杠</p>\"\n          },\n          {\n            \"id\": \"QCEi7u2lA8VRCDI1o1tRg\",\n            \"content\": \"<p>乐观买股</p><p>悲观买黄金或者国债</p>\"\n          },\n          {\n            \"id\": \"XyUnEqqCrRfN7JjAOvNJV\",\n            \"content\": \"<p>投资本质就是买预期</p>\"\n          },\n          {\n            \"id\": \"NIsrsWj1K603GC9eMZh8j\",\n            \"content\": \"<p>对于a股，要学会动态实时判断国家预想的底线，它不一定是3000点以下</p>\"\n          }\n        ]\n      },\n      {\n        \"key\": \"hjdd7wSjLPvch2C9OTLGP\",\n        \"title\": \"生活\",\n        \"data\": [\n          {\n            \"id\": \"ap6U86LLzsFo8uqatJ_e6\",\n            \"content\": \"<p>吃完饭后不要喝浓茶喝咖啡，会拉肚子</p>\"\n          },\n          {\n            \"id\": \"C1bB80qwzwShfNmuHvfU5\",\n            \"content\": \"<p>回广州时 从珠海站右侧去翠亨快线然后从中山站上高速 能避开拥堵路段</p>\"\n          },\n          {\n            \"id\": \"yJ5R-TV_Jz-DMcHJs8KFu\",\n            \"content\": \"<p>睡眠的本质：将体内腺苷消化掉</p><ul><li>咖啡要在不困时喝，自行查看咖啡作用原理</li><li>午睡前喝一杯咖啡，醒来后精神爆表</li></ul>\"\n          },\n          {\n            \"id\": \"H1DDokDIhKersb_AP1rcK\",\n            \"content\": \"<p>补脑</p><ul><li>西洋参</li><li>核桃</li><li>鱼</li></ul>\"\n          },\n          {\n            \"id\": \"sU0lZ3brrrMHJcFyfmJD8\",\n            \"content\": \"<p>补气血</p><ul><li>黄芪</li></ul>\"\n          },\n          {\n            \"id\": \"xBdieZDZLaBtN_JDNo5zr\",\n            \"content\": \"<p>8点之前 共乐园附近的充电桩0.48一度 可以早起充电 然后吃个早餐</p><ul><li>7.40起床去充电电</li><li>回18.40出发珠海走黄埔大桥+顺风车</li><li>回广州同上</li></ul>\"\n          },\n          {\n            \"id\": \"dkCAlkFvQqqG0hDyk5oWG\",\n            \"content\": \"<p>绝对绝对绝对不要发表让人嫉恨的言论，网上或者现实里，会被人诅咒导致近段时间的倒霉。尽量与人为善</p>\"\n          },\n          {\n            \"id\": \"XlBiDsB2T8Bc4x6_qphVI\",\n            \"content\": \"<p>可莉侧面撞墙时，不要慌，向哪个方向走导致的撞墙可以将方向盘往同方向打死然后倒车</p>\"\n          },\n          {\n            \"id\": \"Np4yRocMJILGcP3WrfRLM\",\n            \"content\": \"<p>不要开车去广州天河区，人和电鸡乱串</p>\"\n          },\n          {\n            \"id\": \"WTsYbW51u87dNhAWYToQk\",\n            \"content\": \"<p>高德美团订酒店和民宿</p><ol><li>提前很多天订价格便宜</li><li>酒店价格是根据剩余房间来波动的</li><li>从美团的酒店民宿-》民宿进去会便宜很多。其他入口会贵</li></ol>\"\n          }\n        ]\n      },\n      {\n        \"key\": \"ygHO7uPnH_FyytssD2F_K\",\n        \"title\": \"爱情\",\n        \"data\": [\n          {\n            \"id\": \"JhOfclzsIgiTN3EiaODGa\",\n            \"content\": \"<p>边界感问题</p><ul><li>爱宝的同性朋友 我不要主动去问</li><li>只聚焦在爱宝身上，不要管别的异性</li></ul><p>边界感</p><p>把握不好边界感会伤害我对你的信任以及我们之间的感情。边界感问题与忠诚度一样很重要，是我的底线，边界感会，忠诚度是对感情和对象的专一，精神出轨和肉体出轨我都接受不了</p><p><br></p><p>对男朋友没把握好跟其他异性的边界感问题感到气愤甚至想分手，主要有以下原因：</p><p><br></p><p>情感独占性：爱情具有独占性，我们希望伴侣只对自己有特殊的情感和关注。当男朋友与其他异性边界感模糊，比如和异性频繁单独相处、聊天内容过于亲密等，会让女朋友觉得自己的情感领地被侵犯，自己在男朋友心中的独特地位受到威胁，从而产生气愤情绪，严重时会考虑分手来捍卫自己的情感需求。</p><p><br></p><p>安全感缺失：健康的恋爱关系需要安全感。与其他异性边界不清，容易让对方产生各种猜疑，如担心男朋友会被别人吸引、担心感情出现危机等。长期处于这种缺乏安全感的状态，会让女朋友心理压力增大，气愤之下可能会觉得结束关系才能让自己不再受这种煎熬。</p><p><br></p><p>价值观冲突：在恋爱中，每个人对感情的忠诚度和与异性相处的原则都有自己的价值观。如果女朋友非常看重与异性保持明确边界，认为这是对感情的基本尊重，而男朋友却不以为然，这种价值观的冲突会让女朋友对这段关系感到失望和气愤，觉得两人不适合，进而想分手。</p><p><br></p><p>对未来的担忧：女朋友可能会从男朋友与异性边界感差的行为，联想到未来的生活。担心如果继续发展下去，在婚姻或长期关系中会出现更多问题，如出轨、家庭矛盾等。出于对未来的担忧和恐惧，会选择用分手来避免可能出现的更大伤害。</p><p><br></p><p>自身情绪投射：女朋友自身过往的经历或原生家庭等因素，可能会让她对这类问题格外敏感。比如曾经遭遇过背叛，或者在成长环境中看到过因异性关系处理不当而导致的感情悲剧，就会将这些负面情绪投射到当前的感情中，一旦男朋友出现类似问题，就会反应强烈，甚至想结束关系。</p><p><br></p><p>双方边界规则：</p><p>1. 社交平台互动：朋友圈、微博、QQ、抖音、小红书、网站等一切社交平台，不频繁点赞，不关注 、不评论异性（除对象和家人外的异性）的动态，也拒绝异性的关注，以免让对象感觉你过度关注某个异性的动态。如实在要回答或者评论异性内容，要谨慎：比如，避免发表暧昧或关于外貌身材的评论。</p><p><br></p><p>不主动索要、也不主动添加、也不给予其他异性自己的联系方式，非工作必要拒绝其他异性的添加好友申请，不论是哪个社交平台的好友申请，如果实在需要可以让女朋友或男朋友添加，达到同性沟通以避嫌的目的。（踩坑例子：之前qq微信加了很多人）</p><p><br></p><p>2. 聊天交流：不主动与其他异性聊天，拒绝其他异性对你开启的线上线下闲聊，尤其是生活分享。不与异性进行长时间、频繁的私聊。如果是工作相关，结束后应及时向对象说明。比如，“刚刚和她/他聊了下工作”，此外，聊天内容要健康、公开，不涉及私密话题。（踩坑例子：给初中生发想你、亲亲的表情包）</p><p><br></p><p>3. 单独相处：非必要不与其他异性单独相处。比如，避免单独与异性在封闭私人空间（如家里、车内）共处。如果是工作需要，选择开放、多人的空间进行交流。</p><p><br></p><p>4. 接受邀约：面对其他异性的私人邀约，如单独吃饭、看电影等果断拒绝。委婉表达自己已有伴侣，保持适当距离。如果是正常的公开的多人的社交活动，应提前告知男朋友/女朋友活动详情，包括参与人员、时间、地点等。</p><p><br></p><p>5. 肢体接触：有异性在场，与异性保持适当的身体距离，尊重彼此个人空间，不与异性有肢体接触，尤其禁止亲密接触：如勾肩搭背，牵手，拥抱，亲吻，以免产生不必要的误会。除非是在非常特殊、适当的公共场合，如因工作需要和合作伙伴握手，并及时告知对象。</p><p><br></p><p>6. 礼物往来：不给其他异性送礼物，也不接受其他异性的礼物，尤其是贵重或具有特殊意义的礼物。如果对方赠送礼物，应委婉拒绝并说明原因，若因某些原因无法拒绝，如在工作场合收到合作方的小礼品，应及时向对象报备说明情况，避免对方产生误解。</p><p>（踩坑例子：给那个初中生发红包）</p><p><br></p><p><br></p><p><br></p><p>与对象的朋友相处时保持边界感：</p><p>1.社交距离方面</p><p>①身体距离：与女朋友的女性朋友相处时，保持适当的身体距离，避免与她们有不必要的身体接触。比如在传递物品时避免手部接触。</p><p>踩坑例子：一次教研结束后去二中接我和我朋友（她男朋友是医生那个）去仁恒星园 后厨吃饭时，刚下车三个人并排走，你走在了我和她中间，隔开了我俩，你两第一次见面又不熟，会挺尴尬，按理说你应该走在我旁边，与她保持距离，不过后来我进行了位置调整后你也没再出错了，当时我会觉得你不太注意边界感问题。</p><p><br></p><p>②社交平台：不要在社交媒体上与女朋友的女性朋友有频繁或私密的互动，比如对她们的动态进行大量评论和点赞，给人特殊关注的感觉。不随意私信她们分享个人的私密事情或情感问题。</p><p><br></p><p>2.交流内容方面</p><p>①话题选择：交流的话题应保持在适当的范围内，避免涉及过于私密或敏感的话题，如个人感情生活细节、身体状况等。可以聊一些女朋友共同感兴趣的、积极健康的话题</p><p><br></p><p>②言语表达：注意言语的措辞和语气，不要使用暧昧、调侃或容易引起误会的语言，保持礼貌和尊重，以朋友间正常的交流方式相处。</p><p><br></p><p>3.行为表现方面</p><p>（1）避免单独相处：尽量避免与女朋友的女性朋友单独相处，如有必要，最好提前告知女朋友，并选择公开、合适的场所。（踩坑例子：参加完金凤婚礼回广州路上提出送她们回深圳就是和她们单独相处，并且是避开女朋友，在车上这种封闭的私人空间）</p><p>（2）不介入关系：不要轻易介入女朋友和她女性朋友之间的关系或矛盾，除非她们主动寻求帮助或建议。（踩坑例子：提出去女朋友的女性朋友家里）</p><p><br></p><p>（2）不做特殊关照：在与女朋友和她的女性朋友共同相处时，不对其女性朋友有特殊的关照或偏袒，特殊关照的行为如下：</p><p>①给予特别关注：在一群人相处时，将目光和话题焦点放在女朋友的女性朋友身上，忽视女朋友及其他人。比如大家聊天时，只回应那位女性朋友的话，对她的观点过度认同和赞扬、或是赞美女性朋友的外貌身材。（踩坑例子：金凤婚礼上连续夸了2次她穿那个敬酒服很好看，很适合她，事后金凤跟我说当时她被你夸，也觉得怪怪的）</p><p>②留意女朋友的女性朋友的喜好和需求超出边界。</p><p><br></p><p>③提供特殊帮助：</p><p>当女朋友和她的女性朋友都有需求时，没解决女朋友的需求就提出帮助女朋友的女性朋友。如在搬重物时，对女朋友的需求视而不见，提出帮助其女性朋友（踩坑例子1：参加完金凤婚礼回到广州南站停完车，帮我提一袋东西后，就问其他女生：要不要帮她们提东西，可是我手里还提着一袋，是优先考虑我的需求了，并提供了帮助，但没有完全帮助，同时还留意了她们的需求）</p><p><br></p><p>踩坑例子 2：当时我教研结束去二中接我和我朋友（她男朋友是医生那个）然后去仁恒星园后厨吃饭时，没位置在外面等了一下，后面因为要换位置，离开那个地方要走我们的伞，我和我朋友都带了伞，帮我拿伞后，提出要不要帮我朋友拿伞，帮女朋友拿伞是贴心行为，但提出帮女朋友的女性朋友拿伞就越界了，因为伞不是很重的物品，不需要别人的帮助，伞也是她的私人物品，会让人觉得男朋友的贴心可以给任何人，而不是出于对女朋友的偏爱）</p><p><br></p><p>④为女朋友的女性朋友提供超出普通朋友范畴的帮助，如利用自己的人脉和资源帮她解决工作或生活中的难题。</p><p><br></p><p>⑤有特殊的肢体语言或行为（如帮她夹菜，整理头发、拍肩膀或背部等亲密动作）</p><p><br></p><p>⑥对女朋友的女性朋友表现出特别的体贴行为，如主动提出送她回家，在寒冷天气里把自己的外套借她披，或者在走路时护着她，让女朋友走外侧</p><p>（踩坑例子：参加完金凤婚礼回广州路上主动提出送她们回深圳，亲自送她们回深圳，却让女朋友一个人坐高铁回珠海，也是没有优先考虑到女朋友的需求）</p><p><br></p><p>⑦在聚会或活动中，给女朋友的女性朋友特殊待遇，如优先把最好的座位让给她，优先满足她的娱乐需求等。</p>\"\n          },\n          {\n            \"id\": \"2D7Dmf9JblgK6Cp857w1V\",\n            \"content\": \"<p>不要问等下去吃什么 要问对方猜猜等下要去吃什么 这样就能知道对方想吃什么了</p>\"\n          },\n          {\n            \"id\": \"qB-k0Bh2R6OF9lo8cOKAN\",\n            \"content\": \"<p>不要说粗话 想办法减少说粗话</p>\"\n          },\n          {\n            \"id\": \"8kks5RnQjsN8stqbtPemC\",\n            \"content\": \"<p>不要说：趴在我身上。她不喜欢趴这个词，可以换成抱着她</p>\"\n          },\n          {\n            \"id\": \"MWa1u1TIKjIE23g7AJnEE\",\n            \"content\": \"<p>报备要详细 站在对方角度着想</p>\"\n          },\n          {\n            \"id\": \"6drTDjQSm8cmLh-nsyGm5\",\n            \"content\": \"<p>双方都生气时，我先认错，先让对方气消了，先解决对方情绪问题再解决实际问题，对方会反思的。</p>\"\n          },\n          {\n            \"id\": \"E2oOz0LYbDSvMKrAwkB2F\",\n            \"content\": \"<p>她乳糖不耐受 得和舒化奶</p>\"\n          },\n          {\n            \"id\": \"wvirF3R831D8u5vrYYvX5\",\n            \"content\": \"<p>在不适合做深度思考的时刻 不要随意回复 先说稍等</p>\"\n          },\n          {\n            \"id\": \"yrNOLsTBlTkFnV_KO-AKf\",\n            \"content\": \"<p>我们之前的机制是 先猜测 做出决策（生气） 然后从对方的回答里验证猜测</p><p><br></p><p>正确的机制是 先猜测 得到回复 验证猜测 做出决策（生大气）</p><p><br></p><p>这落实到行动上不就是对于我有了猜测，我需要平静的询问你，根据你的回答，去验证猜测，如果猜测对了我理解了后续就没有矛盾了，如果没猜测对我应该生气那我就应该生大气</p>\"\n          },\n          {\n            \"id\": \"pXeVYBnFcaYQ-8t42DlJy\",\n            \"content\": \"<p>爱宝在处理情绪时是会冷冷的 我不可以也冷哒 要一直给爱宝发消息 让爱宝觉得我爱她</p>\"\n          }\n        ]\n      },\n      {\n        \"key\": \"g-1U6Erh6LksoXi7GT8oA\",\n        \"title\": \"社交\",\n        \"data\": [\n          {\n            \"id\": \"1Izs1QaA5bDnJ-xFRvt3N\",\n            \"content\": \"<p>不是什么情况下都需要把主动权拿在手里的，什么场景适合掌握主动权，什么场景适合放开主动权</p>\"\n          },\n          {\n            \"id\": \"HfslACfPmQTpg6piW6Mcp\",\n            \"content\": \"<p>建立成熟可靠的形象</p>\"\n          },\n          {\n            \"id\": \"eCXT0Jxk_C1crzXwxaEMU\",\n            \"content\": \"<p>与人交谈沟通尽可能将自身的的优势、思想深度给传达出去</p>\"\n          },\n          {\n            \"id\": \"X_ot75Lfhpkko7KXnxxHN\",\n            \"content\": \"<p>使用我语言，尽可能不要用你语言，这样指向性太强</p>\"\n          },\n          {\n            \"id\": \"SwEVs-k95p89J-AYOH4Gw\",\n            \"content\": \"<p>与人谈判时，说出对方劣势，并说出自身优势来建立主动权</p>\"\n          },\n          {\n            \"id\": \"IX5qqCm64NZKEIgpFOuT3\",\n            \"content\": \"<p>描述一件事用4w1h</p>\"\n          },\n          {\n            \"id\": \"Spjn0DJx60BaMtxYnTeUt\",\n            \"content\": \"<p>自我评价和他人对自身评价的拉通对齐</p>\"\n          },\n          {\n            \"id\": \"3QQtbCvGzHQqdvN572I6m\",\n            \"content\": \"<p>观察他人吃饭的偏好，能大致判断是主动性还是被动型</p>\"\n          },\n          {\n            \"id\": \"rHdDb_SgOt_sVmGP203IE\",\n            \"content\": \"<p>禁忌：不要我以为 ，不要理所当然。这样百分百会有误会。</p><p>你需要和别人同步你以为的东西</p>\"\n          }\n        ]\n      },\n      {\n        \"key\": \"gzN15siFmbfZ4agtQBbho\",\n        \"title\": \"创业\",\n        \"data\": [\n          {\n            \"id\": \"DUIIZxMzdU8VCAThBPDAi\",\n            \"content\": \"<p>内核一样，可以换一种受众更多的表现形式来呈现，这样观众</p>\"\n          },\n          {\n            \"id\": \"pE5mt0qGTW810GydBnGLI\",\n            \"content\": \"<p>利用现实世界的算力</p>\"\n          }\n        ]\n      }\n    ]\n  },\n  \"review\": {\n    \"activeCategory\": [\n      \"category-9XK7lQkqnVh5OmEHFUVDl\",\n      \"lk9UDAO2d4U3Xi7TUbvTB\"\n    ],\n    \"category\": [\n      {\n        \"value\": \"category-9XK7lQkqnVh5OmEHFUVDl\",\n        \"label\": \"工作\",\n        \"children\": [\n          {\n            \"value\": \"lk9UDAO2d4U3Xi7TUbvTB\",\n            \"label\": \"使用示例：一件事情的复盘 = 一颗决策树 = 为什么这么做，为什么不这么做 = 流程图\",\n            \"content\": \"{\\\"cells\\\":[{\\\"shape\\\":\\\"edge\\\",\\\"attrs\\\":{\\\"line\\\":{\\\"stroke\\\":\\\"rgb(162, 177, 195)\\\"},\\\"text\\\":{\\\"fill\\\":\\\"#6f6d6d\\\"}},\\\"id\\\":\\\"ccc23fed-a4f4-43ae-9889-9b576366cd88\\\",\\\"zIndex\\\":-1,\\\"router\\\":{\\\"name\\\":\\\"manhattan\\\"},\\\"connector\\\":{\\\"name\\\":\\\"rounded\\\",\\\"args\\\":{\\\"radius\\\":10}},\\\"source\\\":{\\\"cell\\\":\\\"3c5c7d5a-d7af-413a-b05b-4bf70d86b73d\\\",\\\"port\\\":\\\"f63588a7-e090-4ae8-8899-1063f513eea2\\\"},\\\"target\\\":{\\\"cell\\\":\\\"7a68b8ab-a76a-4248-96c3-7b977ed755ec\\\",\\\"port\\\":\\\"3a2edbf8-2786-48ab-a444-51db020becab\\\"}},{\\\"position\\\":{\\\"x\\\":-100,\\\"y\\\":-200},\\\"size\\\":{\\\"width\\\":100,\\\"height\\\":50},\\\"attrs\\\":{\\\"text\\\":{\\\"fill\\\":\\\"#6f6d6d\\\",\\\"text\\\":\\\"开始\\\"},\\\"body\\\":{\\\"stroke\\\":\\\"transparent\\\",\\\"fill\\\":\\\"#dbf4f7\\\",\\\"rx\\\":20,\\\"ry\\\":22,\\\"stroke-width\\\":1,\\\"cursor\\\":\\\"pointer\\\",\\\"padding\\\":10,\\\"isStart\\\":true},\\\"label\\\":{\\\"textWrap\\\":{\\\"width\\\":\\\"100%\\\",\\\"height\\\":\\\"100%\\\",\\\"ellipsis\\\":true,\\\"breakWord\\\":false}}},\\\"visible\\\":true,\\\"shape\\\":\\\"custom-rect\\\",\\\"ports\\\":{\\\"groups\\\":{\\\"bottom\\\":{\\\"attrs\\\":{\\\"circle\\\":{\\\"r\\\":6,\\\"magnet\\\":true,\\\"stroke\\\":\\\"#8f8f8f\\\",\\\"strokeWidth\\\":1,\\\"fill\\\":\\\"#fff\\\"}},\\\"position\\\":{\\\"args\\\":{\\\"x\\\":\\\"50%\\\",\\\"y\\\":\\\"100%\\\"},\\\"name\\\":\\\"absolute\\\"}},\\\"outer-bottom\\\":{\\\"attrs\\\":{\\\"circle\\\":{\\\"r\\\":6,\\\"magnet\\\":true,\\\"stroke\\\":\\\"#8f8f8f\\\",\\\"strokeWidth\\\":1,\\\"fill\\\":\\\"#fff\\\"}},\\\"position\\\":{\\\"args\\\":{\\\"x\\\":\\\"50%\\\",\\\"y\\\":\\\"100%\\\"},\\\"name\\\":\\\"absolute\\\"}},\\\"top\\\":{\\\"attrs\\\":{\\\"circle\\\":{\\\"r\\\":6,\\\"magnet\\\":true,\\\"stroke\\\":\\\"#8f8f8f\\\",\\\"strokeWidth\\\":1,\\\"fill\\\":\\\"#fff\\\"}},\\\"position\\\":{\\\"args\\\":{\\\"x\\\":\\\"50%\\\",\\\"y\\\":\\\"0%\\\"},\\\"name\\\":\\\"absolute\\\"}},\\\"outer-top\\\":{\\\"attrs\\\":{\\\"circle\\\":{\\\"r\\\":6,\\\"magnet\\\":true,\\\"stroke\\\":\\\"#8f8f8f\\\",\\\"strokeWidth\\\":1,\\\"fill\\\":\\\"#fff\\\"}},\\\"position\\\":{\\\"args\\\":{\\\"x\\\":\\\"50%\\\",\\\"y\\\":\\\"0%\\\"},\\\"name\\\":\\\"absolute\\\"}},\\\"left\\\":{\\\"attrs\\\":{\\\"circle\\\":{\\\"r\\\":6,\\\"magnet\\\":true,\\\"stroke\\\":\\\"#8f8f8f\\\",\\\"strokeWidth\\\":1,\\\"fill\\\":\\\"#fff\\\"}},\\\"position\\\":{\\\"args\\\":{\\\"x\\\":\\\"0%\\\",\\\"y\\\":\\\"50%\\\"},\\\"name\\\":\\\"absolute\\\"}},\\\"outer-left\\\":{\\\"attrs\\\":{\\\"circle\\\":{\\\"r\\\":6,\\\"magnet\\\":true,\\\"stroke\\\":\\\"#8f8f8f\\\",\\\"strokeWidth\\\":1,\\\"fill\\\":\\\"#fff\\\"}},\\\"position\\\":{\\\"args\\\":{\\\"x\\\":\\\"0%\\\",\\\"y\\\":\\\"50%\\\"},\\\"name\\\":\\\"absolute\\\"}},\\\"right\\\":{\\\"attrs\\\":{\\\"circle\\\":{\\\"r\\\":6,\\\"magnet\\\":true,\\\"stroke\\\":\\\"#8f8f8f\\\",\\\"strokeWidth\\\":1,\\\"fill\\\":\\\"#fff\\\"}},\\\"position\\\":{\\\"args\\\":{\\\"x\\\":\\\"100%\\\",\\\"y\\\":\\\"50%\\\"},\\\"name\\\":\\\"absolute\\\"}},\\\"outer-right\\\":{\\\"attrs\\\":{\\\"circle\\\":{\\\"r\\\":6,\\\"magnet\\\":true,\\\"stroke\\\":\\\"#8f8f8f\\\",\\\"strokeWidth\\\":1,\\\"fill\\\":\\\"#fff\\\"}},\\\"position\\\":{\\\"args\\\":{\\\"x\\\":\\\"100%\\\",\\\"y\\\":\\\"50%\\\"},\\\"name\\\":\\\"absolute\\\"}}},\\\"items\\\":[{\\\"group\\\":\\\"top\\\",\\\"id\\\":\\\"aa202c8a-6a48-40ea-9f82-0b2fb042e39a\\\",\\\"attrs\\\":{\\\"circle\\\":{\\\"r\\\":0}}},{\\\"group\\\":\\\"outer-top\\\",\\\"id\\\":\\\"72825ab7-3e9d-402e-8cbe-6f4f7ec6e9a2\\\",\\\"args\\\":{\\\"y\\\":0},\\\"attrs\\\":{\\\"circle\\\":{\\\"r\\\":0,\\\"stroke\\\":\\\"transparent\\\",\\\"fill\\\":\\\"#dbf4f7\\\"}}},{\\\"group\\\":\\\"bottom\\\",\\\"id\\\":\\\"f63588a7-e090-4ae8-8899-1063f513eea2\\\",\\\"attrs\\\":{\\\"circle\\\":{\\\"r\\\":0}}},{\\\"group\\\":\\\"outer-bottom\\\",\\\"id\\\":\\\"bcd70df2-74a3-4c06-ae22-d1d4d87b9a22\\\",\\\"args\\\":{\\\"y\\\":50},\\\"attrs\\\":{\\\"circle\\\":{\\\"r\\\":0,\\\"stroke\\\":\\\"transparent\\\",\\\"fill\\\":\\\"#dbf4f7\\\"}}},{\\\"group\\\":\\\"left\\\",\\\"id\\\":\\\"17391854-870a-4cad-838c-8d1169ad21d2\\\",\\\"attrs\\\":{\\\"circle\\\":{\\\"r\\\":0}}},{\\\"group\\\":\\\"outer-left\\\",\\\"id\\\":\\\"d607a84c-12da-49a7-99d7-8e1986a636a7\\\",\\\"args\\\":{\\\"x\\\":0},\\\"attrs\\\":{\\\"circle\\\":{\\\"r\\\":0,\\\"stroke\\\":\\\"transparent\\\",\\\"fill\\\":\\\"#dbf4f7\\\"}}},{\\\"group\\\":\\\"right\\\",\\\"id\\\":\\\"c32cd9eb-2fb7-4268-895d-e71138c9c304\\\",\\\"attrs\\\":{\\\"circle\\\":{\\\"r\\\":0}}},{\\\"group\\\":\\\"outer-right\\\",\\\"id\\\":\\\"cbe9de2e-9b6f-4747-85d4-a7e36782bfc7\\\",\\\"args\\\":{\\\"x\\\":100},\\\"attrs\\\":{\\\"circle\\\":{\\\"r\\\":0,\\\"stroke\\\":\\\"transparent\\\",\\\"fill\\\":\\\"#dbf4f7\\\"}}}]},\\\"id\\\":\\\"3c5c7d5a-d7af-413a-b05b-4bf70d86b73d\\\",\\\"zIndex\\\":1},{\\\"position\\\":{\\\"x\\\":-100,\\\"y\\\":30},\\\"size\\\":{\\\"width\\\":100,\\\"height\\\":50},\\\"attrs\\\":{\\\"text\\\":{\\\"fill\\\":\\\"#6f6d6d\\\"},\\\"body\\\":{\\\"stroke\\\":\\\"transparent\\\",\\\"fill\\\":\\\"#ffeef1\\\",\\\"refPoints\\\":\\\"0,10 10,0 20,10 10,20\\\",\\\"stroke-width\\\":1,\\\"cursor\\\":\\\"pointer\\\"},\\\"label\\\":{\\\"textWrap\\\":{\\\"width\\\":\\\"100%\\\",\\\"height\\\":\\\"100%\\\",\\\"ellipsis\\\":true,\\\"breakWord\\\":false}}},\\\"visible\\\":true,\\\"shape\\\":\\\"custom-polygon\\\",\\\"ports\\\":{\\\"groups\\\":{\\\"bottom\\\":{\\\"attrs\\\":{\\\"circle\\\":{\\\"r\\\":8,\\\"magnet\\\":true,\\\"stroke\\\":\\\"#8f8f8f\\\",\\\"strokeWidth\\\":1,\\\"fill\\\":\\\"#fff\\\"}},\\\"position\\\":{\\\"args\\\":{\\\"x\\\":\\\"50%\\\",\\\"y\\\":\\\"100%\\\"},\\\"name\\\":\\\"absolute\\\"}},\\\"outer-bottom\\\":{\\\"attrs\\\":{\\\"circle\\\":{\\\"r\\\":10,\\\"magnet\\\":true,\\\"stroke\\\":\\\"#8f8f8f\\\",\\\"strokeWidth\\\":1,\\\"fill\\\":\\\"#fff\\\"}},\\\"position\\\":{\\\"args\\\":{\\\"x\\\":\\\"50%\\\",\\\"y\\\":\\\"100%\\\"},\\\"name\\\":\\\"absolute\\\"}},\\\"top\\\":{\\\"attrs\\\":{\\\"circle\\\":{\\\"r\\\":8,\\\"magnet\\\":true,\\\"stroke\\\":\\\"#8f8f8f\\\",\\\"strokeWidth\\\":1,\\\"fill\\\":\\\"#fff\\\"}},\\\"position\\\":{\\\"args\\\":{\\\"x\\\":\\\"50%\\\",\\\"y\\\":\\\"0%\\\"},\\\"name\\\":\\\"absolute\\\"}},\\\"outer-top\\\":{\\\"attrs\\\":{\\\"circle\\\":{\\\"r\\\":10,\\\"magnet\\\":true,\\\"stroke\\\":\\\"#8f8f8f\\\",\\\"strokeWidth\\\":1,\\\"fill\\\":\\\"#fff\\\"}},\\\"position\\\":{\\\"args\\\":{\\\"x\\\":\\\"50%\\\",\\\"y\\\":\\\"0%\\\"},\\\"name\\\":\\\"absolute\\\"}},\\\"left\\\":{\\\"attrs\\\":{\\\"circle\\\":{\\\"r\\\":8,\\\"magnet\\\":true,\\\"stroke\\\":\\\"#8f8f8f\\\",\\\"strokeWidth\\\":1,\\\"fill\\\":\\\"#fff\\\"}},\\\"position\\\":{\\\"args\\\":{\\\"x\\\":\\\"0%\\\",\\\"y\\\":\\\"50%\\\"},\\\"name\\\":\\\"absolute\\\"}},\\\"outer-left\\\":{\\\"attrs\\\":{\\\"circle\\\":{\\\"r\\\":10,\\\"magnet\\\":true,\\\"stroke\\\":\\\"#8f8f8f\\\",\\\"strokeWidth\\\":1,\\\"fill\\\":\\\"#fff\\\"}},\\\"position\\\":{\\\"args\\\":{\\\"x\\\":\\\"0%\\\",\\\"y\\\":\\\"50%\\\"},\\\"name\\\":\\\"absolute\\\"}},\\\"right\\\":{\\\"attrs\\\":{\\\"circle\\\":{\\\"r\\\":8,\\\"magnet\\\":true,\\\"stroke\\\":\\\"#8f8f8f\\\",\\\"strokeWidth\\\":1,\\\"fill\\\":\\\"#fff\\\"}},\\\"position\\\":{\\\"args\\\":{\\\"x\\\":\\\"100%\\\",\\\"y\\\":\\\"50%\\\"},\\\"name\\\":\\\"absolute\\\"}},\\\"outer-right\\\":{\\\"attrs\\\":{\\\"circle\\\":{\\\"r\\\":10,\\\"magnet\\\":true,\\\"stroke\\\":\\\"#8f8f8f\\\",\\\"strokeWidth\\\":1,\\\"fill\\\":\\\"#fff\\\"}},\\\"position\\\":{\\\"args\\\":{\\\"x\\\":\\\"100%\\\",\\\"y\\\":\\\"50%\\\"},\\\"name\\\":\\\"absolute\\\"}}},\\\"items\\\":[{\\\"group\\\":\\\"top\\\",\\\"id\\\":\\\"3a2edbf8-2786-48ab-a444-51db020becab\\\",\\\"attrs\\\":{\\\"circle\\\":{\\\"r\\\":0}}},{\\\"group\\\":\\\"outer-top\\\",\\\"id\\\":\\\"72daf50c-ab70-4ba6-9e8a-f73525875ace\\\",\\\"attrs\\\":{\\\"circle\\\":{\\\"r\\\":0,\\\"stroke\\\":\\\"transparent\\\",\\\"fill\\\":\\\"#ffeef1\\\"}},\\\"args\\\":{\\\"y\\\":0}},{\\\"group\\\":\\\"bottom\\\",\\\"id\\\":\\\"692eabaa-5ff1-4310-baad-5ff7a2303496\\\",\\\"attrs\\\":{\\\"circle\\\":{\\\"r\\\":0}}},{\\\"group\\\":\\\"outer-bottom\\\",\\\"id\\\":\\\"1e14047f-6d1f-43dd-af65-12d9d10ebf00\\\",\\\"attrs\\\":{\\\"circle\\\":{\\\"r\\\":0,\\\"stroke\\\":\\\"transparent\\\",\\\"fill\\\":\\\"#ffeef1\\\"}},\\\"args\\\":{\\\"y\\\":50}},{\\\"group\\\":\\\"left\\\",\\\"id\\\":\\\"244a49ef-1674-4e66-b6c6-51740f161b88\\\",\\\"attrs\\\":{\\\"circle\\\":{\\\"r\\\":0}}},{\\\"group\\\":\\\"outer-left\\\",\\\"id\\\":\\\"873745a1-3497-4bbf-b277-cad8303c89b7\\\",\\\"attrs\\\":{\\\"circle\\\":{\\\"r\\\":0,\\\"stroke\\\":\\\"transparent\\\",\\\"fill\\\":\\\"#ffeef1\\\"}},\\\"args\\\":{\\\"x\\\":0}},{\\\"group\\\":\\\"right\\\",\\\"id\\\":\\\"8e78f7ce-5d15-4b3d-ab3f-3cd633a363d2\\\",\\\"attrs\\\":{\\\"circle\\\":{\\\"r\\\":0}}},{\\\"group\\\":\\\"outer-right\\\",\\\"id\\\":\\\"d7caf727-10d7-419d-a06a-25e826e0afbd\\\",\\\"attrs\\\":{\\\"circle\\\":{\\\"r\\\":0,\\\"stroke\\\":\\\"transparent\\\",\\\"fill\\\":\\\"#ffeef1\\\"}},\\\"args\\\":{\\\"x\\\":100}}]},\\\"id\\\":\\\"7a68b8ab-a76a-4248-96c3-7b977ed755ec\\\",\\\"zIndex\\\":2}]}\"\n          },\n          {\n            \"value\": \"addNote\",\n            \"label\": \"+\",\n            \"content\": \"\"\n          }\n        ]\n      },\n      {\n        \"value\": \"category-addCategory\",\n        \"label\": \"+\",\n        \"children\": []\n      }\n    ]\n  },\n  \"task-list\": {\n    \"initFlag\": true,\n    \"list\": [\n      {\n        \"content\": \"<p>统考 3月 17</p><p>冰水</p><p>周六穿薄衣服</p><p>咖啡</p><p>核桃</p><p>香蕉</p><p>身份证</p><p>准考证</p><p>新笔</p><p>手表</p><p>透明笔袋</p><p>纸巾</p><p>睡醒后来一套拉伸</p><p>考前喝咖啡 不要喝太多水 200ml以下</p><p>25年公安时政 25年行测时政</p><p>做题顺序</p><p>有不会的或者有争议的 先跳过 填完答题卡 然后再回看 ，没思路先秒选 。然后其他题目的选择和题目所问匹配一次</p><p>烦躁时 来一套深呼吸</p><ol><li>开头看 图推 和 数关 政治理论</li><li>资料 判断 做完来一段深呼吸</li><li>数量 言语</li><li>政治理论 常识</li></ol><p>一、推荐食物</p><p><br></p><p>复合碳水类（供能稳定）</p><p>✅ 全麦面包、燕麦片、杂粮粥</p><p>✅ 香蕉（含钾助集中注意力）</p><p><br></p><p>优质蛋白类（延缓饥饿感）</p><p>✅ 水煮蛋、希腊酸奶</p><p>✅ 坚果（如核桃、杏仁，少量）</p><p><br></p><p>轻量搭配示例</p><p>▶ 全麦面包+鸡蛋+半根香蕉</p><p>▶ 燕麦粥+核桃仁+蓝莓</p><p><br></p><p>二、需避免食物</p><p><br></p><p>❌ 高糖食品：甜饮料、蛋糕（易致血糖骤升骤降）</p><p>❌ 油腻食物：炸鸡、薯条（增加消化负担）</p><p>❌ 高咖啡因：能量饮料（可能引发心慌/尿频）</p><p><br></p><p>三、关键注意事项</p><p><br></p><p>进食时间：考前2小时完成用餐</p><p>饮水量：小口饮水200-300ml（避免脱水或频繁如厕）</p><p>特殊体质：乳糖不耐者避免牛奶，易胀气者减少豆类</p>\",\n        \"id\": \"wVhF2XDTSMrNtBV-X4ueT\",\n        \"importanceScore\": 10,\n        \"emergencyScore\": 10\n      },\n      {\n        \"content\": \"<p>君宝宝</p><ul><li>室内活动喜欢哪些</li><li>培养一个爱好</li><li>北山大院 晚上</li><li>以后工作弄完了 我们再聊</li><li>体验复盘app</li><li>周三教研 给爱宝点瑞幸</li><li>国家方志馆</li><li>不能说爱宝是猪和笨</li><li>格蕾花pu世</li><li>将合照放办公室</li><li>了解月经相关的知识</li><li>搜笑话</li><li>那我以后做什么决策都和你说原因吧</li><li>摘草莓</li><li>爬山</li><li>爱宝生我气大概率是因为喜欢我</li><li>爱宝在处理情绪时就是冷冷的， 我不能也冷，得一直和她说话</li></ul>\",\n        \"id\": \"VylVXRaniU-k0f7oGES9Q\",\n        \"importanceScore\": 10,\n        \"emergencyScore\": 8\n      },\n      {\n        \"content\": \"<p>ai桌宠</p><p>提线木偶</p><p>内置线木偶</p><p><strong>杠杆木偶</strong></p>\",\n        \"id\": \"ed9WZ-JmdJ9NjgierNl9-\",\n        \"importanceScore\": 8,\n        \"emergencyScore\": 10\n      },\n      {\n        \"content\": \"<p>ai教案印刷机</p>\",\n        \"id\": \"tnAa_rMhujLCrObJX9BqB\",\n        \"importanceScore\": 8,\n        \"emergencyScore\": 10\n      },\n      {\n        \"content\": \"<p>小朋出行</p>\",\n        \"id\": \"tSn4aRK5EoDip0RLsimv1\",\n        \"importanceScore\": 7,\n        \"emergencyScore\": 10\n      },\n      {\n        \"content\": \"<p>参与blocksuite的开源项目</p>\",\n        \"id\": \"nu1YFD3HBHbYscd1OlUNH\",\n        \"importanceScore\": 10,\n        \"emergencyScore\": 0\n      },\n      {\n        \"content\": \"<p>开始算法</p>\",\n        \"id\": \"fQRGkELJxO8VEJNk1E9-B\",\n        \"importanceScore\": 10,\n        \"emergencyScore\": 0\n      },\n      {\n        \"content\": \"<p>消防隐患识别 - 运营</p>\",\n        \"id\": \"HSjwngLwW9lpdxgTcsEoL\",\n        \"importanceScore\": 0,\n        \"emergencyScore\": 0\n      },\n      {\n        \"content\": \"<p>Life-Review-Note的运营</p><p>借助不同场景的认知升级来运维自媒体的同时推广这个app</p>\",\n        \"id\": \"o0DWovPuuHepy59fJncjq\",\n        \"importanceScore\": 0,\n        \"emergencyScore\": 0\n      },\n      {\n        \"content\": \"<p>磁场机器人模拟器</p>\",\n        \"id\": \"QFXtfW4YtV5LxGWJu7qiB\",\n        \"importanceScore\": 0,\n        \"emergencyScore\": 0\n      },\n      {\n        \"content\": \"<p>南二社快递优化</p><p>存快递：</p><ol><li class=\\\"ql-indent-1\\\">有一台机器，存折橡皮筋，还有一个输入手机号后四位的键盘</li><li class=\\\"ql-indent-1\\\">快递员输入手机后四位后，弹出夹子、首尾相连的橡皮带、&nbsp;</li><li class=\\\"ql-indent-1\\\">将橡皮带绑在箱子上</li><li>取快递</li><li class=\\\"ql-indent-1\\\">用户输入手机后四位后，橡皮带响起</li><li class=\\\"ql-indent-1\\\">拆下橡皮带，然后返还</li></ol><p><br></p><p>营销模式：</p><ol><li>通过让利给快递员来快速推动</li></ol><p>&nbsp;</p><p>进度：</p><ol><li>固定模块：</li><li class=\\\"ql-indent-1\\\">晨光的小型皮尺-价格低，目测成本5毛钱，大量取货3毛钱</li><li>充电模块：</li><li class=\\\"ql-indent-1\\\">小型无线充电芯片-目测10块钱一个，批发价6块钱，非常贵</li><li class=\\\"ql-indent-1\\\">小型液态锂电池-目测2块一个，批发价1块钱，依旧超预算</li><li class=\\\"ql-indent-1\\\">小型纽扣电池，很便宜，但是得考虑功率、使用时长、更替方案。</li><li>芯片模块，即单纯的低功耗蓝牙芯片，类似红米耳机里的那样</li></ol>\",\n        \"id\": \"03OSsXZnfUueQfI1l2WUe\",\n        \"importanceScore\": 0,\n        \"emergencyScore\": 0\n      },\n      {\n        \"content\": \"<p>肉鸽地牢</p><ol><li>计划制定</li><li class=\\\"ql-indent-1\\\">开发时间：周六下午、周日下午、早上的话看人，我不行。</li><li class=\\\"ql-indent-2\\\">第一周：</li><li class=\\\"ql-indent-3\\\">熟悉王者荣耀模仿项目</li><li class=\\\"ql-indent-3\\\">在该项目的基础上，添加人物技能</li><li class=\\\"ql-indent-3\\\">我负责龙卵技能开发</li><li class=\\\"ql-indent-3\\\">瓜皮负责牛头技能开发</li><li class=\\\"ql-indent-2\\\">第二周：</li><li class=\\\"ql-indent-3\\\">我负责龙卵技能开发</li><li class=\\\"ql-indent-3\\\">瓜皮负责牛头技能开发</li><li class=\\\"ql-indent-2\\\">第三周：</li><li class=\\\"ql-indent-3\\\">模型来源、模型制作学习并制作出龙卵、牛头</li><li class=\\\"ql-indent-2\\\">第四周：</li><li class=\\\"ql-indent-3\\\">地图制作-可以先平地</li><li class=\\\"ql-indent-3\\\">boss-牛头制作</li><li class=\\\"ql-indent-2\\\">第五周：</li><li class=\\\"ql-indent-3\\\">联机系统制作，实现双排</li><li class=\\\"ql-indent-2\\\">第六周：</li><li class=\\\"ql-indent-3\\\">添加人物属性：力量、智力、敏捷、血量、蓝量、技能耗蓝等。</li><li class=\\\"ql-indent-3\\\">商品系统-物品制作</li><li>地点确定</li><li class=\\\"ql-indent-1\\\">出租屋附近的咖啡厅</li><li>开发环境搭建</li><li class=\\\"ql-indent-1\\\">unity</li><li class=\\\"ql-indent-1\\\">小程序上实现二维可行性调研</li><li class=\\\"ql-indent-1\\\">浏览器上利用webgpu和浏览器使用大模型能力实现ai游戏的可行性</li></ol>\",\n        \"id\": \"dp3HAFMym-PZkJ_SbAbs7\",\n        \"importanceScore\": 0,\n        \"emergencyScore\": 0\n      },\n      {\n        \"content\": \"<p>中大宿舍旁开一家蜜雪冰城</p>\",\n        \"id\": \"CFNSmqPH17m_aaar_CH8q\",\n        \"importanceScore\": 0,\n        \"emergencyScore\": 0\n      }\n    ],\n    \"money\": 1015\n  },\n  \"utils\": {\n    \"index\": \"/review\"\n  }\n}",
+    "updateDate": 1744002496008
+  },
+  "task-list": {
+    "initFlag": true,
+    "list": [
+      {
+        "content": "<p>统考 3月 17</p><p>冰水</p><p>周六穿薄衣服</p><p>咖啡</p><p>核桃</p><p>香蕉</p><p>身份证</p><p>准考证</p><p>新笔</p><p>手表</p><p>透明笔袋</p><p>纸巾</p><p>睡醒后来一套拉伸</p><p>考前喝咖啡 不要喝太多水 200ml以下</p><p>25年公安时政 25年行测时政</p><p>做题顺序</p><p>有不会的或者有争议的 先跳过 填完答题卡 然后再回看 ，没思路先秒选 。然后其他题目的选择和题目所问匹配一次</p><p>烦躁时 来一套深呼吸</p><ol><li>开头看 图推 和 数关 政治理论</li><li>资料 判断 做完来一段深呼吸</li><li>数量 言语</li><li>政治理论 常识</li></ol><p>一、推荐食物</p><p><br></p><p>复合碳水类（供能稳定）</p><p>✅ 全麦面包、燕麦片、杂粮粥</p><p>✅ 香蕉（含钾助集中注意力）</p><p><br></p><p>优质蛋白类（延缓饥饿感）</p><p>✅ 水煮蛋、希腊酸奶</p><p>✅ 坚果（如核桃、杏仁，少量）</p><p><br></p><p>轻量搭配示例</p><p>▶ 全麦面包+鸡蛋+半根香蕉</p><p>▶ 燕麦粥+核桃仁+蓝莓</p><p><br></p><p>二、需避免食物</p><p><br></p><p>❌ 高糖食品：甜饮料、蛋糕（易致血糖骤升骤降）</p><p>❌ 油腻食物：炸鸡、薯条（增加消化负担）</p><p>❌ 高咖啡因：能量饮料（可能引发心慌/尿频）</p><p><br></p><p>三、关键注意事项</p><p><br></p><p>进食时间：考前2小时完成用餐</p><p>饮水量：小口饮水200-300ml（避免脱水或频繁如厕）</p><p>特殊体质：乳糖不耐者避免牛奶，易胀气者减少豆类</p>",
+        "id": "wVhF2XDTSMrNtBV-X4ueT",
+        "importanceScore": 10,
+        "emergencyScore": 10
+      },
+      {
+        "content": "<p>君宝宝</p><ul><li>室内活动喜欢哪些</li><li>培养一个爱好</li><li>北山大院 晚上</li><li>以后工作弄完了 我们再聊</li><li>体验复盘app</li><li>周三教研 给爱宝点瑞幸</li><li>国家方志馆</li><li>不能说爱宝是猪和笨</li><li>格蕾花pu世</li><li>将合照放办公室</li><li>了解月经相关的知识</li><li>搜笑话</li><li>那我以后做什么决策都和你说原因吧</li><li>摘草莓</li><li>爬山</li><li>爱宝生我气大概率是因为喜欢我</li><li>爱宝在处理情绪时就是冷冷的， 我不能也冷，得一直和她说话</li><li>赔礼道歉</li></ul>",
+        "id": "VylVXRaniU-k0f7oGES9Q",
+        "importanceScore": 10,
+        "emergencyScore": 8
+      },
+      {
+        "content": "<p>ai桌宠</p><p>提线木偶</p><p>内置线木偶</p><p><strong>杠杆木偶</strong></p>",
+        "id": "ed9WZ-JmdJ9NjgierNl9-",
+        "importanceScore": 8,
+        "emergencyScore": 10
+      },
+      {
+        "content": "<p>ai教案印刷机</p>",
+        "id": "tnAa_rMhujLCrObJX9BqB",
+        "importanceScore": 8,
+        "emergencyScore": 10
+      },
+      {
+        "content": "<p>小朋出行</p>",
+        "id": "tSn4aRK5EoDip0RLsimv1",
+        "importanceScore": 7,
+        "emergencyScore": 10
+      },
+      {
+        "content": "<p>参与blocksuite的开源项目</p>",
+        "id": "nu1YFD3HBHbYscd1OlUNH",
+        "importanceScore": 10,
+        "emergencyScore": 0
+      },
+      {
+        "content": "<p>开始算法</p>",
+        "id": "fQRGkELJxO8VEJNk1E9-B",
+        "importanceScore": 10,
+        "emergencyScore": 0
+      },
+      {
+        "content": "<p>消防隐患识别 - 运营</p>",
+        "id": "HSjwngLwW9lpdxgTcsEoL",
+        "importanceScore": 0,
+        "emergencyScore": 0
+      },
+      {
+        "content": "<p>Life-Review-Note的运营</p><p>借助不同场景的认知升级来运维自媒体的同时推广这个app</p>",
+        "id": "o0DWovPuuHepy59fJncjq",
+        "importanceScore": 0,
+        "emergencyScore": 0
+      },
+      {
+        "content": "<p>磁场机器人模拟器</p>",
+        "id": "QFXtfW4YtV5LxGWJu7qiB",
+        "importanceScore": 0,
+        "emergencyScore": 0
+      },
+      {
+        "content": "<p>南二社快递优化</p><p>存快递：</p><ol><li class=\"ql-indent-1\">有一台机器，存折橡皮筋，还有一个输入手机号后四位的键盘</li><li class=\"ql-indent-1\">快递员输入手机后四位后，弹出夹子、首尾相连的橡皮带、&nbsp;</li><li class=\"ql-indent-1\">将橡皮带绑在箱子上</li><li>取快递</li><li class=\"ql-indent-1\">用户输入手机后四位后，橡皮带响起</li><li class=\"ql-indent-1\">拆下橡皮带，然后返还</li></ol><p><br></p><p>营销模式：</p><ol><li>通过让利给快递员来快速推动</li></ol><p>&nbsp;</p><p>进度：</p><ol><li>固定模块：</li><li class=\"ql-indent-1\">晨光的小型皮尺-价格低，目测成本5毛钱，大量取货3毛钱</li><li>充电模块：</li><li class=\"ql-indent-1\">小型无线充电芯片-目测10块钱一个，批发价6块钱，非常贵</li><li class=\"ql-indent-1\">小型液态锂电池-目测2块一个，批发价1块钱，依旧超预算</li><li class=\"ql-indent-1\">小型纽扣电池，很便宜，但是得考虑功率、使用时长、更替方案。</li><li>芯片模块，即单纯的低功耗蓝牙芯片，类似红米耳机里的那样</li></ol>",
+        "id": "03OSsXZnfUueQfI1l2WUe",
+        "importanceScore": 0,
+        "emergencyScore": 0
+      },
+      {
+        "content": "<p>肉鸽地牢</p><ol><li>计划制定</li><li class=\"ql-indent-1\">开发时间：周六下午、周日下午、早上的话看人，我不行。</li><li class=\"ql-indent-2\">第一周：</li><li class=\"ql-indent-3\">熟悉王者荣耀模仿项目</li><li class=\"ql-indent-3\">在该项目的基础上，添加人物技能</li><li class=\"ql-indent-3\">我负责龙卵技能开发</li><li class=\"ql-indent-3\">瓜皮负责牛头技能开发</li><li class=\"ql-indent-2\">第二周：</li><li class=\"ql-indent-3\">我负责龙卵技能开发</li><li class=\"ql-indent-3\">瓜皮负责牛头技能开发</li><li class=\"ql-indent-2\">第三周：</li><li class=\"ql-indent-3\">模型来源、模型制作学习并制作出龙卵、牛头</li><li class=\"ql-indent-2\">第四周：</li><li class=\"ql-indent-3\">地图制作-可以先平地</li><li class=\"ql-indent-3\">boss-牛头制作</li><li class=\"ql-indent-2\">第五周：</li><li class=\"ql-indent-3\">联机系统制作，实现双排</li><li class=\"ql-indent-2\">第六周：</li><li class=\"ql-indent-3\">添加人物属性：力量、智力、敏捷、血量、蓝量、技能耗蓝等。</li><li class=\"ql-indent-3\">商品系统-物品制作</li><li>地点确定</li><li class=\"ql-indent-1\">出租屋附近的咖啡厅</li><li>开发环境搭建</li><li class=\"ql-indent-1\">unity</li><li class=\"ql-indent-1\">小程序上实现二维可行性调研</li><li class=\"ql-indent-1\">浏览器上利用webgpu和浏览器使用大模型能力实现ai游戏的可行性</li></ol>",
+        "id": "dp3HAFMym-PZkJ_SbAbs7",
+        "importanceScore": 0,
+        "emergencyScore": 0
+      },
+      {
+        "content": "<p>中大宿舍旁开一家蜜雪冰城</p>",
+        "id": "CFNSmqPH17m_aaar_CH8q",
+        "importanceScore": 0,
+        "emergencyScore": 0
+      }
+    ],
+    "money": 1015
+  },
+  "utils": {
+    "index": "/task-list"
+  }
+}

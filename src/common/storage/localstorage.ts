@@ -1,3 +1,5 @@
+import dayjs from "dayjs";
+
 class LocalStorage {
     db: IDBDatabase | null;
     dbName: string = 'life-review-notes';
@@ -96,7 +98,7 @@ class LocalStorage {
         // 创建一个下载链接
         const downloadLink = document.createElement('a');
         downloadLink.href = URL.createObjectURL(blob);
-        downloadLink.download = 'allData.json'; // 下载文件的名称
+        downloadLink.download = `${dayjs().format('YYYY-MM-DD')}.json`; // 下载文件的名称
 
         // 触发下载
         document.body.appendChild(downloadLink);
