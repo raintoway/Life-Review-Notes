@@ -3668,6 +3668,14 @@ micromatch@^4.0.4:
     braces "^3.0.3"
     picomatch "^2.3.1"
 
+micromatch@^4.0.8:
+  version "4.0.8"
+  resolved "https://artifactory.gz.cvte.cn/artifactory/api/npm/cvte-npm-registry/micromatch/-/micromatch-4.0.8.tgz#d66fa18f3a47076789320b9b1af32bd86d9fa202"
+  integrity sha512-PXwfBhYu0hBCPw8Dn0E+WDYb7af3dSLVWKi3HGv84IdF4TyFoC0ysxFd0Goxw7nSv4T/PzEJQxsYsEiFCKo2BA==
+  dependencies:
+    braces "^3.0.3"
+    picomatch "^2.3.1"
+
 minimatch@^3.0.5, minimatch@^3.1.1, minimatch@^3.1.2:
   version "3.1.2"
   resolved "https://registry.npmjs.org/minimatch/-/minimatch-3.1.2.tgz"
@@ -4717,6 +4725,13 @@ vite-plugin-pwa@^0.20.0:
     pretty-bytes "^6.1.1"
     workbox-build "^7.1.0"
     workbox-window "^7.1.0"
+
+vite-plugin-singlefile@^2.2.0:
+  version "2.2.0"
+  resolved "https://artifactory.gz.cvte.cn/artifactory/api/npm/cvte-npm-registry/vite-plugin-singlefile/-/vite-plugin-singlefile-2.2.0.tgz#0ae8604d8e7845e8d4b036e58b15456b989e98de"
+  integrity sha512-Ik1wXmJaGzeQtUeIV7JprDUqqy6DlLzXAY27Blei5peE4c9VJF+Kp9xWDJeuX0RJUZmFbIAuw1/RAh06A+Ql7w==
+  dependencies:
+    micromatch "^4.0.8"
 
 vite@^5.2.0:
   version "5.3.3"
